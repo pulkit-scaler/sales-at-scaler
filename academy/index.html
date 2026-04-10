@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaler Academy — Module Map</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8fafc;color:#0f172a;padding:0 0 4rem}
+.page-nav{display:flex;background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:10;overflow-x:auto}
+.nav-btn{flex:1;min-width:170px;font-size:12px;font-weight:500;padding:13px 10px;border:none;background:transparent;color:#64748b;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
+.nav-btn.active{color:#1d4ed8;border-bottom-color:#1d4ed8}
+.section{display:none;padding:2rem 1.5rem}
+.section.active{display:block}
+.sec-title{font-size:18px;font-weight:600;color:#0f172a;margin-bottom:4px}
+.sec-sub{font-size:13px;color:#64748b;margin-bottom:1.5rem;line-height:1.6;max-width:720px}
+.lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;margin-bottom:4px}
+.divider{border:none;border-top:1px solid #f1f5f9;margin:10px 0}
+
+/* badges */
+.badge{font-size:11px;font-weight:500;padding:3px 9px;border-radius:10px;white-space:nowrap;flex-shrink:0}
+.b-sky{background:#e0f2fe;color:#0c4a6e}
+.b-indigo{background:#e0e7ff;color:#1e1b4b}
+.b-emerald{background:#d1fae5;color:#064e3b}
+.b-violet{background:#ede9fe;color:#2e1065}
+.b-teal{background:#ccfbf1;color:#134e4a}
+.b-amber{background:#fef3c7;color:#451a03}
+.b-rose{background:#fce7f3;color:#500724}
+.b-slate{background:#f1f5f9;color:#334155}
+
+/* UPGRADE */
+.upgrade-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.uc{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.1rem}
+.uc-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.uc-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.uc-name{font-size:14px;font-weight:600;color:#0f172a;line-height:1.2}
+.uc-sub{font-size:11px;color:#94a3b8;margin-top:1px}
+.gap-box{background:#fff7ed;border:1px solid #fed7aa;border-left:3px solid #f97316;border-radius:8px;padding:9px 11px;margin-bottom:8px}
+.gap-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#9a3412;margin-bottom:3px}
+.gap-txt{font-size:12px;color:#431407;line-height:1.6}
+.gain-box{background:#f0fdf4;border:1px solid #bbf7d0;border-left:3px solid #22c55e;border-radius:8px;padding:9px 11px;margin-bottom:10px}
+.gain-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#14532d;margin-bottom:3px}
+.gain-txt{font-size:12px;color:#14532d;line-height:1.6}
+.mods-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#94a3b8;margin-bottom:5px}
+.mpills{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.mpill{font-size:11px;padding:3px 9px;border-radius:10px;background:#e0e7ff;color:#1e1b4b;border:1px solid #c7d2fe}
+.jump-row{display:flex;align-items:center;gap:8px;padding-top:10px;border-top:1px solid #f1f5f9;flex-wrap:wrap}
+.jump-from{font-size:12px;color:#64748b;background:#f8fafc;padding:3px 9px;border-radius:6px;border:1px solid #e2e8f0}
+.jump-arrow{font-size:14px;color:#22c55e;font-weight:700}
+.jump-to{font-size:12px;font-weight:600;color:#14532d;background:#dcfce7;padding:3px 9px;border-radius:6px}
+
+/* TRACKER */
+.tracker-wrap{max-width:820px}
+.track-sel{display:flex;gap:8px;margin-bottom:1.25rem;flex-wrap:wrap}
+.tb{font-size:12px;padding:6px 14px;border-radius:20px;border:1px solid #cbd5e1;background:#fff;color:#64748b;cursor:pointer;font-weight:500;transition:all .15s}
+.tb.active{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+.slider-row{display:flex;align-items:center;gap:14px;margin-bottom:1rem}
+.slider-row label{font-size:13px;color:#64748b;white-space:nowrap}
+.slider-row input[type=range]{flex:1;accent-color:#1d4ed8}
+.mod-counter{font-size:13px;font-weight:600;color:#0f172a;min-width:100px;text-align:right}
+.prog-wrap{height:5px;background:#e2e8f0;border-radius:3px;margin-bottom:1.5rem;overflow:hidden}
+.prog-fill{height:100%;background:#1d4ed8;border-radius:3px;transition:width .3s}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+@media(max-width:580px){.tgrid{grid-template-columns:1fr}}
+.tc{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1rem 1.1rem}
+.tc-name{font-size:13px;font-weight:600;color:#0f172a;margin-bottom:10px;line-height:1.3}
+.skill-list{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.sp{font-size:11px;padding:4px 10px;border-radius:10px;background:#f8fafc;border:1px solid #e2e8f0;color:#334155;cursor:pointer;transition:all .15s;user-select:none}
+.sp:hover{border-color:#94a3b8;background:#f1f5f9}
+.sp.new{background:#dbeafe;border-color:#93c5fd;color:#1e3a8a;font-weight:500}
+.sp.new:hover{background:#bfdbfe;border-color:#60a5fa}
+.sp.ap{border-color:#1d4ed8!important;background:#dbeafe!important;color:#1e3a8a!important;font-weight:500}
+.sp::after{content:'';display:inline-block;width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-left:5px;vertical-align:middle;opacity:.5;transition:transform .2s}
+.sp.ap::after{transform:rotate(-135deg);opacity:.8}
+.explain-box{margin-top:10px;background:#eff6ff;border:1px solid #93c5fd;border-radius:10px;padding:10px 13px;display:none;animation:fi .18s ease}
+.explain-box.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.ex-name{font-size:12px;font-weight:600;color:#0f172a;margin-bottom:4px}
+.ex-text{font-size:13px;color:#334155;line-height:1.65}
+.ex-close{font-size:11px;color:#94a3b8;cursor:pointer;margin-top:6px;display:inline-block}
+.job-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.job-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#0f172a;line-height:1.4}
+.jdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.milestone{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1rem 1.2rem}
+.m-text{font-size:13px;color:#0f172a;line-height:1.7;font-style:italic}
+.m-note{font-size:11px;color:#94a3b8;margin-top:6px}
+
+/* MODULES */
+.track-note{font-size:12px;background:#eff6ff;border-left:3px solid #3b82f6;padding:8px 12px;margin-bottom:1.25rem;color:#1e3a8a;border-radius:0 4px 4px 0}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.25rem}
+.fb{font-size:12px;padding:5px 12px;border-radius:20px;border:1px solid #cbd5e1;background:#fff;color:#64748b;cursor:pointer;font-weight:500;transition:all .15s}
+.fb.active,.fb:hover{color:#0f172a;border-color:#64748b;background:#f1f5f9}
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:2.5rem}
+.mc{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1rem 1.1rem;transition:border-color .15s}
+.mc:hover{border-color:#94a3b8}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px}
+.mc-num{font-size:10px;font-weight:500;color:#94a3b8;margin-bottom:2px}
+.mc-name{font-size:14px;font-weight:600;color:#0f172a;line-height:1.3}
+.mc-tools{font-size:11px;color:#94a3b8;margin:6px 0 6px;line-height:1.4}
+.track-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;display:inline-block;margin-bottom:8px}
+.tt-all{background:#dcfce7;color:#14532d}
+.tt-int{background:#fef3c7;color:#92400e}
+.tt-adv{background:#e0e7ff;color:#3730a3}
+.mc-task{font-size:13px;color:#0f172a;line-height:1.5;margin-bottom:10px}
+.hook-box{background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;padding:8px 10px}
+.hook-txt{font-size:12px;color:#475569;line-height:1.5;font-style:italic}
+
+/* CAPSTONES */
+.cap-hdr{font-size:16px;font-weight:600;color:#0f172a;margin-bottom:4px}
+.cap-sub-txt{font-size:13px;color:#64748b;margin-bottom:1rem;line-height:1.5;max-width:680px}
+.cap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.cc{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1rem 1.1rem}
+.cc-track{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.cc-name{font-size:14px;font-weight:600;color:#0f172a;margin-bottom:6px;line-height:1.3}
+.cc-desc{font-size:12px;color:#475569;line-height:1.55;margin-bottom:8px}
+.cc-pitch{font-size:12px;color:#0f172a;font-style:italic;line-height:1.5;background:#f8fafc;border-radius:6px;padding:7px 9px;border-left:3px solid #cbd5e1}
+</style>
+</head>
+<body>
+
+<div class="page-nav">
+  <button class="nav-btn active" onclick="show('upgrade',this)">Already a developer? Why upgrade</button>
+  <button class="nav-btn" onclick="show('tracker',this)">Skills and jobs by stage</button>
+  <button class="nav-btn" onclick="show('modules',this)">All modules and projects</button>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section active" id="section-upgrade">
+  <div class="sec-title">Already a developer?</div>
+  <p class="sec-sub">Here is what changes about your career depending on where you are today — and which parts of Scaler Academy do the most work for you.</p>
+  <div class="upgrade-grid" id="upgrade-grid"></div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section" id="section-tracker">
+  <div class="sec-title">What do I have after each stage?</div>
+  <p class="sec-sub">Select your track, drag the slider to any checkpoint, and see exactly which skills you have and which roles you can target at that point. <strong>Tap any skill pill to get a plain-English explanation</strong> — blue pills are skills just gained in that stage.</p>
+  <div class="tracker-wrap">
+    <div class="track-sel">
+      <button class="tb active" onclick="setTrack('int_r',this)">Intermediate — with refresher</button>
+      <button class="tb" onclick="setTrack('int_nr',this)">Intermediate — no refresher</button>
+      <button class="tb" onclick="setTrack('adv',this)">Advanced</button>
+    </div>
+    <div class="slider-row">
+      <label>Stage</label>
+      <input type="range" id="mod-slider" min="1" max="8" value="1" step="1" oninput="updateTracker(this.value)">
+      <span class="mod-counter" id="mod-label">Stage 1 of 8</span>
+    </div>
+    <div class="prog-wrap"><div class="prog-fill" id="prog-fill" style="width:12%"></div></div>
+    <div class="tgrid">
+      <div class="tc">
+        <div class="tc-name" id="tc-name">Language refresher and Intermediate DSA</div>
+        <div class="lbl" style="margin-bottom:8px">Skills you now have <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:10px;color:#bbb">— tap any to explain</span></div>
+        <ul class="skill-list" id="skill-list"></ul>
+        <div class="explain-box" id="explain-box">
+          <div class="ex-name" id="ex-name"></div>
+          <div class="ex-text" id="ex-text"></div>
+          <span class="ex-close" onclick="closeEx()">close ✕</span>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-name">Job roles you can now target</div>
+        <div class="lbl" style="margin-bottom:8px">Based on all stages completed so far</div>
+        <ul class="job-list" id="job-list"></ul>
+      </div>
+    </div>
+    <div class="milestone">
+      <div class="lbl" style="margin-bottom:7px">What a hiring manager says about you at this point</div>
+      <div class="m-text" id="m-text"></div>
+      <div class="m-note" id="m-note"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section" id="section-modules">
+  <div class="sec-title">All modules and capstone projects</div>
+  <p class="sec-sub">Every module across all three tracks — showing what a learner builds at a company like Razorpay on day one.</p>
+  <div class="track-note">Modules tagged <strong>All tracks</strong> appear in every learner's programme. <strong>Intermediate</strong> and <strong>Advanced</strong> tags show track-specific content.</div>
+  <div class="filters">
+    <button class="fb active" onclick="filterMods('all',this)">All modules</button>
+    <button class="fb" onclick="filterMods('sky',this)">Agentic AI</button>
+    <button class="fb" onclick="filterMods('indigo',this)">DSA</button>
+    <button class="fb" onclick="filterMods('emerald',this)">SQL and data</button>
+    <button class="fb" onclick="filterMods('violet',this)">Frontend</button>
+    <button class="fb" onclick="filterMods('teal',this)">Backend</button>
+    <button class="fb" onclick="filterMods('amber',this)">System design</button>
+    <button class="fb" onclick="filterMods('slate',this)">Electives</button>
+  </div>
+  <div class="mod-grid" id="mod-grid"></div>
+  <div class="cap-hdr">Capstone projects</div>
+  <p class="cap-sub-txt">The portfolio pieces learners take into interviews. Not tutorials — working systems built from scratch, with an AI layer on top.</p>
+  <div class="cap-grid" id="cap-grid"></div>
+</div>
+
+<script>
+function show(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('section-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── SKILL DESCRIPTIONS ── */
+const SD={
+'Language refresher (Python or Java)':'A crash course in the fundamentals of your first programming language — variables, loops, functions, arrays, and the problem-solving mindset that all software is built on. Whether Python or Java, this is where you go from "I have heard of this" to writing code that does something real.',
+'Time complexity (Big-O)':'A way of measuring how efficiently your code runs as data grows. Writing code that works with 100 records is one thing. Writing code that still works with 10 million — without grinding to a halt — requires Big-O thinking. Every technical interview at every product company tests this.',
+'Arrays and prefix sums':'Arrays are ordered lists of items — the most fundamental data structure in programming. Prefix sums are a pre-computation trick that lets you answer questions like "what is the total transaction value between Tuesday and Friday?" in a single step rather than looping through every record one by one.',
+'Bit manipulation':'Using the binary representation of numbers to perform operations in a single computer instruction rather than many. Shows up in interview problems and in low-level systems work. A compact topic with outsized impact in competitive programming rounds.',
+'Sorting algorithms':'Different methods for arranging data in order — Merge Sort, Quick Sort, Count Sort. Knowing how each works, when to use which, and their time complexity trade-offs is a staple of every technical interview. Razorpay sorts transaction records millions of times a day for analytics and settlement.',
+'Hashing':'A technique that finds, inserts, or deletes any item in constant time — whether the dataset has 10 items or 10 million. The engine behind every dictionary, cache, and lookup table. Razorpay uses hashing to instantly check whether a payment idempotency key has already been processed.',
+'Recursion':'A function that calls itself to solve smaller versions of the same problem. Like breaking "validate this entire payment routing tree" into "validate one node, then recursively validate its children." The mental model behind trees, graph traversal, and backtracking algorithms.',
+'Binary search':'Finding an item in a sorted collection by repeatedly halving the search space — like guessing a number from 1 to 1,000,000 by always guessing the middle. The difference between scanning a million records one by one and finding the answer in under 20 checks. One of the most frequently tested interview techniques.',
+'Linked lists':'A data structure where each item points to the next, like a chain. Insertions and deletions anywhere are instant, unlike arrays where you have to shift everything along. A classic interview topic and the conceptual foundation for understanding how memory allocation works.',
+'Stacks and queues':'A stack is "last in, first out" — like browser history. A queue is "first in, first out" — like a payment processing queue where every request waits its turn. Used everywhere: undo and redo, order management, function call tracking, event processing.',
+'Trees and BSTs':'Hierarchical data structures like an org chart or a file system. Binary Search Trees let you find, insert, or delete anything in log time — the backbone of database indexing, search engines, and file systems. One of the most heavily tested topics in FAANG-level interviews.',
+'Graphs (BFS, DFS, Dijkstra)':'Structures for data that exists as a network of relationships — payment routing paths, merchant dependency graphs, social connections. BFS finds the shortest number of hops. Dijkstra finds the cheapest path. Every "find the most efficient route" problem in any interview is a graph problem at its core.',
+'Dynamic programming':'Solving complex problems by breaking them into overlapping sub-problems and storing the answers so you never solve the same thing twice. Behind everything from autocorrect to route optimisers. The technique that most commonly separates candidates who clear hard interview rounds from those who do not.',
+'Heaps and greedy algorithms':'A heap always gives you the largest or smallest item instantly — used in priority queues, event scheduling, and top-K problems like "show the 10 highest-value merchants." Greedy algorithms make the locally optimal choice at each step. Together they power scheduling, compression, and routing at scale.',
+'Backtracking':'Trying all possibilities systematically, backing out the moment you know a path is wrong. Used in Sudoku solvers, configuration problems, and interview problems like generating all permutations. Shows interviewers that you can think exhaustively and prune the search space efficiently.',
+'Advanced DSA edge cases':'The harder patterns tested specifically in FAANG-level rounds — Tries for autocomplete and prefix search, DP on strings for edit distance and sequence matching, Bellman-Ford for graphs with negative weights. The material that turns a good interview performance into an exceptional one.',
+'SQL querying':'The language for retrieving data from databases. SELECT chooses columns, WHERE filters rows, and JOIN combines data from multiple tables. Razorpay uses SQL to answer questions like "show all failed transactions above ₹10,000 from merchants in Maharashtra last week" across hundreds of millions of rows.',
+'Aggregate queries':'Functions that summarise large datasets — COUNT, SUM, AVG, GROUP BY. "What is the total settlement amount by merchant category today?" is an aggregate query. Every business dashboard, every KPI report, and every analytics chart is built on these functions.',
+'Schema design':'Deciding how to structure your database — what tables to create, what columns each holds, and how they relate to each other. A well-designed schema is invisible but essential. A poorly designed one makes every new feature significantly harder to build. Razorpay\'s payment, merchant, and settlement schemas are each the result of careful engineering decisions.',
+'Indexes and partitioning':'Techniques that keep databases fast even with billions of rows. An index points directly to the right data instead of scanning every row — like a book\'s index rather than reading every page. Partitioning splits large tables across multiple storage units. Together they are why Razorpay can query 200M+ transactions in milliseconds.',
+'Window functions':'Advanced SQL that computes values across a set of related rows without collapsing the result. "Rank each merchant by transaction volume within their industry" is a window function. Used in financial reporting, leaderboards, and any analysis that needs both row-level detail and group-level context simultaneously.',
+'SQL transactions':'Grouping multiple database operations into an atomic unit — all succeed or all fail together. In a payment system, deducting a merchant\'s balance AND recording the corresponding settlement must happen together. If one fails, both must be rolled back. Transactions are what make financial software trustworthy.',
+'Prompt engineering':'The skill of writing instructions for an AI model that reliably produce the output you need. The difference between a vague "summarise this" and a structured prompt that returns exactly the format, length, and tone required — every time. Used by engineers, product managers, and operations teams daily at every company using AI.',
+'RAG (Retrieval-Augmented Generation)':'Connecting an AI to your company\'s actual documents so it answers questions from your real knowledge base rather than its general training. How companies build internal chatbots that actually know their own products, policies, and data — rather than hallucinating plausible-sounding answers.',
+'n8n automation workflows':'A visual tool for connecting apps and automating tasks between them — "when a payment webhook fails on Razorpay, create a support ticket, send a Slack alert, and log it in a spreadsheet." With AI triggers added, it becomes dramatically more powerful for automating business operations.',
+'AI agents':'An AI that does not just answer questions but takes a sequence of actions to complete a goal — searching, writing files, calling APIs, updating records — without a human clicking at every step. The building block of every AI-native workflow product being built and sold right now.',
+'LLM fundamentals':'A working understanding of how large language models like ChatGPT and Claude work, what they are genuinely good at, where they hallucinate, and how to integrate them reliably into a real product rather than just a demo.',
+'Multi-agent systems':'Multiple AI agents working together as a team — one researches, one writes, one reviews — each handling a part of a complex task. How enterprise AI products are built when the workflow involves many steps, dependencies, and decisions that a single agent cannot reliably handle alone.',
+'HTML and CSS layout':'The two languages every web page is made of. HTML defines structure — headings, buttons, forms, images. CSS defines appearance — colours, spacing, fonts, responsive layouts. Everything any user has ever seen in a browser starts here.',
+'JavaScript and DOM manipulation':'Writing code that changes what the user sees in real time — show a popup, validate a form, update a counter — without reloading the page. The technology that makes modern web apps feel instant and interactive rather than clunky and slow.',
+'Async programming and fetch':'Making your frontend talk to a backend server — "give me this merchant\'s last 10 transactions" — and displaying the data smoothly while the user keeps interacting. The bridge between what users see and where the actual data lives.',
+'React components and hooks':'The building blocks of modern web UIs. A component is a reusable piece of interface — a button, a card, a data table. Hooks like useState and useEffect let components respond to data changes and user actions. Every major product company (Razorpay, Swiggy, Flipkart) builds its frontend in React or something very similar.',
+'TypeScript':'JavaScript with a safety net. You declare what type of data each variable holds, and TypeScript catches obvious mistakes before the code even runs — like passing a number where a customer ID string was expected. Standard at every serious product company because it makes large codebases maintainable.',
+'State management (Redux)':'A system for managing shared data across an entire application. When a user updates their saved payment method, every component that shows that data needs to immediately reflect the change. Redux provides one authoritative source of truth that every part of the application reads from.',
+'Next.js':'A framework built on React that adds server-side rendering, file-based routing, and performance optimisations. Makes React apps faster for users and easier for search engines to index. The standard for production React applications at modern product companies.',
+'Frontend performance (memoization, lazy loading)':'Techniques that stop your UI from doing unnecessary work. Memoization remembers the result of an expensive calculation so it is not repeated. Lazy loading defers loading parts of the app until they are actually needed. The difference between a UI that feels snappy and one that feels sluggish.',
+'REST API design':'The standard pattern for building server endpoints that clients can call. GET /payments/123 fetches a payment. POST /payments creates one. DELETE /payments/123 cancels it. Every digital product in the world uses REST APIs to connect its frontend, backend, and external services.',
+'Node.js and Express':'The JavaScript runtime and framework that power most MERN stack backends. Node.js runs JavaScript on the server. Express provides the structure for defining routes, handling requests, and sending responses. Used at startups and scale-ups from day one.',
+'MongoDB and Mongoose':'A document database and its Node.js abstraction layer. Instead of rigid tables, you store flexible JSON-like documents. Great for evolving data models and rapid product iteration. Used in the MERN stack for everything from user profiles to transaction records.',
+'JWT and OAuth2 authentication':'The systems that prove a request is from the user it claims to be from. JWT is a token the server issues on login that the client presents with every subsequent request. OAuth2 is what enables "sign in with Google" — letting a trusted provider vouch for your users\' identity.',
+'Payment gateway integration':'Connecting an application to a payment processor like Razorpay — handling card charges, UPI collections, webhooks, refunds, and settlement reconciliation. The engineering that sits underneath every checkout page. Learners build this directly in the ShowKart capstone.',
+'Docker and AWS deployment':'Docker packages your code and all its dependencies into a portable container. AWS runs that container in production — with real domain names, SSL, auto-scaling, and uptime monitoring. The path from "runs on my laptop" to "runs reliably for a million users."',
+'Redis caching':'An ultra-fast in-memory store that saves the results of expensive operations so they are not repeated. Razorpay caches merchant fee configurations in Redis so the system does not hit the database on every transaction. Dramatically reduces latency and database load.',
+'WebSockets and real-time updates':'A technology that keeps a live two-way connection open between the client and the server. How a payment status page updates the moment a transaction settles — without the user refreshing. Essential for any feature involving live data: notifications, tracking, collaborative tools.',
+'OOP and SOLID principles':'Object-Oriented Programming organises code into classes and objects with clear responsibilities. SOLID is five design principles that keep that code maintainable as it grows. The foundation of every LLD interview round at product companies — and the difference between code that scales and code that collapses under its own weight.',
+'Design patterns (Factory, Strategy, Adapter)':'Reusable solutions to recurring software design problems. Factory creates objects cleanly without exposing the creation logic. Strategy lets you swap out algorithms at runtime. Adapter makes incompatible interfaces work together. Every backend codebase at Razorpay and Flipkart uses these patterns daily.',
+'Machine coding problems':'Designing and implementing a working system from scratch under time pressure — BookMyShow seat booking, Splitwise expense splitting, a Parking Lot with pricing. You produce class diagrams and working code, not just whiteboard sketches. The exact format of LLD rounds at every major Indian product company.',
+'Java and Spring Boot':'The most widely used backend stack in enterprise and product companies. Spring Boot makes Java backend development fast — auto-configuration, dependency injection, and a complete ecosystem for REST APIs, authentication, database access, and cloud deployment. Used by Razorpay, Flipkart, and Meesho.',
+'Spring Data JPA':'The layer that connects Spring Boot to a relational database, mapping Java objects directly to database rows. You write clean Java methods like findByMerchantId() rather than raw SQL strings. Catches schema mismatches at compile time rather than at runtime in production.',
+'Spring Cloud and microservices':'The toolkit for breaking a monolithic backend into independent services — one for auth, one for payments, one for settlements — and managing how they communicate. An API Gateway routes requests. Service discovery finds healthy instances. The architecture behind Razorpay\'s production system.',
+'Unit testing and mocking':'Writing automated tests that verify individual components work correctly in isolation. Mocking replaces real dependencies — databases, payment gateways — with controlled substitutes so tests are fast and deterministic. The practice that separates production-ready code from code that only works in a demo.',
+'Load balancing':'Distributing incoming requests across multiple servers so no single machine is overwhelmed. Consistent hashing decides predictably which server handles which request, even as servers are added or removed. How Razorpay handles 50,000 payment requests per second without any single server tipping over.',
+'Caching strategies (CDN, multi-level)':'A layered approach to serving data as fast as possible — a CDN delivers static assets from a server close to the user, Redis caches frequent database queries in memory, and application-level caches handle the rest. Razorpay uses all three layers to keep checkout pages loading in under 300 milliseconds.',
+'Kafka and message queues':'A high-speed pipeline for passing events between services without making them wait for each other. Instead of "the payment service calls the notification service and waits," you publish an event to Kafka and the notification service picks it up when ready — more resilient and easier to scale.',
+'Database sharding and replication':'Splitting a large database across multiple servers (sharding) and copying data across servers (replication) so there is always a live backup. How Razorpay keeps transaction data available and consistent even when individual database servers fail.',
+'CAP theorem':'A fundamental principle of distributed systems: when a network problem occurs, you can guarantee either that all servers agree on the same data (Consistency) or that every request gets a response (Availability) — but not both simultaneously. Understanding this trade-off is mandatory for every senior engineering conversation.',
+'System design case studies':'Walking through how real systems at massive scale are architected — Razorpay\'s payment gateway, Google Typeahead, Uber\'s driver matching, Facebook\'s news feed. The format of every system design interview round at every top company. Knowing these cold is what separates candidates who clear senior rounds from those who do not.',
+'Interview-grade coding fluency':'The ability to solve algorithmic problems clearly and efficiently in a live interview setting — thinking out loud, handling edge cases, communicating your approach, and writing clean code while being observed. The final layer that converts technical knowledge into job offers.',
+};
+function getDesc(s){
+  if(SD[s]) return SD[s];
+  for(const k of Object.keys(SD)){if(s.toLowerCase().includes(k.split('(')[0].trim().toLowerCase().slice(0,10))) return SD[k];}
+  return 'A key technical skill in this stage of the programme — part of the growing toolkit that makes this learner competitive at top product companies like Razorpay, Flipkart, and Meesho.';
+}
+
+/* ── PILL INTERACTION ── */
+let aP=null;
+function handlePill(pill,skill){
+  if(aP===pill){closeEx();return;}
+  if(aP) aP.classList.remove('ap');
+  aP=pill;pill.classList.add('ap');
+  document.getElementById('ex-name').textContent=skill;
+  document.getElementById('ex-text').textContent=getDesc(skill);
+  document.getElementById('explain-box').classList.add('on');
+}
+function closeEx(){
+  if(aP){aP.classList.remove('ap');aP=null;}
+  document.getElementById('explain-box').classList.remove('on');
+}
+
+/* ── TRACK DATA ── */
+const tracks={
+  int_r:{
+    max:8,
+    stages:[
+      {name:'Language refresher and Intermediate DSA',
+       skills:['Language refresher (Python or Java)','Time complexity (Big-O)','Arrays and prefix sums','Bit manipulation','Sorting algorithms','Hashing','Recursion'],
+       newSkills:['Language refresher (Python or Java)','Time complexity (Big-O)','Arrays and prefix sums','Bit manipulation','Sorting algorithms','Hashing','Recursion'],
+       jobs:[{t:'Building foundations — not yet interview-ready',c:'#94a3b8'}],
+       m:'"This person has gone from zero to writing real algorithmic code. The foundation is solid. Not interview-ready yet, but on the right track."',
+       n:'This is where most self-taught developers realise what they have been missing. The AI pair-programming approach accelerates mastery from day one.'},
+      {name:'Agentic AI',
+       skills:['Language refresher (Python or Java)','Time complexity (Big-O)','Arrays and prefix sums','Sorting algorithms','Hashing','Recursion','Prompt engineering','RAG (Retrieval-Augmented Generation)','n8n automation workflows','AI agents','LLM fundamentals','Multi-agent systems'],
+       newSkills:['Prompt engineering','RAG (Retrieval-Augmented Generation)','n8n automation workflows','AI agents','LLM fundamentals','Multi-agent systems'],
+       jobs:[{t:'AI automation developer',c:'#0ea5e9'},{t:'Technical operations (AI-assisted)',c:'#94a3b8'}],
+       m:'"Can already automate business workflows with AI before writing a single backend feature. Genuinely ahead of the average junior developer entering the market in 2025."',
+       n:'Agentic AI runs alongside early DSA — AI tools are used from day one as a learning accelerator across every module that follows.'},
+      {name:'Advanced DSA — foundations',
+       skills:['Language refresher (Python or Java)','Prompt engineering','LLM fundamentals','AI agents','Time complexity (Big-O)','Arrays and prefix sums','Bit manipulation','Sorting algorithms','Hashing','Recursion','Binary search','Linked lists','Stacks and queues','Trees and BSTs'],
+       newSkills:['Binary search','Linked lists','Stacks and queues','Trees and BSTs'],
+       jobs:[{t:'Junior developer (select companies)',c:'#4f46e5'},{t:'Internship at product companies',c:'#94a3b8'}],
+       m:'"Can solve medium-difficulty interview problems. Linear and non-linear data structures are solid. Starting to look competitive for entry-level engineering roles."',
+       n:'Many companies screen precisely at this level. This stage already opens up a portion of the hiring market.'},
+      {name:'Advanced DSA — complete',
+       skills:['All prior skills','Graphs (BFS, DFS, Dijkstra)','Dynamic programming','Heaps and greedy algorithms','Backtracking'],
+       newSkills:['Graphs (BFS, DFS, Dijkstra)','Dynamic programming','Heaps and greedy algorithms','Backtracking'],
+       jobs:[{t:'SDE-1 at Indian product companies',c:'#4f46e5'},{t:'Software Engineer (entry)',c:'#4f46e5'},{t:'Junior Backend Developer',c:'#94a3b8'}],
+       m:'"Can clear coding rounds at Razorpay, InMobi, Meesho, and most Indian product companies. Four months of material — the single biggest career unlock in the programme."',
+       n:'DSA is the filter every product company uses. Passing it opens the door to 10x better compensation. This is the moment that changes trajectories.'},
+      {name:'SQL and databases',
+       skills:['All prior skills','SQL querying','Aggregate queries','Schema design','Indexes and partitioning','Window functions','SQL transactions'],
+       newSkills:['SQL querying','Aggregate queries','Schema design','Indexes and partitioning','Window functions','SQL transactions'],
+       jobs:[{t:'Backend Engineer (junior)',c:'#10b981'},{t:'Full-Stack Developer',c:'#10b981'},{t:'SDE-1',c:'#94a3b8'}],
+       m:'"Can write complex queries, design efficient schemas, and explain database performance. Backend roles always include SQL — this stage means they never lose a round because of it."',
+       n:'SQL + DSA together is what most "Backend Engineer" job descriptions at Indian product companies require as a baseline.'},
+      {name:'Frontend engineering',
+       skills:['All prior skills','HTML and CSS layout','JavaScript and DOM manipulation','Async programming and fetch','React components and hooks','TypeScript','State management (Redux)','Next.js','Frontend performance (memoization, lazy loading)'],
+       newSkills:['HTML and CSS layout','JavaScript and DOM manipulation','Async programming and fetch','React components and hooks','TypeScript','State management (Redux)','Next.js','Frontend performance (memoization, lazy loading)'],
+       jobs:[{t:'Frontend Developer',c:'#7c3aed'},{t:'React Developer',c:'#7c3aed'},{t:'Full-Stack / MERN Developer',c:'#7c3aed'}],
+       m:'"Can build the complete consumer-facing side of a product in React and TypeScript, with Next.js for production. The CineMatch and ShowKart portfolio pieces are built here."',
+       n:'Frontend + DSA + SQL is already a fully competitive Full-Stack profile for most product companies at this stage.'},
+      {name:'Backend engineering — MERN / Node.js',
+       skills:['All prior skills','REST API design','Node.js and Express','MongoDB and Mongoose','JWT and OAuth2 authentication','Payment gateway integration','Docker and AWS deployment','Redis caching','WebSockets and real-time updates'],
+       newSkills:['REST API design','Node.js and Express','MongoDB and Mongoose','JWT and OAuth2 authentication','Payment gateway integration','Docker and AWS deployment','Redis caching','WebSockets and real-time updates'],
+       jobs:[{t:'Backend Developer',c:'#14b8a6'},{t:'Full-Stack Engineer (MERN)',c:'#14b8a6'},{t:'SDE-1 at product companies',c:'#14b8a6'},{t:'Node.js Engineer',c:'#94a3b8'}],
+       m:'"Can build a production-grade backend — authenticated, payment-enabled, deployed to AWS, with real-time WebSocket updates. The ShowKart capstone is built here. This is what goes on the resume."',
+       n:'Most intermediate learners exit with four portfolio projects and an interview simulation session. Ready to compete at the top of the market.'},
+      {name:'System design and full programme',
+       skills:['All prior skills','Load balancing','Caching strategies (CDN, multi-level)','Kafka and message queues','Database sharding and replication','CAP theorem','System design case studies','Interview-grade coding fluency'],
+       newSkills:['Load balancing','Caching strategies (CDN, multi-level)','Kafka and message queues','Database sharding and replication','CAP theorem','System design case studies','Interview-grade coding fluency'],
+       jobs:[{t:'Full-Stack Engineer at product companies',c:'#f59e0b'},{t:'Backend Engineer (mid-level)',c:'#f59e0b'},{t:'Competitive for Razorpay, Uber, Apple India',c:'#94a3b8'}],
+       m:'"Full programme complete. DSA, SQL, full-stack development, system design, and interview simulation. The combination Razorpay, Flipkart, and top product companies actively hire for."',
+       n:'Four portfolio projects on GitHub, interview simulation complete, system design case studies mastered.'}
+    ]
+  },
+  int_nr:{
+    max:7,
+    stages:[
+      {name:'Intermediate DSA with AI assistance',
+       skills:['Time complexity (Big-O)','Arrays and prefix sums','Hashing','Sorting algorithms','Recursion','Bit manipulation'],
+       newSkills:['Time complexity (Big-O)','Arrays and prefix sums','Hashing','Sorting algorithms','Recursion','Bit manipulation'],
+       jobs:[{t:'Building profile — not yet interview-ready',c:'#94a3b8'}],
+       m:'"Already knows the language — now writing efficient algorithmic solutions. Ahead of where most bootcamp graduates are at this point."',
+       n:'This track assumes basic programming fluency. The AI pair-programming approach from day one accelerates mastery significantly faster than self-study.'},
+      {name:'Agentic AI',
+       skills:['All prior DSA basics','Prompt engineering','RAG (Retrieval-Augmented Generation)','n8n automation workflows','AI agents','LLM fundamentals','Multi-agent systems'],
+       newSkills:['Prompt engineering','RAG (Retrieval-Augmented Generation)','n8n automation workflows','AI agents','LLM fundamentals','Multi-agent systems'],
+       jobs:[{t:'AI automation developer',c:'#0ea5e9'},{t:'Technical operations with AI',c:'#94a3b8'}],
+       m:'"Can automate complex business workflows with AI before building a single backend feature. Already ahead of the average junior developer in the market."',
+       n:'Agentic AI runs concurrently with early DSA — it is a learning accelerator that runs through every module that follows.'},
+      {name:'Advanced DSA — foundations',
+       skills:['All prior skills','Binary search','Linked lists','Stacks and queues','Trees and BSTs'],
+       newSkills:['Binary search','Linked lists','Stacks and queues','Trees and BSTs'],
+       jobs:[{t:'Junior Developer',c:'#4f46e5'},{t:'Internship at product companies',c:'#94a3b8'}],
+       m:'"Solving medium interview problems confidently. Linear and non-linear structures are solid. Starting to compete for entry-level engineering roles."',
+       n:'At this point the learner can already apply to companies that screen on intermediate DSA patterns.'},
+      {name:'Advanced DSA — complete',
+       skills:['All prior skills','Graphs (BFS, DFS, Dijkstra)','Dynamic programming','Heaps and greedy algorithms','Backtracking'],
+       newSkills:['Graphs (BFS, DFS, Dijkstra)','Dynamic programming','Heaps and greedy algorithms','Backtracking'],
+       jobs:[{t:'SDE-1 at product companies',c:'#4f46e5'},{t:'Software Engineer',c:'#4f46e5'},{t:'Junior Backend Engineer',c:'#94a3b8'}],
+       m:'"Can clear coding rounds at Razorpay, InMobi, Meesho, and most Indian product companies. The single biggest career unlock in the programme."',
+       n:'Product company coding rounds test exactly this material. Four months — one career-defining outcome.'},
+      {name:'SQL and databases',
+       skills:['All prior skills','SQL querying','Aggregate queries','Schema design','Indexes and partitioning','Window functions','SQL transactions'],
+       newSkills:['SQL querying','Aggregate queries','Schema design','Indexes and partitioning','Window functions','SQL transactions'],
+       jobs:[{t:'Backend Engineer (junior)',c:'#10b981'},{t:'Full-Stack Developer',c:'#10b981'},{t:'SDE-1',c:'#94a3b8'}],
+       m:'"Can write complex queries, design schemas, and explain database performance under pressure. No SQL question in any backend interview will catch them out."',
+       n:'SQL + DSA covers the requirements of most junior and mid Backend Engineer job descriptions at Indian product companies.'},
+      {name:'Frontend engineering',
+       skills:['All prior skills','HTML and CSS layout','JavaScript and DOM manipulation','Async programming and fetch','React components and hooks','TypeScript','State management (Redux)','Next.js','Frontend performance (memoization, lazy loading)'],
+       newSkills:['HTML and CSS layout','JavaScript and DOM manipulation','Async programming and fetch','React components and hooks','TypeScript','State management (Redux)','Next.js','Frontend performance (memoization, lazy loading)'],
+       jobs:[{t:'Frontend Developer',c:'#7c3aed'},{t:'React Developer',c:'#7c3aed'},{t:'Full-Stack / MERN Developer',c:'#7c3aed'}],
+       m:'"Can build the complete consumer-facing side of a product in React and TypeScript. CineMatch and ShowKart frontend portfolio pieces are built here."',
+       n:'These two capstone projects go directly onto the resume and GitHub.'},
+      {name:'Backend engineering and full programme',
+       skills:['All prior skills','REST API design','Node.js and Express','MongoDB and Mongoose','JWT and OAuth2 authentication','Payment gateway integration','Docker and AWS deployment','Redis caching','WebSockets and real-time updates','Load balancing','Caching strategies (CDN, multi-level)','Kafka and message queues','System design case studies','Interview-grade coding fluency'],
+       newSkills:['REST API design','Node.js and Express','MongoDB and Mongoose','JWT and OAuth2 authentication','Payment gateway integration','Docker and AWS deployment','Redis caching','WebSockets and real-time updates','Load balancing','Caching strategies (CDN, multi-level)','Kafka and message queues','System design case studies','Interview-grade coding fluency'],
+       jobs:[{t:'Full-Stack Developer (MERN)',c:'#14b8a6'},{t:'Backend Engineer',c:'#14b8a6'},{t:'SDE-1 at product companies',c:'#14b8a6'},{t:'System Design ready',c:'#f59e0b'}],
+       m:'"Full programme complete. DSA, SQL, full-stack, system design, and interview simulation. The profile that product companies at every level are actively hiring for."',
+       n:'ShowKart and CineMatch capstones complete. Four portfolio projects, interview simulation done. Ready to compete across India\'s product engineering ecosystem.'}
+    ]
+  },
+  adv:{
+    max:7,
+    stages:[
+      {name:'Agentic AI',
+       skills:['Prompt engineering','RAG (Retrieval-Augmented Generation)','n8n automation workflows','AI agents','LLM fundamentals','Multi-agent systems'],
+       newSkills:['Prompt engineering','RAG (Retrieval-Augmented Generation)','n8n automation workflows','AI agents','LLM fundamentals','Multi-agent systems'],
+       jobs:[{t:'AI-augmented developer',c:'#0ea5e9'},{t:'Technical automation lead',c:'#94a3b8'}],
+       m:'"Already working with code. Now using AI to automate, accelerate, and augment everything they build. From day one, they are shipping at a different pace."',
+       n:'Advanced learners use AI agents as pair programmers throughout DSA, LLD, backend, and system design — every module is AI-assisted.'},
+      {name:'Advanced DSA — foundations',
+       skills:['Prompt engineering','LLM fundamentals','AI agents','Time complexity (Big-O)','Arrays and prefix sums','Bit manipulation','Sorting algorithms','Hashing','Recursion','Binary search','Linked lists','Stacks and queues','Trees and BSTs'],
+       newSkills:['Time complexity (Big-O)','Arrays and prefix sums','Bit manipulation','Sorting algorithms','Hashing','Recursion','Binary search','Linked lists','Stacks and queues','Trees and BSTs'],
+       jobs:[{t:'Junior engineer roles',c:'#4f46e5'},{t:'Building toward product company profile',c:'#94a3b8'}],
+       m:'"Foundational data structures closed systematically. Many experienced developers have gaps here — interviews expose them. This stage removes them."',
+       n:'Many service-company developers can build CRUD apps but cannot explain time complexity under pressure. This stage closes that gap permanently.'},
+      {name:'Advanced DSA — complete',
+       skills:['All prior skills','Graphs (BFS, DFS, Dijkstra)','Dynamic programming','Heaps and greedy algorithms','Backtracking','Advanced DSA edge cases'],
+       newSkills:['Graphs (BFS, DFS, Dijkstra)','Dynamic programming','Heaps and greedy algorithms','Backtracking','Advanced DSA edge cases'],
+       jobs:[{t:'SDE-1 / SDE-2 at product companies',c:'#4f46e5'},{t:'Competitive for Razorpay, InMobi, Uber India',c:'#94a3b8'}],
+       m:'"Can clear coding rounds at top Indian and global product companies. Four months — the single biggest career unlock for experienced developers who have been stuck."',
+       n:'The optional DSA Edge module is available for learners targeting FAANG-level rounds at this point.'},
+      {name:'SQL, databases and Backend LLD — start',
+       skills:['All prior skills','SQL querying','Aggregate queries','Schema design','Indexes and partitioning','Window functions','SQL transactions','OOP and SOLID principles','Design patterns (Factory, Strategy, Adapter)'],
+       newSkills:['SQL querying','Aggregate queries','Schema design','Indexes and partitioning','Window functions','SQL transactions','OOP and SOLID principles','Design patterns (Factory, Strategy, Adapter)'],
+       jobs:[{t:'Backend Engineer (Java / Spring Boot)',c:'#10b981'},{t:'Mid-level SDE',c:'#10b981'},{t:'Eligible for LLD interview rounds',c:'#94a3b8'}],
+       m:'"Can write complex SQL and design object-oriented systems correctly. The LLD interview round — which eliminates most candidates — is now something they can pass."',
+       n:'LLD rounds at Razorpay, Flipkart, and InMobi test exactly OOP, SOLID, and design patterns. This stage makes those rounds winnable.'},
+      {name:'Backend LLD — complete and AI-first capstone',
+       skills:['All prior skills','Machine coding problems','Java and Spring Boot','Spring Data JPA','JWT and OAuth2 authentication','Payment gateway integration','Docker and AWS deployment','Redis caching','WebSockets and real-time updates','Unit testing and mocking','Spring Cloud and microservices'],
+       newSkills:['Machine coding problems','Java and Spring Boot','Spring Data JPA','JWT and OAuth2 authentication','Payment gateway integration','Docker and AWS deployment','Redis caching','WebSockets and real-time updates','Unit testing and mocking','Spring Cloud and microservices'],
+       jobs:[{t:'Backend Engineer (Java / Spring Boot)',c:'#14b8a6'},{t:'SDE-2 at product companies',c:'#14b8a6'},{t:'Senior Developer (with prior experience)',c:'#94a3b8'}],
+       m:'"Can build a production-grade Java / Spring Boot backend — authenticated, deployed, tested, with microservices. At parity with a developer who has spent years at a real product company."',
+       n:'The AI-first backend capstone is built here. This is what goes on the resume and GitHub for every technical interview conversation.'},
+      {name:'System design / HLD',
+       skills:['All prior skills','Load balancing','Caching strategies (CDN, multi-level)','Kafka and message queues','Database sharding and replication','CAP theorem','System design case studies'],
+       newSkills:['Load balancing','Caching strategies (CDN, multi-level)','Kafka and message queues','Database sharding and replication','CAP theorem','System design case studies'],
+       jobs:[{t:'Senior Engineer',c:'#f59e0b'},{t:'Tech Lead',c:'#f59e0b'},{t:'Staff Engineer (with experience)',c:'#f59e0b'},{t:'Clears HLD rounds at FAANG',c:'#94a3b8'}],
+       m:'"Can design systems that handle millions of users and articulate every trade-off clearly. Senior engineering interviews are now winnable. This is where the compensation jump happens."',
+       n:'HLD is where junior becomes senior in every hiring manager\'s mind. This module is the unlock for the next salary band.'},
+      {name:'Full programme complete',
+       skills:['All prior skills','Interview-grade coding fluency'],
+       newSkills:['Interview-grade coding fluency'],
+       jobs:[{t:'Senior SDE at top product companies',c:'#f59e0b'},{t:'Tech Lead / Staff Engineer',c:'#f59e0b'},{t:'FAANG-ready across all tracks',c:'#f59e0b'}],
+       m:'"Full programme complete. DSA, SQL, Java / Spring Boot, LLD with design patterns, system design, capstone project, and interview simulation. A complete senior engineering profile — exactly what the best companies are hiring for."',
+       n:'Production capstone on GitHub. LLD machine coding practice complete. HLD case studies mastered. Interview simulation done.'}
+    ]
+  }
+};
+
+let currentTrack='int_r';
+
+function setTrack(t,btn){
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentTrack=t;
+  const max=tracks[t].max;
+  const sl=document.getElementById('mod-slider');
+  sl.max=max;sl.value=1;
+  updateTracker(1);
+}
+
+function updateTracker(v){
+  closeEx();
+  const tr=tracks[currentTrack];
+  const c=tr.stages[v-1];
+  const max=tr.max;
+  document.getElementById('mod-label').textContent='Stage '+v+' of '+max;
+  document.getElementById('prog-fill').style.width=Math.round((v/max)*100)+'%';
+  document.getElementById('tc-name').textContent=c.name;
+  const sl=document.getElementById('skill-list');sl.innerHTML='';
+  c.skills.forEach(s=>{
+    const isNew=c.newSkills.includes(s);
+    const li=document.createElement('li');
+    li.className='sp'+(isNew?' new':'');li.textContent=s;
+    li.onclick=function(){handlePill(li,s);};
+    sl.appendChild(li);
+  });
+  const jl=document.getElementById('job-list');jl.innerHTML='';
+  c.jobs.forEach(j=>{
+    const li=document.createElement('li');li.className='job-item';
+    li.innerHTML='<span class="jdot" style="background:'+j.c+'"></span><span>'+j.t+'</span>';
+    jl.appendChild(li);
+  });
+  document.getElementById('m-text').textContent=c.m;
+  document.getElementById('m-note').textContent=c.n;
+}
+
+/* ── MODULE DATA ── */
+const phLabel={sky:'Agentic AI',indigo:'DSA',emerald:'SQL and data',violet:'Frontend',teal:'Backend',amber:'System design',rose:'Interview prep',slate:'Elective'};
+const phBadge={sky:'b-sky',indigo:'b-indigo',emerald:'b-emerald',violet:'b-violet',teal:'b-teal',amber:'b-amber',rose:'b-rose',slate:'b-slate'};
+const ttCls={all:'tt-all',intermediate:'tt-int',advanced:'tt-adv'};
+
+const modules=[
+{ph:'sky',track:'all',tl:'All tracks',num:'01',name:'Agentic AI',
+tools:'ChatGPT, Claude, n8n, Zapier, RAG, OpenClaw, MindStudio, Zapier',
+task:'Build an AI agent that monitors Razorpay\'s failed payment webhooks, identifies the failure pattern, classifies each failure type, and automatically routes it to the right internal team — no human watching a dashboard needed.',
+hook:'Every company is asking "how do we use AI to automate this?" This module teaches how to answer that question with a working system — before the learner has written a single backend API.'},
+{ph:'indigo',track:'intermediate',tl:'Intermediate',num:'02A',name:'Intermediate DSA — AI assisted',
+tools:'Java / Python, AI coding assistants, ChatGPT, Cursor, GitHub Copilot',
+task:'Write the search algorithm that scans Razorpay\'s entire merchant database to instantly surface matching results for a live search query — even when thousands of merchants are simultaneously onboarding or updating records.',
+hook:'Technical screening rounds start here. Getting past the first filter at any product company starts with being able to do this confidently.'},
+{ph:'indigo',track:'all',tl:'All tracks',num:'02B',name:'Advanced DSA — foundations',
+tools:'Java / Python, AI coding assistants',
+task:'Implement the data structures that power Razorpay\'s real-time payment queue — processing 50,000 requests per second with guaranteed ordering, zero loss, and no double-processing, using the right combination of arrays, trees, and hash maps.',
+hook:'Most developers can write code that works. This module teaches code that works at scale — the level every product company interview actually tests.'},
+{ph:'indigo',track:'all',tl:'All tracks',num:'02C',name:'Advanced DSA — complete',
+tools:'Java / Python, AI coding assistants, proctored contests',
+task:'Build the fraud detection graph algorithm that maps relationships between Razorpay merchants to identify coordinated fraud rings — using BFS, union-find, and dynamic programming to trace patterns across millions of connected nodes.',
+hook:'Graphs and DP are the questions that separate candidates who pass from those who do not at Razorpay, Uber, and FAANG. This is where that separation happens — or does not.'},
+{ph:'indigo',track:'all',tl:'All tracks (optional)',num:'02D',name:'DSA Edge — advanced patterns',
+tools:'AI coding assistants, competitive programming problems',
+task:'Implement the Trie structure behind Razorpay\'s instant merchant name autocomplete — handling partial matches, typo tolerance, and prefix-based ranking across 500,000+ registered business names in under 10ms.',
+hook:'For learners targeting FAANG specifically. This is the extra mile that turns near-miss into offer.'},
+{ph:'emerald',track:'all',tl:'All tracks',num:'03',name:'SQL and databases',
+tools:'MySQL, SQL query tools',
+task:'Write the queries that power Razorpay\'s merchant analytics dashboard — settlement volume by merchant category, refund rate by payment gateway, chargeback trends by month — joinable and filterable across 200 million+ transaction records.',
+hook:'Backend interviews always include SQL. This module means it is never the reason a learner loses a round.'},
+{ph:'violet',track:'intermediate',tl:'Intermediate',num:'04',name:'Frontend engineering',
+tools:'HTML, CSS, JavaScript, React, TypeScript, Redux, Next.js, Cursor, GitHub Copilot',
+task:'Build Razorpay\'s payment checkout widget — the embedded form that appears on thousands of merchant websites — with real-time card validation, UPI intent flows, TypeScript type safety, and a Next.js layer for sub-300ms load time.',
+hook:'Every product company needs someone who can turn a design into a production React app. This module is how a learner becomes that person.'},
+{ph:'teal',track:'intermediate',tl:'Intermediate',num:'05A',name:'Backend engineering — MERN / Node.js',
+tools:'Node.js, Express, MongoDB, Mongoose, JWT, Razorpay SDK, Docker, AWS, Redis, WebSockets',
+task:'Build the payment order management API — merchant authentication, payment link creation, webhook verification, order lifecycle management, settlement email notifications, and real-time transaction status updates via WebSockets.',
+hook:'The difference between a developer who has "done a tutorial" and one who has shipped something real. Production-grade, authenticated, deployed — and shown in every interview.'},
+{ph:'teal',track:'advanced',tl:'Advanced',num:'05B',name:'Backend LLD — OOP, design patterns and Java',
+tools:'Java, IntelliJ IDEA, Git, Postman, AI coding assistants, Cursor',
+task:'Design and implement the Razorpay payment routing engine — using the Strategy pattern to swap between payment gateways at runtime, Factory to create different payment instrument types, and Adapter to integrate third-party banking APIs without changing core logic.',
+hook:'LLD rounds eliminate most candidates at product companies. Design patterns are exactly what those rounds test. This module is the one that gets past them.'},
+{ph:'teal',track:'advanced',tl:'Advanced',num:'05C',name:'AI-first backend capstone — Java / Spring Boot',
+tools:'Spring Boot, Spring Data JPA, OAuth2, JWT, AWS, Redis, Kafka, Spring Cloud, Docker',
+task:'Build a production-grade bookings and payments backend with multi-role authentication, seat management, Stripe payment integration, Kafka for async notifications, Redis caching, Spring Cloud microservices, and an AI recommendation layer that personalises suggestions per user.',
+hook:'This is what goes on the resume and GitHub. A full production system with AI integration — the profile that stands out from everyone who just completed tutorials.'},
+{ph:'amber',track:'all',tl:'All tracks',num:'06',name:'System design / HLD',
+tools:'Kafka, Redis, CDN, load balancers, consistent hashing, microservices patterns, case studies',
+task:'Design Razorpay\'s payment gateway at 50,000 transactions per second — load balancing with consistent hashing, idempotency keys, multi-layer caching, Kafka for event streaming, database sharding, and fallback strategies — then articulate every trade-off to an interviewer panel.',
+hook:'Senior engineers are hired and promoted on system design. This module is where junior developers become senior ones in every hiring manager\'s mind.'},
+{ph:'rose',track:'all',tl:'All tracks (elective)',num:'07',name:'Interview simulation — LastMile',
+tools:'Live mock sessions with real interviewers',
+task:'Three back-to-back simulated rounds — DSA problem-solving under time pressure, LLD machine coding (BookMyShow, Splitwise, Parking Lot), and HLD system design (Razorpay gateway, Uber matching, Google Typeahead) — with detailed feedback after each round.',
+hook:'Having the skills and proving them under pressure are two different things. This module bridges that gap.'},
+{ph:'slate',track:'all',tl:'Elective — 2 months',num:'E1',name:'Data engineering',
+tools:'SQL, Hadoop, Apache Spark, Airflow, Apache Hive, AWS Redshift, Delta Lake',
+task:'Build the Razorpay analytics pipeline — ingest every transaction event from Kafka, clean and transform it with Spark, load into a data warehouse, and surface the business intelligence dashboards that the finance and product teams use every morning.',
+hook:'Data engineers earn as much as backend engineers and are in shorter supply. This elective opens the entire data engineering market.'},
+{ph:'slate',track:'all',tl:'Elective — 2 months',num:'E2',name:'Gen AI for software engineers',
+tools:'LLMs, deep learning basics, transformers, embeddings, RAG, AI agents, Python',
+task:'Build the Razorpay merchant intelligence feature — an AI that analyses a merchant\'s full transaction history and surfaces their churn risk, seasonal patterns, and revenue optimisation opportunities in plain English that a non-technical merchant can act on.',
+hook:'Every engineering JD now mentions GenAI and LLMs. This elective makes sure the learner can say yes to every one of those requirements.'},
+{ph:'slate',track:'all',tl:'Elective — 1 month',num:'E3',name:'Product management for engineers',
+tools:'Product frameworks, OKRs, user research, roadmapping, metrics',
+task:'Define the product requirements, success metrics, and technical feasibility assessment for a new Razorpay merchant onboarding feature — from the engineering perspective, with the credibility that only a developer can bring to the room.',
+hook:'For developers who want to lead product teams, transition to PM, or start something of their own. Technical credibility plus product thinking is a rare and powerful combination.'},
+];
+
+function renderMods(ph){
+  const g=document.getElementById('mod-grid');g.innerHTML='';
+  const list=ph==='all'?modules:modules.filter(m=>m.ph===ph);
+  list.forEach(m=>{
+    const d=document.createElement('div');d.className='mc';
+    d.innerHTML=
+      '<div class="mc-num">Module '+m.num+'</div>'+
+      '<div class="card-top"><div class="mc-name">'+m.name+'</div><span class="badge '+phBadge[m.ph]+'">'+phLabel[m.ph]+'</span></div>'+
+      '<div class="mc-tools">'+m.tools+'</div>'+
+      '<span class="track-tag '+ttCls[m.track]+'">'+m.tl+'</span>'+
+      '<hr class="divider">'+
+      '<div class="lbl">On day one at Razorpay, this learner will...</div>'+
+      '<div class="mc-task">'+m.task+'</div>'+
+      '<div class="hook-box"><div class="lbl" style="margin-bottom:3px">Sales hook</div><div class="hook-txt">'+m.hook+'</div></div>';
+    g.appendChild(d);
+  });
+}
+renderMods('all');
+function filterMods(ph,btn){
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderMods(ph);
+}
+
+/* ── CAPSTONE PROJECTS ── */
+const capColors={fullstack:'#3b82f6',dsa:'#4f46e5',backend:'#0d9488'};
+const capstones=[
+{track:'Full-stack',c:'#3b82f6',name:'LinkForge AI — personal portfolio hub',
+desc:'A fully responsive portfolio site that doubles as the learner\'s first public developer presence on the internet. Teaches HTML, CSS, layout, and reusable components. Includes a resume-to-portfolio AI converter.',
+pitch:'"A recruiter who can see your work before the interview is already an advantage. This is the project that makes them look."'},
+{track:'Full-stack',c:'#3b82f6',name:'SkyAI Advisor — smart weather app',
+desc:'A weather app that tells users what to wear, whether to carry an umbrella, the best window for a run, and what to plan for the weekend — powered by an AI layer on top of a weather API.',
+pitch:'"Raw API data is cheap. Intelligent UX built on top of it is what actually gets used. This project teaches that lesson in working code."'},
+{track:'Full-stack',c:'#3b82f6',name:'CineMatch — AI movie concierge',
+desc:'A React movie discovery app that uses AI to generate spoiler-free summaries, a "who is this film for?" analysis, watch-or-skip recommendations, and why a specific user would enjoy it.',
+pitch:'"The exact kind of AI-native UX that every streaming and content product is racing to build — done by the learner in React. That goes on a resume."'},
+{track:'Full-stack',c:'#3b82f6',name:'ShowKart — MERN booking system',
+desc:'A full BookMyShow-style ticket booking system — multi-role auth, theatre and show management, seat selection with locking, Razorpay payment integration, email flows, AI recommendation layer, and an AI insights dashboard for theatre owners.',
+pitch:'"By the end of this project, a learner is at parity with someone who has years of full-stack experience at a real product company. That is what the pitch is."'},
+{track:'DSA',c:'#4f46e5',name:'Sudoku Whisperer — algorithm and AI',
+desc:'A Sudoku solver where the algorithm — backtracking and constraint propagation — is written by the learner. Hints, visual step-by-step explanations, and difficulty grading are AI-powered on top.',
+pitch:'"A recruiter sees two things at once: a hard recursive algorithm AND intelligent UX wrapped around it. Most candidates show one or the other. This shows both."'},
+{track:'DSA',c:'#4f46e5',name:'Six Degrees — social network analyser',
+desc:'A graph engine that finds the shortest path between any two people, detects community clusters, and ranks influencers — built on BFS, Dijkstra, and union-find. An AI layer summarises any user\'s network in plain human language.',
+pitch:'"Graph theory is what every FAANG interview asks about. This project proves the learner can apply it to the kind of relationship-intelligence feature LinkedIn is building right now."'},
+{track:'DSA',c:'#4f46e5',name:'Invoice Intelligence — fintech processing',
+desc:'A system that ingests messy, duplicate invoices, deduplicates them, merges duplicates intelligently, and flags inconsistencies. The deduplication logic is the learner\'s; AI handles fuzzy matching, OCR extraction, and anomaly explanation.',
+pitch:'"This solves a real, boring, valuable business problem — exactly the kind that immediately impresses interviewers at fintech and B2B SaaS companies."'},
+{track:'Backend',c:'#0d9488',name:'Conversational chat agent — booking backend',
+desc:'"Show me thriller movies near me tonight" books a ticket through a full multi-turn chat — handling sold-out shows, expired seat locks, and a user changing their mind mid-flow. The backend decides when the AI talks and when the system takes over.',
+pitch:'"You\'ve all used BookMyShow. Imagine you built the backend intelligence behind its chat version. That\'s what this learner can say in an interview."'},
+{track:'Backend',c:'#0d9488',name:'Splitwise plus AI receipt processor',
+desc:'Splitwise extended with an AI layer — upload a restaurant bill photo, the system extracts items and amounts with OCR, auto-splits by who ordered what, and generates a plain-English monthly spending summary.',
+pitch:'"The Factory and Adapter patterns that make it work are the same patterns you use to swap out any third-party AI service. The engineering lesson underneath is what sticks."'},
+{track:'Backend',c:'#0d9488',name:'Parking Lot plus AI dynamic pricing',
+desc:'The classic Parking Lot LLD problem extended with an AI pricing engine — based on current occupancy, time of day, and nearby events — implemented with the Strategy pattern so any pricing model can be swapped in or out cleanly.',
+pitch:'"AI outputs are non-deterministic. How do you build a system that handles that reliably and falls back gracefully? This project answers a question real engineering teams are solving right now."'},
+];
+
+function renderCaps(){
+  const g=document.getElementById('cap-grid');
+  capstones.forEach(c=>{
+    const d=document.createElement('div');d.className='cc';
+    d.style.borderTop='3px solid '+c.c;
+    d.innerHTML=
+      '<div class="cc-track" style="color:'+c.c+'">'+c.track+'</div>'+
+      '<div class="cc-name">'+c.name+'</div>'+
+      '<div class="cc-desc">'+c.desc+'</div>'+
+      '<div class="cc-pitch">'+c.pitch+'</div>';
+    g.appendChild(d);
+  });
+}
+renderCaps();
+
+/* ── UPGRADE ROLES ── */
+const roles=[
+{icon:'🎓',bg:'#dbeafe',name:'Fresher / recent graduate',sub:'0–1 year, any degree',
+gap:'Knows some syntax from college or a bootcamp — enough to write a for loop. Cannot solve a DSA problem under pressure, has never deployed anything real, and has no idea how a product company actually evaluates candidates.',
+gain:'The programme builds from the ground up — DSA, SQL, full-stack product development, system design, and interview simulation. Every stage is anchored to a portfolio project. By the end, the learner is not presenting a certificate — they are presenting ShowKart, a working BookMyShow-equivalent they built themselves.',
+from:'Graduate with no portfolio',to:'SDE-1 at an Indian product company',
+mods:['Intermediate DSA','Advanced DSA','Frontend','Backend MERN','System Design']},
+{icon:'🏢',bg:'#d1fae5',name:'Service company developer',sub:'1–4 years at TCS, Infosys, Wipro etc.',
+gap:'Has experience and can write code — but it is CRUD work, copying patterns from existing codebases, and working on maintenance projects they did not design. Product company interviews test DSA, LLD, and system design. They have practised none of them.',
+gain:'Modules 2 through 6 are the direct translation from "can build CRUD" to "can architect a product." The DSA and system design modules cover exactly what product companies test. The backend capstone gives a credible answer to "show me something you built from scratch."',
+from:'IT services developer (1–4 yrs)',to:'SDE-1 or SDE-2 at a product company',
+mods:['Advanced DSA','SQL','Backend','System Design','LLD (advanced track)']},
+{icon:'🔧',bg:'#ede9fe',name:'Self-taught developer',sub:'Can build things but missing fundamentals',
+gap:'Can ship things — has side projects, maybe a GitHub with repos — but cannot explain time complexity, has never used a formal design pattern, and every technical interview leaves them feeling exposed. They know what to build but not why it works.',
+gain:'The DSA and LLD modules are the exact foundation that is missing. The programme does not make anyone start over — it fills the specific gaps that interviews expose. Combined with system design, this goes from "impressive portfolio" to "impressive portfolio that can also explain itself to a panel."',
+from:'Self-taught developer',to:'SDE-1 at product company (or Senior on the advanced track)',
+mods:['Advanced DSA','SQL','LLD and design patterns','System Design','Backend']},
+{icon:'🔄',bg:'#fef3c7',name:'Developer targeting product companies',sub:'Any background — aiming at Razorpay, Swiggy, Flipkart',
+gap:'A working developer — possibly doing fine in their current role — who knows the compensation and quality of work at product companies is in a different league. The gap is always the same: DSA, system design, and LLD. Things product companies test that current roles never require.',
+gain:'The programme is the most direct path to closing all three gaps simultaneously. DSA gives the interview filter. System design gives the senior conversation. The backend capstone gives something to point to when the interviewer says "walk me through something you built from scratch."',
+from:'Developer at any company',to:'SDE-1 / 2 at a top product company',
+mods:['Advanced DSA','SQL','System Design / HLD','Backend LLD (advanced)','Interview Prep']},
+{icon:'🤖',bg:'#ccfbf1',name:'Developer who wants AI skills',sub:'Any background — wants to be AI-native',
+gap:'Can code but every job description now mentions AI, LLMs, agentic workflows, and GenAI experience. Has used ChatGPT but has never built anything with it. Knows this is important but does not know where to start or how it connects to serious engineering.',
+gain:'Agentic AI starts in week one — before any other technical content. By the end of it, the learner is building AI agents and automated workflows. The Gen AI elective goes deeper: transformers, embeddings, RAG, and production AI applications. This combination makes them genuinely competitive for AI-native engineering roles at any company.',
+from:'Traditional developer',to:'AI-augmented engineer / GenAI developer',
+mods:['Agentic AI (week one)','Backend AI integration','Gen AI elective','AI-first capstone']}
+];
+
+function renderUpgrade(){
+  const g=document.getElementById('upgrade-grid');
+  roles.forEach(r=>{
+    const d=document.createElement('div');d.className='uc';
+    d.innerHTML=
+      '<div class="uc-hdr">'+
+        '<div class="uc-icon" style="background:'+r.bg+'">'+r.icon+'</div>'+
+        '<div><div class="uc-name">'+r.name+'</div><div class="uc-sub">'+r.sub+'</div></div>'+
+      '</div>'+
+      '<div class="gap-box"><div class="gap-lbl">What they are missing today</div><div class="gap-txt">'+r.gap+'</div></div>'+
+      '<div class="gain-box"><div class="gain-lbl">What this programme adds</div><div class="gain-txt">'+r.gain+'</div></div>'+
+      '<div class="mods-lbl">Modules that do the most work</div>'+
+      '<div class="mpills">'+r.mods.map(m=>'<span class="mpill">'+m+'</span>').join('')+'</div>'+
+      '<div class="jump-row"><span class="jump-from">'+r.from+'</span><span class="jump-arrow">→</span><span class="jump-to">'+r.to+'</span></div>';
+    g.appendChild(d);
+  });
+}
+renderUpgrade();
+updateTracker(1);
+</script>
+</body>
+</html>
+
