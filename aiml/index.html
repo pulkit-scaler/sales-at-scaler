@@ -112,12 +112,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .role-canonical{font-weight:600}
 .role-variant{font-size:11px;color:#888;margin-left:4px}
 
-/* hiring manager quote */
-.ms-quote{background:#f5f5f2;border-left:3px solid #1D9E75;padding:11px 14px;margin:0 18px 16px;border-radius:0 8px 8px 0}
-.ms-quote-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#085041;margin-bottom:5px}
-.ms-quote-text{font-size:13px;color:#1a1a18;line-height:1.6;font-style:italic}
-.ms-quote-note{font-size:11px;color:#6b6b66;margin-top:7px;font-style:normal;line-height:1.5}
-
 /* ── SECTION 3 — MODULES ── */
 .meta-bar{font-size:12px;color:#6b6b66;margin-bottom:1.25rem;padding:8px 12px;background:#fff;border-left:3px solid #1D9E75}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.25rem}
@@ -247,7 +241,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <p class="section-sub">Six common starting points for 2026 AI hires. Pick the one closest to you to see the exact modules that close your gap and the 2026 AI/ML title you become hireable for.</p>
   <div class="track-ribbon">
     <span class="track-pill">AI Engineering Track · 17 modules</span>
-    <span>11 Core + 4 Electives + 1 Optional (DSA) + 1 Capstone (IIT Roorkee)</span>
+    <span>11 Core + 4 Electives + 2 Optional (DSA + IIT Roorkee Campus Immersion)</span>
   </div>
   <details style="background:#fff;border:0.5px solid #e2e2dc;border-radius:10px;padding:10px 14px;margin-bottom:1rem;font-size:12px;color:#3a3a38">
     <summary style="cursor:pointer;font-weight:600;color:#1a1a18">▸ All 17 modules at a glance (tap to expand)</summary>
@@ -256,8 +250,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       M1 — Data Foundations (4w) · M2 — ML Coding: Supervised Learning (6w) · M3 — ML Coding: Unsupervised Learning, Time Series &amp; Recommender Systems (4w) · M4 — ML Coding: Neural Networks (3w) · M5 — ML Coding: Computer Vision &amp; NLP (7w) · M6 — MLOps (8w) · M7 — ML System Design (4w) · M8 — Foundations of AI Engineering &amp; RAG Systems (4w) · M9 — Agentic Design Patterns &amp; Multi-Agent Orchestration (4w) · M10 — Advanced Cognitive Architectures &amp; Multimodal Intelligence (3w) · M11 — Fine-Tuning, LLMOps &amp; Security (5w)<br><br>
       <strong>Electives (4):</strong><br>
       M12 — Advanced Machine Learning &amp; Deep Learning 1 (4w) · M13 — Advanced Machine Learning &amp; Deep Learning 2 (4w) · M14 — Big Data Engineering (4w, Recorded) · M15 — Reinforcement Learning (4w, Recorded)<br><br>
-      <strong>Optional (1):</strong> M16 — DSA for Professionals (~6 months)<br>
-      <strong>Capstone (1):</strong> M17 — Advanced AI Engineering · CEC, IIT Roorkee Campus Immersion
+      <strong>Optional (2):</strong><br>
+      M16 — DSA for Professionals (~6 months) · M17 — Advanced AI Engineering · CEC, IIT Roorkee Campus Immersion
     </div>
   </details>
   <div class="upgrade-grid" id="upgrade-grid"></div>
@@ -280,7 +274,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <p class="section-sub">What each module teaches, the tools used, and what a learner ships at a Netflix-scale company on day one.</p>
   <div class="track-ribbon">
     <span class="track-pill">AI Engineering Track</span>
-    <span><strong>11 Core</strong> · <strong>4 Electives</strong> · <strong>1 Optional</strong> (DSA) · <strong>1 Capstone</strong> (IIT Roorkee Campus Immersion)</span>
+    <span><strong>11 Core</strong> · <strong>4 Electives</strong> · <strong>2 Optional</strong> (DSA + IIT Roorkee Campus Immersion)</span>
   </div>
   <div class="filters">
     <button class="fb active" onclick="filterMods('all',this)">All 17 modules</button>
@@ -316,6 +310,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <span class="nc-role-pill">AI Operations Lead</span>
       <span class="nc-role-pill">Head of AI Adoption</span>
       <span class="nc-role-pill">AI Strategy Lead</span>
+      <span class="nc-role-pill">Chief of Staff (AI-augmented)</span>
+      <span class="nc-role-pill">Chief AI Officer</span>
       <span class="nc-role-pill">AI Product Designer</span>
       <span class="nc-role-pill">AI Consultant</span>
       <span class="nc-role-pill">AI Enablement Manager</span>
@@ -593,20 +589,20 @@ const milestones=[
    {name:'AI Data Engineer',variant:'(Senior)',c:'#1a1a18'}
  ],
  quote:'"They can walk into a technical interview at Google, Netflix, or any AI-first company and hold their own on every dimension — classical ML, deep learning, GenAI, system design, AND DSA. They can also architect the platform the AI runs on."',
- note:'Optional + Electives that convert a strong profile into FAANG-level offer-ready across every major 2026 AI/ML role — including the senior architect track (AI Platform Architect) which requires the full theory + system design + LLM + MLOps stack. Research-track roles (OpenAI, Anthropic, DeepMind) also open here — particularly RLHF specialisation via M15.'},
+ note:'This is where the programme effectively completes — every major 2026 AI/ML role is on the table at FAANG / tier-1 level, including the senior architect track (AI Platform Architect) which requires the full theory + system design + LLM + MLOps stack. Research-track roles (OpenAI, Anthropic, DeepMind) also open here — particularly RLHF specialisation via M15. Milestone 6 (IIT Roorkee capstone) is an optional add-on, not a requirement.'},
 
 {id:'ms6', step:'Milestone 6',
- badge:'Capstone', badgeClass:'ms-badge-elite',
- title:'Full-stack AI/ML Engineer with IIT Roorkee capstone',
- modsBuilt:'Everything from Milestone 5 + <strong>M17 (CEC, IIT Roorkee Campus Immersion)</strong>',
- modsNote:'The prestige signal + the portfolio project that converts the full skillset into proof of capability.',
+ badge:'Optional Capstone', badgeClass:'ms-badge-elite',
+ title:'Optional: Full-stack profile with IIT Roorkee capstone signal',
+ modsBuilt:'Everything from Milestone 5 + <strong>M17 (CEC, IIT Roorkee Campus Immersion · Optional)</strong>',
+ modsNote:'Optional prestige layer. The programme is complete at Milestone 5 — Milestone 6 adds a CV marker, a faculty-mentored capstone project, and a peer network on top.',
  skills:['All M1–M16 skills','IIT Roorkee Campus Immersion','AI in healthcare case studies','LLMs for workplace productivity','Industry capstone project','Executive-track AI thinking'],
  newSkills:['IIT Roorkee Campus Immersion','AI in healthcare case studies','LLMs for workplace productivity','Industry capstone project','Executive-track AI thinking'],
  roles:[
-   {name:'Full-stack AI/ML Engineer',variant:'(All roles · IIT Roorkee capstone)',c:'#1a1a18'}
+   {name:'Full-stack AI/ML Engineer',variant:'(All roles · with IIT Roorkee capstone signal)',c:'#1a1a18'}
  ],
- quote:'"Programme complete with a prestige signal. This learner carries a full-stack AI engineering profile — foundations, applied ML, production systems, the GenAI stack, interview readiness, and an IIT Roorkee capstone."',
- note:'Capstone with the Centre for Continuing Education, IIT Roorkee. The final signal — a CV marker, a portfolio project, and a peer network.'}
+ quote:'"Full-stack AI engineering profile with a prestige signal on the CV and a shipped capstone as proof of capability. Optional, but the kind of finishing move that tilts senior-level interviews."',
+ note:'Optional. The programme\'s career outcomes are fully achievable at Milestone 5 without this module. M17 adds the CEC, IIT Roorkee campus immersion, faculty-mentored capstone project, and a peer network — a CV-level differentiator rather than a skills requirement.'}
 ];
 
 function renderMilestones(){
@@ -645,13 +641,6 @@ function renderMilestones(){
     });
     html+='</ul></div>';
     html+='</div>';
-    
-    // QUOTE
-    html+='<div class="ms-quote">'+
-      '<div class="ms-quote-label">What a hiring manager says</div>'+
-      '<div class="ms-quote-text">'+m.quote+'</div>'+
-      '<div class="ms-quote-note">'+m.note+'</div>'+
-    '</div>';
     
     card.innerHTML=html;
     root.appendChild(card);
@@ -803,11 +792,11 @@ const modules=[
  task:'Write the efficient graph traversal that powers Netflix\'s content similarity network, plus master DP and backtracking under interview time pressure — the unseen backbone of every "more like this" row.',
  hook:'Every module in this programme runs on code that has to be fast. DSA is what separates engineers who ship from those who struggle — and what unlocks FAANG-level offers.'},
 
-{num:17,phase:'gray',kind:'Capstone',weeks:'Campus Immersion',name:'Advanced AI Engineering — IIT Roorkee Campus Immersion',
+{num:17,phase:'gray',kind:'Optional',weeks:'Campus Immersion',name:'Advanced AI Engineering — IIT Roorkee Campus Immersion',
  tools:'CEC, IIT Roorkee · Industry case studies · AI in healthcare · LLMs for productivity · Capstone project',
  level:'Full-stack AI engineer / architect',levelColor:'#1a1a18',
  task:'Ship an end-to-end AI project under IIT Roorkee faculty mentorship — from problem framing to production deployment — tackling a real healthcare or enterprise productivity challenge.',
- hook:'The prestige signal on the CV plus the capstone that converts a full-stack skillset into proof of capability. The closing signal on the entire programme.'}
+ hook:'Optional module. Adds a prestige signal on the CV plus a capstone that converts a full-stack skillset into proof of capability — a finishing move, not a requirement.'}
 ];
 
 function phaseLabel(p){return{teal:'Foundations / Classical ML',purple:'Deep Learning',amber:'Production & Scale',coral:'AI Engineering (GenAI)',gray:'Advanced & Electives'}[p]}
@@ -839,13 +828,13 @@ const roles=[
  gap:'You know scikit-learn, XGBoost, deep learning basics, and how to ship a model to production with Docker + CI/CD. What you have likely never done: build a production RAG system, orchestrate a multi-agent pipeline, fine-tune an LLM with LoRA, or serve a 70B model at scale on Kubernetes. The 2023–2026 GenAI wave has completely redefined what "ML Engineer" means.',
  gain:'Modules 8–11 give you the complete modern AI Engineering stack that every 2026 AI/ML JD now assumes — RAG, agents, multimodal, fine-tuning, LLMOps, enterprise security. Add M12–M13 for the theory depth that wins Principal-level interviews. You move from classical ML practitioner to full-stack LLM Engineer / GenAI Engineer / AI Platform Architect — the market\'s highest-paying profiles.',
  from:'ML Engineer',to:'LLM Engineer / GenAI Engineer / AI Platform Architect',
- mods:['M8 — Foundations of AI Engineering & RAG Systems','M9 — Agentic Design Patterns & Multi-Agent Orchestration','M10 — Advanced Cognitive Architectures & Multimodal Intelligence','M11 — Fine-Tuning, LLMOps & Security','M12 — Advanced ML & DL 1 (Elective)','M13 — Advanced ML & DL 2 (Elective)']},
+ mods:['M8 — Foundations of AI Engineering & RAG Systems','M9 — Agentic Design Patterns & Multi-Agent Orchestration','M10 — Advanced Cognitive Architectures & Multimodal Intelligence','M11 — Fine-Tuning, LLMOps & Security']},
 
 {icon:'',bg:'#FAEEDA',title:'Data Scientist',years:'2–6 years experience',
  gap:'You are strong at statistics, data analysis, classical ML, and likely have solid deep learning / CV / NLP exposure from your modelling work. What you probably have not done: shipped a model to production yourself (MLOps), built a RAG system, or orchestrated an agent. Every 2026 "Data Scientist" JD now assumes production + GenAI foundations.',
  gain:'Module 6 gives you the production deployment layer you do not currently own (Docker, MLflow, CI/CD, SageMaker). Modules 8–11 add the GenAI + agent + fine-tuning stack. You move from insight-generator to AI/ML Engineer / GenAI Engineer — the roles the market is actually paying a 40–60% premium for.',
  from:'Data Scientist',to:'AI/ML Engineer / GenAI Engineer',
- mods:['M6 — MLOps','M8 — Foundations of AI Engineering & RAG Systems','M9 — Agentic Design Patterns & Multi-Agent Orchestration','M10 — Advanced Cognitive Architectures & Multimodal Intelligence','M11 — Fine-Tuning, LLMOps & Security']},
+ mods:['M6 — MLOps', 'M7 — ML System Design','M8 — Foundations of AI Engineering & RAG Systems','M9 — Agentic Design Patterns & Multi-Agent Orchestration','M10 — Advanced Cognitive Architectures & Multimodal Intelligence','M11 — Fine-Tuning, LLMOps & Security']},
 
 {icon:'',bg:'#FAECE7',title:'AI Engineer (GenAI-only)',years:'1–3 years experience',
  gap:'You build things with OpenAI APIs, LangChain, prompt engineering, and RAG — and you likely have working knowledge of neural networks and basic deployment. What you have almost certainly skipped: the deeper theory under transformers, proper fine-tuning (LoRA/PEFT) on your own data, LLMOps at production scale, and the frontier techniques (RLHF, distributed training) that differentiate senior LLM roles. In senior interviews this shows up the moment the conversation moves past the API layer.',
@@ -856,19 +845,13 @@ const roles=[
  gap:'You are a strong engineer who can ship software, design APIs, and think in systems. But you have no formal ML training, and every AI JD reads like a foreign language. You need the full stack — classical ML, deep learning, production, GenAI — not a partial course.',
  gain:'This programme is built for exactly this transition. Your engineering instincts are a superpower — you just need the full ML layer on top. Work through every Core module (M1–M11) in sequence; your existing system design skills make M6–M7 trivial for you. Add M14 (Big Data) for the AI Data Engineer path. By completion you hold a full-stack AI/ML Engineer profile with every 2026 title on the table.',
  from:'Software Engineer',to:'ML Engineer → AI/ML Engineer → LLM Engineer in 12–18 months',
- mods:['M1 — Data Foundations','M2 — ML Coding: Supervised Learning','M3 — ML Coding: Unsupervised Learning, Time Series & Recommenders','M4 — ML Coding: Neural Networks','M5 — ML Coding: Computer Vision & NLP','M6 — MLOps','M7 — ML System Design','M8 — Foundations of AI Engineering & RAG Systems','M9 — Agentic Design Patterns & Multi-Agent Orchestration','M10 — Advanced Cognitive Architectures & Multimodal Intelligence','M11 — Fine-Tuning, LLMOps & Security','M14 — Big Data Engineering (Elective)']},
+ mods:['M1 — Data Foundations','M2 — ML Coding: Supervised Learning','M3 — ML Coding: Unsupervised Learning, Time Series & Recommenders','M4 — ML Coding: Neural Networks','M5 — ML Coding: Computer Vision & NLP','M6 — MLOps','M7 — ML System Design','M8 — Foundations of AI Engineering & RAG Systems','M9 — Agentic Design Patterns & Multi-Agent Orchestration','M10 — Advanced Cognitive Architectures & Multimodal Intelligence','M11 — Fine-Tuning, LLMOps & Security','M14 — Big Data Engineering (Elective)', 'M15 — Reinforcement Learning (Elective · RLHF)']},
 
 {icon:'',bg:'#EEEDFE',title:'NLP or CV Specialist',years:'Deep in one modality',
  gap:'You are highly skilled in one area — language OR vision. But the industry has moved to multimodal systems, agentic pipelines, and cross-modal reasoning. A single-modality specialist is increasingly a single point of failure on any modern AI team.',
  gain:'Module 8 gives you production RAG on your existing model depth. Module 9 connects your domain expertise to agent orchestration. Module 10 makes you multimodal (GPT-4V, LLaVA, Whisper, GraphRAG). Module 11 adds fine-tuning and LLMOps. You move from specialist to full-stack Senior AI Engineer / Multimodal AI Engineer.',
  from:'NLP / CV Specialist',to:'Multimodal AI Engineer / Senior GenAI Engineer / LLM Engineer',
  mods:['M8 — Foundations of AI Engineering & RAG Systems','M9 — Agentic Design Patterns & Multi-Agent Orchestration','M10 — Advanced Cognitive Architectures & Multimodal Intelligence','M11 — Fine-Tuning, LLMOps & Security']},
-
-{icon:'',bg:'#FAEEDA',title:'MLOps / Data Engineer',years:'2–5 years experience',
- gap:'You can run CI/CD, Docker, Kubernetes, and data pipelines — strong infrastructure foundation. What you are missing is the modern LLM-specific layer (vLLM, LangSmith, token economics, LoRA serving) that has little overlap with traditional MLOps, plus the frontier AI techniques (RLHF, distributed RL training) that are becoming core to LLM alignment work.',
- gain:'Module 11 adds the LLMOps layer specifically — vLLM, quantization, LangSmith, Kubernetes for LLMs, enterprise security. Module 14 formalises your big-data skills into the full AI Data Engineer profile. Module 15 (RL) is the differentiator — RLHF is now core to how frontier LLMs are trained, and almost no MLOps engineer has it. You become an AI Platform Engineer / LLMOps Lead with a rare RLHF specialisation.',
- from:'MLOps / Data Engineer',to:'AI Platform Engineer / LLMOps Lead / RLHF Infrastructure Engineer',
- mods:['M11 — Fine-Tuning, LLMOps & Security','M14 — Big Data Engineering (Elective)','M15 — Reinforcement Learning (Elective · RLHF)']}
 ];
 function renderUpgrade(){
   const g=document.getElementById('upgrade-grid');
