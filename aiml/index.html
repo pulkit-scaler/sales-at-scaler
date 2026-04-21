@@ -232,7 +232,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <button class="nav-btn active" onclick="show('upgrade',this)">Your role → Your upgrade path</button>
   <button class="nav-btn" onclick="show('tracker',this)">Skills &amp; AI/ML roles by module</button>
   <button class="nav-btn" onclick="show('modules',this)">All 17  modules</button>
-  <button class="nav-btn" onclick="show('noncoder',this)">AI for Non-Coders track</button>
+  <button class="nav-btn" onclick="show('noncoder',this)" style="display:none">AI for Non-Coders track</button>
 </div>
 
 <!-- ══ SECTION 1 ══ -->
@@ -284,7 +284,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <!-- ══ SECTION 4 ══ -->
-<div class="section" id="section-noncoder">
+<div class="section" id="section-noncoder" style="display:none !important">
   <div class="section-title">AI for Non-Coders — the second track</div>
   <p class="section-sub">A separate 8-month programme for product managers, consultants, operators, designers, and senior leaders who need to build, ship, and govern AI — without writing production code.</p>
 
@@ -887,32 +887,32 @@ function filterMods(phase,btn){document.querySelectorAll('.fb').forEach(b=>b.cla
 ══════════════════════════ */
 const roles=[
 {icon:'',bg:'#EEEDFE',title:'ML Engineer',years:'2–5 years experience',
- gap:'You know scikit-learn, XGBoost, deep learning basics, and how to ship a model to production with Docker + CI/CD. What you have likely never done: build a production RAG system, orchestrate a multi-agent pipeline, fine-tune an LLM with LoRA, or serve a 70B model at scale on Kubernetes. The 2023–2026 GenAI wave has completely redefined what "ML Engineer" means.',
- gain:'Module 5 rounds out your applied ML with production-grade CV + NLP depth — the two modalities every modern ML team now ships with. Modules 8–11 give you the complete modern AI Engineering stack that every 2026 AI/ML JD now assumes — RAG, agents, multimodal, fine-tuning, LLMOps, enterprise security. M14 (Big Data) adds the distributed data layer for enterprise-scale AI, and M15 (RL) brings RLHF — the algorithm behind ChatGPT/Claude training and a rare, well-paid specialisation most ML Engineers skip. You move from classical ML practitioner to full-stack LLM Engineer / GenAI Engineer / AI Platform Architect — the market\'s highest-paying profiles.',
- from:'ML Engineer',to:'LLM Engineer / GenAI Engineer / AI Platform Architect',
+ gap:'You know how to ship models to production, but the recent wave of "thinking" AI has redefined your job. You likely haven\'t built complex multi-step digital assistants or customized a massive AI "brain" to speak a specific company\'s language.',
+ gain:'You move from classical automation to building "Full-Stack" intelligence. You will learn to orchestrate teams of digital agents and fine-tune massive models to be faster, cheaper, and safer for big business.',
+ from:'ML Engineer',to:'LLM Engineer / AI Platform Architect',
  mods:['M5 — ML Coding: Computer Vision & NLP','M8 — Foundations of AI Engineering & RAG Systems','M9 — Agentic Design Patterns & Multi-Agent Orchestration','M10 — Advanced Cognitive Architectures & Multimodal Intelligence','M11 — Fine-Tuning, LLMOps & Security','M14 — Big Data Engineering (Elective)','M15 — Reinforcement Learning (Elective · RLHF)']},
 
 {icon:'',bg:'#FAEEDA',title:'Data Scientist',years:'2–6 years experience',
- gap:'You are strong at statistics, data analysis, classical ML, and likely have solid deep learning / CV / NLP exposure from your modelling work. What you probably have not done: shipped a model to production yourself (MLOps), built a RAG system, or orchestrated an agent. Every 2026 "Data Scientist" JD now assumes production + GenAI foundations.',
- gain:'Module 6 gives you the production deployment layer you do not currently own (Docker, MLflow, CI/CD, SageMaker); M7 adds the ML system design depth that senior Data Scientist JDs now expect. Modules 8–11 add the GenAI + agent + fine-tuning stack. M14 (Big Data) covers the distributed data layer you will own once models move past notebook scale — Spark, Kafka, lakehouse patterns — and M15 (RL) adds RLHF, the training method behind ChatGPT/Claude and a premium specialisation most data scientists skip. You move from insight-generator to AI/ML Engineer / GenAI Engineer — the roles the market is actually paying a 40–60% premium for.',
- from:'Data Scientist',to:'AI/ML Engineer / GenAI Engineer',
+ gap:'You are a master at finding patterns and predicting what might happen, but your work often stays in reports or static files. You likely haven\'t shipped a "live" engine that makes decisions for millions of people in the blink of an eye.',
+ gain:'You move from being an insight-generator to an engine-builder. You will gain the blueprints to put your models into production, ensuring they are fast, cost-effective, and scale to the size of a global company like Netflix.',
+ from:'Data Scientist',to:'AI/ML Engineer / Generative AI Engineer',
  mods:['M6 — MLOps', 'M7 — ML System Design','M8 — Foundations of AI Engineering & RAG Systems','M9 — Agentic Design Patterns & Multi-Agent Orchestration','M10 — Advanced Cognitive Architectures & Multimodal Intelligence','M11 — Fine-Tuning, LLMOps & Security','M14 — Big Data Engineering (Elective)','M15 — Reinforcement Learning (Elective · RLHF)']},
 
 {icon:'',bg:'#FAECE7',title:'AI Engineer (GenAI-only)',years:'1–3 years experience',
- gap:'You build things with OpenAI APIs, LangChain, prompt engineering, and RAG — and you likely have working knowledge of neural networks and basic deployment. What you have almost certainly skipped: the deeper theory under transformers, proper fine-tuning (LoRA/PEFT) on your own data, LLMOps at production scale, and the frontier techniques (RLHF, distributed training) that differentiate senior LLM roles. In senior interviews this shows up the moment the conversation moves past the API layer.',
- gain:'Module 11 gives you genuine fine-tuning, LLMOps, token economics, and enterprise security — the LLM Engineer depth you are missing. M12–M13 bring the mathematical and transformer theory that wins Principal-level interviews. M14 (Big Data) adds the distributed data layer for enterprise-scale AI; M15 (RL) adds RLHF — the algorithm behind ChatGPT/Claude training and a rare, well-paid specialisation. You become a credible Senior LLM Engineer / GenAI Engineer / AI Platform Architect rather than an API wrapper.',
- from:'AI Engineer (GenAI-only)',to:'Senior LLM Engineer / GenAI Engineer / AI Platform Architect',
+ gap:'You build great tools using existing smart assistants, but you are likely using someone else\'s "pre-made" engine. This makes it hard to customize the tool for a private business or understand why it fails when things get complicated.',
+ gain:'You go from "driver" to "mechanic and designer." You will learn the deep theory that wins senior-level interviews and the skills to custom-build, secure, and run these systems at an enterprise scale.',
+ from:'AI Engineer',to:'Senior LLM Engineer / AI Platform Architect',
  mods:['M11 — Fine-Tuning, LLMOps & Security','M12 — Advanced ML & DL 1 (Elective)','M13 — Advanced ML & DL 2 (Elective)','M14 — Big Data Engineering (Elective)','M15 — Reinforcement Learning (Elective · RLHF)']},
 {icon:'',bg:'#E1F5EE',title:'Software / Backend Engineer',years:'Wants to move into AI',
- gap:'You are a strong engineer who can ship software, design APIs, and think in systems. But you have no formal ML training, and every AI JD reads like a foreign language. You need the full stack — classical ML, deep learning, production, GenAI — not a partial course.',
- gain:'This programme is built for exactly this transition. Your engineering instincts are a superpower — you just need the full ML layer on top. Work through every Core module (M1–M11) in sequence; your existing system design skills make M6–M7 trivial for you. Add M14 (Big Data) for the AI Data Engineer path. By completion you hold a full-stack AI/ML Engineer profile with every 2026 title on the table.',
- from:'Software Engineer',to:'ML Engineer → AI/ML Engineer → LLM Engineer in 12–18 months',
+ gap:'You are a strong builder who can ship software and design systems, but every AI job description feels like a foreign language. You likely haven\'t built a "brain" for your apps that can learn and adapt on its own.',
+ gain:'Your engineering instincts are your superpower; we just add the "intelligence" layer on top. You will learn to move from building the "plumbing" to building systems that can see, read, and reason through complex problems automatically.',
+ from:'Software Engineer',to:'ML Engineer → AI/ML Engineer → LLM Engineer',
  mods:['M1 — Data Foundations','M2 — ML Coding: Supervised Learning','M3 — ML Coding: Unsupervised Learning, Time Series & Recommenders','M4 — ML Coding: Neural Networks','M5 — ML Coding: Computer Vision & NLP','M6 — MLOps','M7 — ML System Design','M8 — Foundations of AI Engineering & RAG Systems','M9 — Agentic Design Patterns & Multi-Agent Orchestration','M10 — Advanced Cognitive Architectures & Multimodal Intelligence','M11 — Fine-Tuning, LLMOps & Security','M14 — Big Data Engineering (Elective)', 'M15 — Reinforcement Learning (Elective · RLHF)']},
 
 {icon:'',bg:'#EEEDFE',title:'NLP or CV Specialist',years:'Deep in one modality',
- gap:'You are highly skilled in one area — language OR vision. But the industry has moved to multimodal systems, agentic pipelines, and cross-modal reasoning. A single-modality specialist is increasingly a single point of failure on any modern AI team.',
- gain:'Module 8 gives you production RAG on your existing model depth. Module 9 connects your domain expertise to agent orchestration. Module 10 makes you multimodal (GPT-4V, LLaVA, Whisper, GraphRAG). Module 11 adds fine-tuning and LLMOps. M14 (Big Data) gives you the distributed pipelines — Spark, Kafka, lakehouse — needed to train and serve multimodal systems on real-world data volumes, and M15 (RL) adds RLHF, increasingly the alignment layer for both CV and NLP systems in production. You move from specialist to full-stack Senior AI Engineer / Multimodal AI Engineer.',
- from:'NLP / CV Specialist',to:'Multimodal AI Engineer / Senior GenAI Engineer / LLM Engineer',
+ gap:'You are an expert in one area—either language or vision—but the world has moved to systems that do both. A specialist who only sees one side of the problem is becoming a "single point of failure."',
+ gain:'You become "Multimodal." You will learn to build systems that can watch a video, listen to the audio, and read the documents simultaneously to give one unified, smart answer.',
+ from:'NLP / CV Specialist',to:'Multimodal AI Engineer / Senior GenAI Engineer',
  mods:['M8 — Foundations of AI Engineering & RAG Systems','M9 — Agentic Design Patterns & Multi-Agent Orchestration','M10 — Advanced Cognitive Architectures & Multimodal Intelligence','M11 — Fine-Tuning, LLMOps & Security','M14 — Big Data Engineering (Elective)','M15 — Reinforcement Learning (Elective · RLHF)']},
 ];
 function renderUpgrade(){
