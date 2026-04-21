@@ -755,110 +755,116 @@ renderMilestones();
 
 
 /* ══════════════════════════
-   MODULE CARDS — 17 modules
+   MODULE CARDS — 17 modules (Revamped for Sales)
 ══════════════════════════ */
 const modules=[
 {num:1,phase:'teal',kind:'Core',weeks:'4 weeks',name:'Data Foundations',
  tools:'NumPy, Pandas, Matplotlib, Seaborn, Plotly, SciPy',
- level:'Data analyst (junior)',levelColor:'#0F6E56',
- task:'Take a raw 12-month Netflix viewership log and produce a clean, honest EDA report — distributions, outliers, correlations, missing-data story — that the content team can actually make decisions from.',
- hook:'Every AI conversation starts with "how is your data?". This module is the honest, rigorous answer every hiring manager checks for first.'},
+ roles:[],
+ task:'The first step is learning to listen to what the numbers are saying. You\'ll take a massive pile of raw viewing history and turn it into a clear, visual story—spotting exactly where users get bored or what makes them binge-watch an entire season in one night.',
+ hook:''},
 
 {num:2,phase:'teal',kind:'Core',weeks:'6 weeks',name:'ML Coding: Supervised Learning',
  tools:'scikit-learn, XGBoost, LightGBM, Pandas, Optuna',
- level:'Junior data scientist',levelColor:'#0F6E56',
- task:'Build a churn prediction model using XGBoost that scores every Netflix subscriber daily — flagging who is likely to cancel so the retention team can act 30 days ahead.',
- hook:'This is the first model that earns money. Churn prediction is the entry point for almost every AI conversation with a new customer.'},
+ roles:[],
+ task:'Here, you build a "Predictive Alarm." By looking at how people used the app in the past, you\'ll create a system that automatically flags subscribers who are about to cancel their subscription—giving the marketing team a 30-day head start to win them back.',
+ hook:''},
 
 {num:3,phase:'teal',kind:'Core',weeks:'4 weeks',name:'ML Coding: Unsupervised Learning, Time Series & Recommender Systems',
  tools:'KMeans, DBSCAN, PCA, Isolation Forest, ARIMA, Prophet, mlxtend',
- level:'Data scientist',levelColor:'#0F6E56',
- task:'Cluster 238M users into taste profiles with no labels, forecast Friday-night traffic weeks ahead, AND build a content-based recommender — three production-grade ML pipelines in one module.',
- hook:'This module alone answers three of the most common customer questions: "what patterns am I missing?", "what will happen next?", and "what should we recommend?"'},
+ roles:[],
+ task:'This is about finding "Hidden Tribes." You\'ll group millions of users into specific taste profiles without being told what they like. You\'ll also learn to predict exactly how much server space is needed for a massive Friday night release so the app never crashes.',
+ hook:''},
 
 {num:4,phase:'purple',kind:'Core',weeks:'3 weeks',name:'ML Coding: Neural Networks',
  tools:'TensorFlow, Keras, PyTorch, TensorBoard',
- level:'Junior ML engineer',levelColor:'#534AB7',
- task:'Build the deep learning embedding model that creates a mathematical fingerprint for every user and every title — the engine behind a significant share of what Netflix recommends.',
- hook:'When a customer asks how modern recommendation engines actually work, this is the module you point to.'},
+ roles:[],
+ task:'You\'ll build a "Digital Fingerprint" system. By creating deep mathematical profiles for every movie and every user, you create the secret sauce that powers the "Top Picks for You" row, ensuring the right content finds the right person instantly.',
+ hook:''},
 
 {num:5,phase:'purple',kind:'Core',weeks:'7 weeks',name:'ML Coding: Computer Vision & NLP',
  tools:'OpenCV, CNNs, ResNet, YOLO, BERT, Hugging Face Transformers, spaCy, NLTK, Gensim',
- level:'ML engineer (applied DL)',levelColor:'#534AB7',
- task:'Ship two systems in one module: a thumbnail personalisation engine (CV) that picks the frame most likely to get each user to click play, AND a BERT-powered semantic search that understands "feel-good film for a rainy evening".',
- hook:'CV and NLP together — the two modalities every applied ML team ships with. This is the module that covers the bulk of real-world deep learning work.'},
+ roles:[],
+ task:'Teaching the system to "See and Read." You\'ll build an engine that automatically picks the most exciting frame from a movie to use as a thumbnail, while also teaching the search bar to understand vague feelings like "something cozy for a rainy night."',
+ hook:''},
 
 {num:6,phase:'amber',kind:'Core',weeks:'8 weeks',name:'MLOps',
  tools:'MLflow, Docker, Optuna, Streamlit, GitHub Actions, AWS SageMaker, Feature Store',
- level:'MLOps engineer',levelColor:'#854F0B',
- task:'Build CI/CD pipelines that automatically retrain, test, and redeploy Netflix\'s recommendation models — with experiment tracking, a feature store, and model registry — so the engine never serves stale predictions.',
- hook:'The question "what happens after the model is built?" is the one most prospects have not thought about. This is the answer — and where the highest-paid ML roles sit.'},
+ roles:['Data Scientist','Computer Vision Engineer','NLP Engineer'],
+ roleColor:'#0F6E56',
+ task:'This is the "Automated Factory." Instead of manually updating models, you build a digital assembly line that automatically tests, refreshes, and deploys new intelligence 24/7, ensuring the recommendation engine never gets "stale" or out of date.',
+ hook:''},
 
 {num:7,phase:'amber',kind:'Core',weeks:'4 weeks',name:'ML System Design',
  tools:'Microservices, Kafka, Flink, TF Serving, gRPC, Kubernetes, spot instances, quantisation',
- level:'Senior ML engineer / architect',levelColor:'#854F0B',
- task:'Design the real-time inference system that serves a personalised homepage to 238M users within 250ms — globally, in every timezone — and a streaming fraud detection system using Kafka + Flink.',
- hook:'Speed and scale are the silent killers of AI products. This learner designs for latency, throughput, and cost from day one.'},
+ roles:['Machine Learning Engineer','MLOps Engineer','AI Platform Engineer'],
+ roleColor:'#534AB7',
+ task:'Designing for the "Global Rush Hour." You\'ll architect a system that can serve personalized homepages to 200 million people at the exact same time, across every country, in less than a blink of an eye, without breaking the company\'s budget.',
+ hook:''},
 
 {num:8,phase:'coral',kind:'Core',weeks:'4 weeks',name:'Foundations of AI Engineering & RAG Systems',
  tools:'LangChain, Pydantic, ChromaDB, Pinecone, OpenAI, Anthropic, async Python',
- level:'AI engineer (junior-mid)',levelColor:'#993C1D',
- task:'Build a hallucination-free RAG system over Netflix\'s entire internal content catalogue — where a producer types "find all courtroom dramas set before 1980" and gets sourced, accurate results with citations.',
- hook:'RAG is the single most requested AI skill of 2025–2026. Every enterprise client has this project on their roadmap right now.'},
+ roles:[],
+ task:'Building an "Expert Librarian." You\'ll create a system that reads through thousands of private scripts and internal documents so a producer can ask, "Find me all dramas set in the 80s with a lawyer," and get an instant, perfectly accurate answer.',
+ hook:''},
 
 {num:9,phase:'coral',kind:'Core',weeks:'4 weeks',name:'Agentic Design Patterns & Multi-Agent Orchestration',
  tools:'LangGraph, CrewAI, AutoGen, MCP, memory systems, function calling',
- level:'AI engineer',levelColor:'#993C1D',
- task:'Build a multi-agent content pipeline — one agent researches trending topics, one drafts episode synopses, one fact-checks, one formats for the CMS. Static chatbots replaced by an autonomous team.',
- hook:'Static chatbots are obsolete. Multi-agent AI is the 2026 industry standard — and this module is where learners enter that market.'},
+ roles:[],
+ task:'Creating a "Digital Film Crew." Instead of one chatbot, you build a team of specialized AI workers: one to research trends, one to write episode descriptions, and one to fact-check the work—all collaborating automatically to ship content faster.',
+ hook:''},
 
 {num:10,phase:'coral',kind:'Core',weeks:'3 weeks',name:'Advanced Cognitive Architectures & Multimodal Intelligence',
  tools:'GraphRAG, Neo4j, GPT-4V, LLaVA, Whisper, DSPy, PyMuPDF',
- level:'Senior AI engineer / multimodal',levelColor:'#993C1D',
- task:'Build a system that ingests financial PDFs, watches a clip, transcribes the dialogue, reads the subtitles, extracts entities into a knowledge graph, and answers complex queries across all three modalities.',
- hook:'Real business data is messy and multimodal. This module is the demo that closes enterprise deals — AI that sees, hears, reads, and reasons simultaneously.'},
+ roles:[],
+ task:'The "Super-Sensing Assistant." You\'ll build an AI that can watch a clip, listen to the dialogue, and read the subtitles all at once to understand the full context of a scene—allowing for search and analysis that feels truly human.',
+ hook:''},
 
 {num:11,phase:'coral',kind:'Core',weeks:'5 weeks',name:'Fine-Tuning, LLMOps & Security',
  tools:'LoRA, QLoRA, PEFT, vLLM, TGI, quantization, LangSmith, LangFuse, Kubernetes',
- level:'LLM engineer / senior AI engineer',levelColor:'#993C1D',
- task:'Fine-tune Llama-3 on Netflix\'s internal content taxonomy with LoRA, serve it at scale on vLLM + Kubernetes, monitor it with LangSmith, cost-optimise with prompt caching, and lock it down with enterprise guardrails.',
- hook:'Off-the-shelf LLMs do not know your customer\'s business. Fine-tuning + LLMOps is how you make AI genuinely theirs — at a cost they can actually afford.'},
+ roles:['AI/ML Engineer','Generative AI Engineer','LLM Engineer','Prompt Engineer','Multimodal AI Engineer','RAG / LLM Applications Engineer'],
+ roleColor:'#993C1D',
+ task:'This is "The Specialist Upgrade." You\'ll take a general AI and give it a "PhD" in your specific business. You\'ll also lock it down with enterprise-grade security to ensure it never shares secrets and runs as cheaply as possible.',
+ hook:''},
 
 {num:12,phase:'gray',kind:'Elective',weeks:'4 weeks',name:'Advanced Machine Learning & Deep Learning 1',
  tools:'Probability, statistics, optimisation, SVM, kernel methods, statistical learning theory',
- level:'Senior applied scientist',levelColor:'#5F5E5A',
- task:'Derive gradient descent, statistical learning theory, and SVM kernels from first principles — then apply them to debug and improve a deep learning model that was silently underperforming in production.',
- hook:'The theory layer that differentiates candidates in Principal-level interviews. Separates engineers who apply models from those who invent them.'},
+ roles:[],
+ task:'Going "Under the Hood." You\'ll learn the deep mathematical rules that govern how models learn, allowing you to fix broken systems that other engineers can\'t explain and invent new ways to find value in complex data.',
+ hook:''},
 
 {num:13,phase:'gray',kind:'Elective',weeks:'4 weeks',name:'Advanced Machine Learning & Deep Learning 2',
  tools:'Backpropagation from scratch, SHAP, LIME, advanced transformers, attention internals',
- level:'Research ML engineer',levelColor:'#5F5E5A',
- task:'Implement backpropagation from scratch in pure NumPy, audit a production model with SHAP for fairness, and extend a transformer architecture with a custom attention mechanism.',
- hook:'Research-grade depth. The module that unlocks frontier AI lab interviews and principal-track career paths.'},
+ roles:[],
+ task:'Mastering "Model Honesty." You\'ll build tools that explain exactly why an AI made a specific choice, ensuring the system is fair, unbiased, and transparent enough for even the most regulated parts of the business.',
+ hook:''},
 
 {num:14,phase:'gray',kind:'Elective',weeks:'4 weeks',name:'Big Data Engineering (Recorded)',
  tools:'Hadoop, Apache Spark, PySpark, Kafka, Hive, Tableau, AWS QuickSight',
- level:'ML platform / data engineer',levelColor:'#5F5E5A',
- task:'Build distributed PySpark pipelines that process petabytes of Netflix viewing history — turning raw event logs into the clean, partitioned datasets every downstream model depends on.',
- hook:'A company\'s AI is only as good as its data infrastructure. This learner builds the foundation that makes everything else possible at scale.'},
+ roles:['AI Data Engineer'],
+ roleColor:'#854F0B',
+ task:'Building the "Information Highway." You\'ll learn how to move and process mountains of data across thousands of computers at once, ensuring the AI always has the fuel it needs to function at a global scale.',
+ hook:''},
 
 {num:15,phase:'gray',kind:'Elective',weeks:'4 weeks',name:'Reinforcement Learning (Recorded)',
  tools:'MDPs, Q-Learning, DQN, PPO, SAC, TD3, Stable-Baselines3, OpenAI Gym, imitation learning',
- level:'RL / research engineer',levelColor:'#5F5E5A',
- task:'Train an RL agent using PPO to optimise Netflix homepage row ordering in real time — and understand how the same algorithm family trains ChatGPT via RLHF.',
- hook:'RLHF is how every frontier LLM is trained. This module puts learners inside the conversation happening at OpenAI, Anthropic, and DeepMind.'},
+ roles:[],
+ task:'Training the "Self-Improving Engine." You\'ll build an AI that learns like a gamer—trying different strategies on the Netflix homepage and learning from real-time feedback to maximize user happiness and watch-time.',
+ hook:''},
 
 {num:16,phase:'gray',kind:'Optional',weeks:'~6 months',name:'DSA for Professionals',
  tools:'Algorithms, data structures, graphs, dynamic programming, Big-O analysis',
- level:'Software engineer (all roles)',levelColor:'#5F5E5A',
- task:'Write the efficient graph traversal that powers Netflix\'s content similarity network, plus master DP and backtracking under interview time pressure — the unseen backbone of every "more like this" row.',
- hook:'Every module in this programme runs on code that has to be fast. DSA is what separates engineers who ship from those who struggle — and what unlocks FAANG-level offers.'},
+ roles:['Machine Learning Engineer (FAANG)','Data Scientist (FAANG)','AI/ML Engineer (FAANG)','MLOps Engineer (FAANG)','Generative AI Engineer (FAANG)','LLM Engineer (FAANG)','AI Platform Architect','NLP Engineer (FAANG)','Computer Vision Engineer (FAANG)'],
+ roleColor:'#1a1a18',
+ task:'The "Efficiency Masterclass." You\'ll learn the core coding patterns that make apps fast and reliable under pressure—the same skills required to pass technical interviews at the world\'s top-tier tech companies.',
+ hook:''},
 
 {num:17,phase:'gray',kind:'Optional',weeks:'Campus Immersion',name:'Advanced AI Engineering — IIT Roorkee Campus Immersion',
  tools:'CEC, IIT Roorkee · Industry case studies · AI in healthcare · LLMs for productivity · Capstone project',
- level:'Full-stack AI engineer / architect',levelColor:'#1a1a18',
- task:'Ship an end-to-end AI project under IIT Roorkee faculty mentorship — from problem framing to production deployment — tackling a real healthcare or enterprise productivity challenge.',
- hook:'Optional module. Adds a prestige signal on the CV plus a capstone that converts a full-stack skillset into proof of capability — a finishing move, not a requirement.'}
+ roles:['Full-stack AI/ML Engineer (with IIT Roorkee capstone signal)'],
+ roleColor:'#1a1a18',
+ task:'The "Final Signature." You\'ll spend time on campus at a premier institute, working with experts to solve real industry challenges and shipping a major project that proves you can lead AI transformation from start to finish.',
+ hook:''}
 ];
 
 function phaseLabel(p){return{teal:'Foundations / Classical ML',purple:'Deep Learning',amber:'Production & Scale',coral:'AI Engineering (GenAI)',gray:'Advanced & Electives'}[p]}
@@ -871,11 +877,10 @@ function renderMods(phase){
       '<div class="card-top"><div class="mod-name">'+m.name+'</div><span class="badge badge-'+m.phase+'">'+phaseLabel(m.phase)+'</span></div>'+
       '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span class="kind-chip '+kindClass+'">'+m.kind+'</span><span class="weeks-chip">'+m.weeks+'</span></div>'+
       '<div class="tools">'+m.tools+'</div>'+
-      '<div class="level-row"><div class="level-dot" style="background:'+m.levelColor+'"></div><div class="level-text">Unlocks: '+m.level+'</div></div>'+
+      (m.roles&&m.roles.length?'<div class="level-row" style="flex-wrap:wrap;gap:4px"><span style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#9b9b96;margin-right:4px;align-self:center">Unlocks:</span>'+m.roles.map(r=>'<span style="font-size:11px;font-weight:500;padding:2px 8px;border-radius:10px;background:#f0faf6;border:0.5px solid '+(m.roleColor||'#5DCAA5')+';color:'+(m.roleColor||'#085041')+'">'+r+'</span>').join('')+'</div>':'')+
       '<hr class="divider">'+
-      '<div class="label">On day one, this learner will...</div>'+
       '<div class="task">'+m.task+'</div>'+
-      '<div class="hook-box"><div class="label" style="margin-bottom:3px">Sales hook</div><div class="hook">'+m.hook+'</div></div>';
+      (m.hook?'<div class="hook-box"><div class="label" style="margin-bottom:3px">Sales hook</div><div class="hook">'+m.hook+'</div></div>':'');
     g.appendChild(d);
   });
 }
