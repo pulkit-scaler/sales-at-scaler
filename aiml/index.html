@@ -148,20 +148,141 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .pcard-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
 .pcard-txt{font-size:12px;line-height:1.65;color:#2a2420;margin-bottom:10px}
 .pcard-pitch{font-size:12px;line-height:1.6;font-style:italic;color:#1a1714;background:#fafaf8;padding:8px 10px;border-radius:7px;border-left:3px solid #d6d3d1}
+
+/* FAQ */
+.faq-search-wrap{margin-bottom:1.5rem}
+.faq-search{width:100%;padding:11px 16px;font-size:14px;border:1px solid var(--border);border-radius:10px;background:#fff;font-family:'DM Sans',sans-serif;color:var(--text);outline:none;transition:border-color .15s}
+.faq-search:focus{border-color:var(--orange)}
+.faq-cats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem}
+.faq-cat-btn{font-size:11.5px;padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--muted);cursor:pointer;font-weight:500;transition:all .15s;font-family:'DM Sans',sans-serif}
+.faq-cat-btn.on,.faq-cat-btn:hover{color:var(--text);border-color:#999;background:#f5f4f0}
+.faq-group{margin-bottom:2rem}
+.faq-group-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px;overflow:hidden;transition:border-color .15s}
+.faq-item.open{border-color:var(--orange)}
+.faq-item:hover{border-color:#c9c2b8}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;cursor:pointer;gap:12px}
+.faq-q-text{font-size:13.5px;font-weight:600;color:var(--text);line-height:1.4;flex:1}
+.faq-q-term{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:6px;background:var(--orange-light);color:var(--orange);white-space:nowrap;flex-shrink:0}
+.faq-toggle{font-size:16px;color:var(--muted);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-toggle{transform:rotate(180deg);color:var(--orange)}
+.faq-a{display:none;padding:0 18px 16px;animation:fadeIn .2s ease}
+.faq-item.open .faq-a{display:block}
+.faq-plain{font-size:13px;line-height:1.8;color:var(--text);margin-bottom:10px}
+.faq-plain strong{color:var(--orange)}
+.faq-analogy{background:var(--orange-light);border-radius:8px;padding:10px 13px;font-size:12.5px;line-height:1.7;color:#4a2010;margin-bottom:10px;border-left:3px solid var(--orange)}
+.faq-analogy-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--orange);margin-bottom:4px}
+.faq-script{background:var(--green-bg);border-radius:8px;padding:10px 13px;font-size:12.5px;line-height:1.7;color:#14532d;font-style:italic}
+.faq-script-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--green);margin-bottom:4px;font-style:normal}
+.faq-no-results{text-align:center;padding:3rem;color:var(--muted);font-size:13px}
 </style>
 </head>
 <body>
 <div class="topbar">
   <div class="topbar-logo">Scaler 3.0 AIML</div>
   <div class="tnav">
-    <button class="tb on" onclick="showTab('profiles',this)">Who is this for?</button>
+    <button class="tb on" onclick="showTab('pitch',this)">Sales Pitch</button>
+    <button class="tb" onclick="showTab('profiles',this)">Who is this for?</button>
     <button class="tb" onclick="showTab('journey',this)">Programme Journey</button>
     <button class="tb" onclick="showTab('modules',this)">Module Deep Dives</button>
-    <button class="tb" onclick="showTab('projects',this)">Capstone Projects</button>
+    <button class="tb" onclick="showTab('faq',this)">Sales FAQ</button>
   </div>
 </div>
 
-<div class="sec on" id="sec-profiles">
+<div class="sec on" id="sec-pitch">
+  <div class="sec-hd">Sales Pitch — Scaler 3.0 AIML</div>
+  <p class="sec-sub">The core narrative for every call. Understand it deeply, then say it in your own words. This is what Scaler 3.0 AIML actually is — and why it matters right now.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.6rem;grid-column:1/-1">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);margin-bottom:10px">🎯 The One-Line Pitch</div>
+      <div style="font-family:'DM Serif Display',serif;font-size:20px;line-height:1.5;color:var(--text)">Scaler 3.0 AIML doesn't replace fundamentals — it supercharges them. We've rebuilt the entire learning experience around AI workflows so our learners go further, faster, without ever cutting corners on depth.</div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.6rem">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px">📖 What Has Actually Changed</div>
+      <div style="font-size:13px;line-height:1.85;color:#2a2420">
+        Scaler 3.0 is not a pivot away from the core curriculum. The foundations — data, supervised learning, unsupervised learning, neural networks, NLP, computer vision — are all still here, and we haven't softened any of it.<br><br>
+        What has changed is <strong>how</strong> learners move through it. We've integrated AI-powered tools, workflows, and methodologies throughout the programme — so that the same rigorous content can be absorbed faster, applied more confidently, and retained more deeply than before.<br><br>
+        Think of it as upgrading the engine, not changing the destination.
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.6rem">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px">🗺️ The Full Learning Arc</div>
+      <div style="font-size:13px;line-height:1.85;color:#2a2420">
+        Someone who joins with one or two years of coding experience will move through the complete arc — from data foundations all the way up to advanced AI agents:<br><br>
+        Starting with <strong>data and supervised learning</strong>, then building through <strong>unsupervised methods, recommendation systems, and time series</strong>, deepening into <strong>neural networks</strong>, and then into the real-world applied modules of <strong>NLP and computer vision</strong>. From there, the growth layer kicks in — <strong>MLOps, ML system design</strong>, RAG systems, and agentic AI.<br><br>
+        By the end, they're not just job-ready — they're ready for the roles that are actually in demand right now.
+      </div>
+    </div>
+
+  </div>
+
+  <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:24px">
+    <div style="padding:1.2rem 1.6rem;border-bottom:1px solid var(--border);background:#fafaf8">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:4px">🎙️ Say This on the Call</div>
+      <div style="font-size:11px;color:var(--muted)">Memorise the structure. Adapt the words to sound like you.</div>
+    </div>
+    <div style="padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:16px">
+
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="width:28px;height:28px;border-radius:8px;background:var(--orange-light);color:var(--orange);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">1</div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px">Open with what hasn't changed</div>
+          <div style="font-size:13px;line-height:1.75;color:#2a2420;font-style:italic">"The first thing I want to be clear about — we haven't moved away from fundamentals at all. Data, machine learning, neural networks, NLP, computer vision — all of it is still here, and none of it has been watered down. That foundation is non-negotiable for us."</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="width:28px;height:28px;border-radius:8px;background:var(--orange-light);color:var(--orange);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">2</div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px">Then explain what has changed — and why it matters</div>
+          <div style="font-size:13px;line-height:1.75;color:#2a2420;font-style:italic">"What's new is how we move through it. We've built AI-powered tools and workflows into the learning experience itself — so learners cover the same rigorous ground but get there faster, with more confidence, and with better retention. The learning is smarter. The content is the same."</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="width:28px;height:28px;border-radius:8px;background:var(--orange-light);color:var(--orange);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">3</div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px">Paint the full arc</div>
+          <div style="font-size:13px;line-height:1.75;color:#2a2420;font-style:italic">"From day one with data and supervised learning, all the way through to AI agents — the programme is one continuous arc. Someone with a year or two of coding experience walks in. Someone who can design and deploy real AI systems walks out. The roles that arc leads to are the ones companies are hiring urgently for right now."</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="width:28px;height:28px;border-radius:8px;background:var(--orange-light);color:var(--orange);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">4</div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px">Close with the growth loop</div>
+          <div style="font-size:13px;line-height:1.75;color:#2a2420;font-style:italic">"And the growth never stops at Phase 1. After the foundations, learners move into MLOps, system design, and then the frontier AI modules — so there's always a clear next level. By the end, they don't just know the theory. They have the real-world skills that are actually in demand."</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+    <div style="background:var(--orange-light);border:1px solid var(--orange-mid);border-radius:var(--radius);padding:1.1rem 1.3rem">
+      <div style="font-size:22px;margin-bottom:8px">🏗️</div>
+      <div style="font-size:12px;font-weight:700;color:#7c2d12;margin-bottom:5px">Fundamentals — Uncompromised</div>
+      <div style="font-size:12px;line-height:1.65;color:#4a1a0a">Data, ML, deep learning, NLP, CV — the complete foundation. Covered with the same rigour as always. No shortcuts.</div>
+    </div>
+    <div style="background:var(--green-bg);border:1px solid #a7f3d0;border-radius:var(--radius);padding:1.1rem 1.3rem">
+      <div style="font-size:22px;margin-bottom:8px">⚡</div>
+      <div style="font-size:12px;font-weight:700;color:#14532d;margin-bottom:5px">AI-Accelerated Learning</div>
+      <div style="font-size:12px;line-height:1.65;color:#1a3a28">Improved tools and AI workflows integrated throughout — so learners go deeper in less time, with better retention and real-world application.</div>
+    </div>
+    <div style="background:var(--blue-bg);border:1px solid #bfdbfe;border-radius:var(--radius);padding:1.1rem 1.3rem">
+      <div style="font-size:22px;margin-bottom:8px">🎯</div>
+      <div style="font-size:12px;font-weight:700;color:#1e3a8a;margin-bottom:5px">Market-Ready Skills</div>
+      <div style="font-size:12px;line-height:1.65;color:#1e3069">From MLOps to AI Agents — the growth modules that turn a strong foundation into roles that are actively being hired for right now.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="sec" id="sec-profiles">
   <div class="sec-hd">Who is Scaler 3.0 AIML for?</div>
   <p class="sec-sub">Five buyer profiles you will encounter on calls. Use these to immediately identify what pitch to run and which modules to highlight. The core message across all profiles: <strong>fundamentals first, AI as the multiplier.</strong></p>
   <div class="profile-grid" id="profile-grid"></div>
@@ -190,11 +311,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div id="mod-details"></div>
 </div>
 
-<div class="sec" id="sec-projects">
-  <div class="sec-hd">Capstone Projects</div>
-  <p class="sec-sub">Real systems. Real companies. Real problems. These go on a GitHub profile and get noticed in interviews — because every interviewer immediately recognises the business problem behind them.</p>
-  <div class="proj-grid" id="proj-grid"></div>
+<div class="sec" id="sec-faq">
+  <div class="sec-hd">Sales FAQ — Technical Terms Decoded</div>
+  <p class="sec-sub">Every heavy technical term a prospect might throw at you — explained in plain English, with a simple analogy and a ready-to-use response. Search by term or filter by category.</p>
+  <div class="faq-search-wrap">
+    <input class="faq-search" type="text" placeholder="Search a term — e.g. RAG, LoRA, Docker, Kafka…" oninput="filterFAQ(this.value)">
+  </div>
+  <div class="faq-cats" id="faq-cats"></div>
+  <div id="faq-content"></div>
 </div>
+
 
 <script>
 function showTab(id,btn){
@@ -206,35 +332,47 @@ function showTab(id,btn){
 
 /* ══ PROFILES ══ */
 const profiles=[
-  {icon:'🤖',bg:'#ede9fe',name:'The ML / Data Science Professional',role:'2–5 yrs experience, models in notebooks',
-   gap:'Knows how to train models but hasn\'t taken one to production. The recent wave of Generative AI and Agents has made their current skill set feel incomplete. Every new JD lists LLMs, RAG, and Agents — and they\'re not there yet.',
-   gain:'Completes the production gap (MLOps, System Design) and adds the full GenAI stack — RAG, Agents, Fine-Tuning, LLMOps. Moves from "I build models" to "I build AI systems that run at scale." The fundamentals they already have become 10× more powerful with the AI engineering layer on top.',
-   from:'Data Scientist / ML Engineer',to:'LLM Engineer / AI Platform Architect',
+  {icon:'💻',bg:'#dbeafe',name:'SDEs, Backend Developers & QA Engineers',role:'2–4 years · Strong coder, no ML background',
+   gap:'Can build great software but feels left behind as AI takes over every product. Every team now has an AI feature, every JD asks for ML exposure — and when that feature comes up in a room, someone else owns it.',
+   gain:'The programme is built for this person. Engineering instincts are the superpower — we add the intelligence layer on top. Starts from data fundamentals, moves through ML, and arrives at production AI engineering. The gap closes completely, in sequence.',
+   from:'SDE / Backend / QA Engineer',to:'ML Engineer → AI/ML Engineer → LLM Engineer',
+   mods:['M1 — Data Foundations','M2 — Supervised ML','M5 — CV & NLP','M6 — MLOps','M8 — RAG Systems','M9 — Agentic AI']},
+
+  {icon:'📊',bg:'#ede9fe',name:'Junior Data Scientists & Analysts',role:'2–4 years · Models in notebooks, not in production',
+   gap:'Can build models but hasn\'t shipped one to production. Knows the basics of ML but hasn\'t touched LLMs, RAG, or Agents. Every new JD asks for things just beyond their current skill set — and the gap is widening.',
+   gain:'Completes the production gap (MLOps, System Design) and adds the full GenAI stack — RAG, Agents, Fine-Tuning, LLMOps. Moves from "I train models in notebooks" to "I own the model lifecycle end to end." The fundamentals they already have become 10× more powerful with the AI engineering layer on top.',
+   from:'Junior Data Scientist / Analyst',to:'ML Engineer → Senior Data Scientist → LLM Engineer',
    mods:['M6 — MLOps','M7 — ML System Design','M8 — RAG Systems','M9 — Agentic AI','M11 — Fine-Tuning & LLMOps']},
 
-  {icon:'💻',bg:'#dbeafe',name:'The Software / Backend Engineer',role:'Strong coder, no ML background',
-   gap:'Can build great software but feels left behind as AI takes over every product. Every team now has an AI feature, every JD asks for ML exposure, and they don\'t know where to start without going back to basics.',
-   gain:'The programme is built for this person. Engineering instincts are the superpower — we add the intelligence layer on top. Starts from data fundamentals, moves through ML, and arrives at production AI engineering. The gap closes completely, in sequence.',
-   from:'Software / Backend Engineer',to:'ML Engineer → AI/ML Engineer → LLM Engineer',
-   mods:['M1 — Data Foundations','M2 — Supervised ML','M4 — CV & NLP','M6 — MLOps','M8 — RAG Systems','M9 — Agentic AI']},
+  {icon:'🤖',bg:'#dcfce7',name:'ML Engineers & Data Engineers',role:'3–6 years · Ships models, wants the full AI system stack',
+   gap:'Knows how to ship models but the world now wants full AI systems — Agents, RAG, guardrails, LLMOps, system design. Every senior JD asks for things just one level above where they currently are.',
+   gain:'Adds the complete AI engineering layer on top of a strong ML foundation. Builds autonomous agentic systems, fine-tunes and deploys LLMs, designs ML infrastructure at scale. Moves from ML practitioner to AI systems architect — the profile commanding the highest salary bands in the market.',
+   from:'ML Engineer / Data Engineer',to:'Senior ML Engineer → AI Platform Architect → LLM Engineer',
+   mods:['M7 — ML System Design','M8 — RAG Systems','M9 — Agentic AI','M10 — Multimodal AI','M11 — Fine-Tuning & LLMOps']},
 
-  {icon:'⚡',bg:'#dcfce7',name:'The GenAI / AI Engineer (tools-only)',role:'1–3 yrs, builds on top of existing LLMs',
+  {icon:'🏗️',bg:'#fff3e0',name:'Senior Engineers, Tech Leads & Architects',role:'4–8 years · Leads teams, needs AI depth to lead AI transformation',
+   gap:'Leads engineering teams but the entire roadmap is now AI-first. Expected to make architectural decisions on LLM systems, RAG pipelines, and agentic workflows — without having built one end to end.',
+   gain:'Gets the architectural depth to lead AI transformation credibly. Cognitive architectures, enterprise AI security, multimodal systems, strategic trade-offs between RAG vs fine-tuning vs prompting. Moves from engineering leader to AI-first technology leader.',
+   from:'Senior Engineer / Tech Lead / Architect',to:'AI Platform Architect → Head of AI Engineering',
+   mods:['M9 — Agentic AI','M10 — Multimodal AI','M11 — Fine-Tuning & LLMOps','M7 — ML System Design']},
+
+  {icon:'⚡',bg:'#f0fdf4',name:'The GenAI / AI Engineer (tools-only)',role:'1–3 years · Builds on LLM APIs, lacks foundational depth',
    gap:'Builds decent things with GPT APIs and no-code AI tools but hasn\'t built anything from the ground up. Can\'t explain how a model actually learns. Fails technical interviews because they get asked "why" and they only know "how to use." Fundamentals are missing.',
    gain:'Gets the foundational knowledge that makes every tool they use make sense. Can now debug what others can\'t, fine-tune instead of just prompt-engineer, and walk into any technical round with real depth. The AI tools they already use become 5× more effective because they now understand what\'s underneath.',
    from:'AI Engineer (GenAI-only)',to:'Senior LLM Engineer / AI Platform Architect',
-   mods:['M1 — Data Foundations','M2–M4 — Classical ML & DL','M11 — Fine-Tuning & LLMOps','M12–M13 — Advanced ML']},
+   mods:['M1 — Data Foundations','M2–M4 — Classical ML & DL','M11 — Fine-Tuning & LLMOps','M12 — Advanced ML']},
 
-  {icon:'🔬',bg:'#fff3e0',name:'The NLP or CV Specialist',role:'Deep in one modality, wants to go broader',
+  {icon:'🔬',bg:'#fef3c7',name:'The NLP or CV Specialist',role:'3–6 years · Deep in one modality, wants to go broader',
    gap:'Expert in language or vision — but the world now wants both, plus agentic capabilities on top. A single-modality specialist is increasingly a "nice to have" rather than a "must hire." They\'re maxing out in their niche.',
    gain:'Becomes multimodal and agentic. Adds the other modality, then layers RAG, Agents, and Fine-Tuning on top. The depth they already have in one area becomes a massive advantage when combined with the breadth this programme adds.',
    from:'NLP / CV Specialist',to:'Multimodal AI Engineer / Senior GenAI Engineer',
-   mods:['M9 — Agentic AI','M10 — Multimodal & Advanced RAG','M11 — Fine-Tuning & LLMOps','M14 — Big Data Engineering']},
+   mods:['M9 — Agentic AI','M10 — Multimodal AI','M11 — Fine-Tuning & LLMOps','M13 — Big Data Engineering']},
 
-  {icon:'🚀',bg:'#fce7f3',name:'The Career Switcher',role:'Non-tech or adjacent field, motivated to move',
+  {icon:'🚀',bg:'#fce7f3',name:'The Career Switcher',role:'Any experience · Non-tech background, motivated to move into AI',
    gap:'Strong domain knowledge in finance, marketing, operations, or healthcare — but no technical credentials. Gets screened out automatically. Without a portfolio, there\'s no way to demonstrate capability to a hiring manager who has 500 applications.',
-   gain:'Portfolio-first approach. Every module builds something real that goes on GitHub. By the end: 4–6 working projects that any interviewer from any industry immediately understands. Domain knowledge + technical skills = a candidate who is genuinely rare.',
+   gain:'Portfolio-first approach. Every module builds something real. By the end: working projects that any interviewer from any industry immediately understands. Domain knowledge + technical skills = a candidate who is genuinely rare.',
    from:'Professional in any domain',to:'Data Scientist / ML Engineer / AI Engineer',
-   mods:['Full Programme','Capstone Projects','M1 — Data Foundations','M8 — RAG Systems']},
+   mods:['Full Programme','M1 — Data Foundations','M8 — RAG Systems','M9 — Agentic AI']},
 ];
 
 /* ══ MODULES ══ */
@@ -242,135 +380,135 @@ const modules=[
   {id:'m01',num:'01',phase:'Phase 1',phTag:'tag-p1',isElective:false,isNew:false,dur:'4 weeks',
    name:'Data Foundations',
    tools:'Python, Pandas, NumPy, Matplotlib, Seaborn, Probability & Statistics, StandardScaler, Jupyter',
-   story:'Every AI system in the world starts with data — and almost every AI system in the world has been delayed, degraded, or destroyed by bad data. When Ola built its surge pricing model, engineers spent 60% of the project timeline not on the model, but on cleaning and structuring the data feeding it. Missing GPS coordinates, duplicate ride records, timezone mismatches, outlier fares. This is reality. This module teaches how to handle it — how to look at raw data, understand what it is actually telling you, spot what\'s wrong, fix it, and prepare it so that anything built on top of it actually works.',
-   analogy:'Data is the soil. A brilliant seed planted in poor soil grows nothing. You can have the most sophisticated ML algorithm in the world — if the data going in is messy, inconsistent, or misunderstood, the model coming out is useless. This module is about becoming someone who always knows the quality of their soil before they plant anything.',
-   outcomes:['Load, clean, and explore real-world messy datasets using Pandas and NumPy','Identify and handle missing values, outliers, duplicates, and inconsistent formats','Visualise distributions, correlations, and trends to understand what data is actually saying','Apply probability and statistics to ask the right questions before building any model','Use AI tools to speed up EDA — without losing the instinct to question what the output means'],
-   jobs:['Data Analyst','Reporting Analyst','Business Analyst','Junior Analytics Associate'],
+   story:'Every AI system in the world starts with data — and almost every AI system in the world has been delayed, degraded, or destroyed by bad data. When Ola built its surge pricing model, engineers spent 60% of the project timeline not on the model, but on cleaning and structuring the data feeding it. Missing location records, duplicate entries, inconsistent values. This is reality. This module teaches how to handle it — how to look at raw data, understand what it is actually telling you, spot what\'s wrong, fix it, and prepare it so that anything built on top of it actually works.',
+   analogy:'Data is the soil. A brilliant seed planted in poor soil grows nothing. You can have the most sophisticated AI system in the world — if the data going in is messy, inconsistent, or misunderstood, the output is useless. This module is about becoming someone who always knows the quality of their soil before they plant anything.',
+   outcomes:['Explore and clean real-world messy datasets with confidence','Spot and fix missing values, duplicates, and inconsistent data','Visualise patterns and trends to understand what your data is actually saying','Use statistics to ask the right questions before building anything','Develop the instinct to question data quality before trusting any result'],
+   jobs:['Data Analyst','ML Engineer (junior)','Data Scientist (entry)'],
    script:'"This is the module most programmes skip or rush through, because it\'s not glamorous. There\'s no model output to show, no accuracy score to celebrate. But here\'s what every senior engineer knows: the quality of your data determines the quality of everything you build on top of it. At Ola, at PhonePe, at any company running AI in production — the engineers who are trusted most are the ones who understand data deeply, not just model APIs. This module builds that foundation. We don\'t move on until it\'s solid."'},
 
   {id:'m02',num:'02',phase:'Phase 1',phTag:'tag-p1',isElective:false,isNew:false,dur:'6 weeks',
    name:'ML Coding: Supervised Learning',
    tools:'scikit-learn, XGBoost, LightGBM, Optuna, Streamlit, Pipeline, GridSearchCV, SMOTE',
-   story:'Think about when you open a banking app and it instantly flags a suspicious transaction — before you even notice. Behind that 50-millisecond decision is a model trained on millions of past transactions, each labelled fraud or not. Someone chose the right algorithm, tuned it carefully, evaluated it properly on imbalanced classes, and deployed it as a reliable API. That\'s supervised learning in production. The same pipeline runs at Razorpay, HDFC, Paytm, and every major fintech in India. This module teaches you to build it — from the mathematical intuition behind each algorithm to a working, tuned, deployed model.',
-   analogy:'Supervised learning is learning by example with a teacher. You show the algorithm thousands of past transactions with labels — fraud or not — and it learns the pattern. After enough examples, it can spot fraud on transactions it has never seen before. The algorithm doesn\'t memorise; it generalises. This module teaches you to understand that generalisation deeply enough that you can control it, improve it, and explain it to anyone.',
-   outcomes:['Build end-to-end classification and regression pipelines using scikit-learn from scratch','Train and tune XGBoost and LightGBM — the algorithms on every ML Engineer JD','Handle imbalanced datasets with SMOTE and evaluate using ROC-AUC, F1, and precision-recall properly','Automate hyperparameter tuning with Optuna — the same tool used in production ML teams','Package the full pipeline with sklearn Pipeline and deploy as an interactive Streamlit app'],
-   jobs:['ML Analyst','Business Analyst (Predictive Analytics)','Junior Analytics Associate','Decision Intelligence Analyst'],
+   story:'Think about when you open a banking app and it instantly flags a suspicious transaction — before you even notice. Behind that 50-millisecond decision is a model trained on millions of past transactions. Someone chose the right approach, tuned it carefully, evaluated it properly, and deployed it as a reliable system. That\'s supervised learning in production. The same pipeline runs at Razorpay, HDFC, Paytm, and every major fintech in India. This module teaches you to build it — from intuition through a working, deployed model.',
+   analogy:'Supervised learning is learning by example with a teacher. You show the system thousands of past transactions with labels — fraud or not — and it learns the pattern. After enough examples, it can spot fraud on transactions it has never seen before. The system doesn\'t memorise; it generalises. This module teaches you to understand that generalisation deeply enough that you can control it, improve it, and explain it to anyone.',
+   outcomes:['Build end-to-end prediction pipelines for classification and regression problems','Train and tune the algorithms that appear on every ML Engineer job description','Handle imbalanced datasets and evaluate models the way real businesses care about','Automate model tuning — the same approach used in production ML teams','Package and deploy a model as an interactive live application'],
+   jobs:['ML Engineer (junior)','Data Scientist','Applied Scientist (junior)'],
    script:'"Supervised learning is the most common ML task in every company. Churn prediction at telecom companies, credit scoring at banks, demand forecasting at e-commerce — all supervised learning. This module doesn\'t just teach the tools. It teaches why each algorithm works, when to choose it, and how to evaluate it honestly — because that\'s what every technical interview at Swiggy, Razorpay, or any product company will probe. AI tools help you move faster through this module. The understanding is what you keep forever."'},
 
   {id:'m03',num:'03',phase:'Phase 1',phTag:'tag-p1',isElective:false,isNew:false,dur:'4 weeks',
    name:'Unsupervised Learning, Time Series & Recommender Systems',
    tools:'scikit-learn (KMeans, DBSCAN, IsolationForest, PCA), statsmodels, mlxtend, SciPy, Pandas',
-   story:'When you open Spotify, it doesn\'t ask what mood you\'re in. It already knows — from the 10,000 micro-decisions your listening history reveals. That\'s unsupervised learning: finding patterns without being told what to look for. When Amazon shows you "frequently bought together," that\'s association rule mining. When Netflix forecasts how many servers it needs for a Friday night release — two weeks in advance — that\'s time series forecasting. This module teaches all three, from scratch, using real business data.',
+   story:'When you open Spotify, it doesn\'t ask what mood you\'re in. It already knows — from the thousands of micro-decisions your listening history reveals. That\'s unsupervised learning: finding patterns without being told what to look for. When Amazon shows you "frequently bought together," that\'s the same idea. When Netflix forecasts how many servers it needs for a Friday night release — two weeks in advance — that\'s forecasting. This module teaches all three, from scratch, using real business data.',
    analogy:'Supervised learning has a teacher — you show the model labelled examples and it learns. Unsupervised learning is an explorer with no map: it finds the natural structure in data on its own. The best business insights often come not from asking a pre-formed question but from discovering that the question itself was wrong — and the data reveals a better one.',
-   outcomes:['Build customer segmentation pipelines using K-Means and DBSCAN on real data','Detect anomalies and fraud using Isolation Forest — the same technique used in banking','Forecast demand, sales, or traffic using ARIMA and SARIMA','Design a full collaborative filtering recommendation engine with matrix factorisation','Understand the cold start problem and why content-based filtering solves it'],
-   jobs:['Recommender Systems Analyst','Fraud / Anomaly Detection Analyst','Customer Insights Analyst'],
+   outcomes:['Build customer segmentation pipelines on real data','Detect anomalies and fraud — the same techniques used in banking','Forecast demand, sales, or traffic for real business planning','Design a full recommendation engine from scratch','Understand why recommendations break for new users — and how to fix it'],
+   jobs:['Data Scientist','ML Engineer','Recommender Systems Engineer'],
    script:'"Every consumer company in India is running a recommender system — Flipkart, Myntra, Hotstar, Zomato. Every manufacturing and logistics company is running a forecasting model. This module teaches both, with real maths underneath, so when an interview asks \'how would you build a recommendation engine?\', the answer is a working design the interviewer can actually evaluate — not a theory they\'ve heard a hundred times."'},
 
   {id:'m04',num:'04',phase:'Phase 1',phTag:'tag-p1',isElective:false,isNew:false,dur:'3 weeks',
    name:'Neural Networks & Deep Learning',
    tools:'TensorFlow, Keras, PyTorch, TensorBoard, scikit-learn',
-   story:'Swiggy\'s delivery time prediction uses a deep neural network. It takes dozens of inputs — restaurant prep time, distance, traffic zone, order size, time of day, day of week — and outputs one number: your ETA. The model learned this mapping from millions of historical deliveries. No human wrote the rules. The network discovered them through a mathematical process called backpropagation. This module teaches you exactly how that works — and how to build it yourself.',
-   analogy:'A neural network is like a layered committee. Each layer examines a different aspect of the problem and passes a refined summary to the next. Backpropagation is how the committee learns from its mistakes: after every wrong prediction, it adjusts slightly — making the connections that led to the mistake weaker, and the ones that would have led to the right answer stronger. After millions of adjustments, it gets very, very good.',
-   outcomes:['Implement backpropagation and gradient descent from mathematical first principles','Build and train models in both Keras and PyTorch — the two industry standards','Apply dropout and batch normalisation to prevent overfitting in real projects','Build autoencoders for anomaly detection and dimensionality reduction','Understand why models fail during training — and how to fix them'],
-   jobs:['Applied AI Associate','Deep Learning Associate','ML Research Trainee'],
+   story:'Swiggy\'s delivery time prediction uses a deep neural network. It takes dozens of inputs — restaurant prep time, distance, traffic zone, order size, time of day, day of week — and outputs one number: your ETA. The model learned this mapping from millions of historical deliveries. No human wrote the rules. The network discovered them automatically. This module teaches you exactly how that works — and how to build it yourself.',
+   analogy:'A neural network is like a layered committee. Each layer examines a different aspect of the problem and passes a refined summary to the next. The network learns from its mistakes: after every wrong prediction, it adjusts slightly — making the patterns that led to the mistake weaker, and the ones that would have led to the right answer stronger. After millions of adjustments, it gets very, very good.',
+   outcomes:['Understand how deep learning actually works — from first principles, not just intuition','Build and train models using the two industry-standard frameworks','Apply proven techniques to prevent models from memorising instead of learning','Build systems that detect anomalies and reduce data complexity automatically','Diagnose and fix the most common reasons models fail during training'],
+   jobs:['ML Engineer','Deep Learning Engineer','Data Scientist'],
    script:'"Every senior ML and Data Scientist JD now lists deep learning as a requirement — not optional. The question is whether the learner can demonstrate it with a working project, not just check a box. This module teaches the fundamentals so deeply that the learner can walk into any technical round, get asked about model architecture or training instability, and hold a real conversation — not recite a definition."'},
 
   {id:'m05',num:'05',phase:'Phase 1',phTag:'tag-p1',isElective:false,isNew:false,dur:'7 weeks',
    name:'Computer Vision & Natural Language Processing',
    tools:'OpenCV, PyTorch, torchvision, Hugging Face Transformers, YOLO, BERT, spaCy, NLTK, FAISS',
-   story:'Myntra processes 50,000 new product images every week. Each needs quality checking, attribute tagging, and visual similarity matching. At the same time, 200,000 customer reviews arrive — each needing sentiment analysis and entity extraction to surface issues by category and region. Computer Vision handles the images. NLP handles the text. Together, they power two of the most common AI use cases at every product company in India — and this module builds both, from the mathematical foundations up.',
+   story:'Myntra processes 50,000 new product images every week. Each needs quality checking, attribute tagging, and visual similarity matching. At the same time, 200,000 customer reviews arrive — each needing sentiment analysis and issue extraction by category and region. Computer Vision handles the images. NLP handles the text. Together, they power two of the most common AI use cases at every product company in India — and this module builds both, from the ground up.',
    analogy:'Computer Vision teaches a machine to see — not as pixels but as meaning: this is a dress, this is the fabric, this is a defect. NLP teaches it to read with comprehension — understanding tone, intent, and context, not just matching keywords. Combine them and you have a system that can look at a product image, read the review, and understand the full customer experience — automatically, at scale.',
-   outcomes:['Build image classification pipelines with CNNs and fine-tune ResNet or InceptionV3 on custom data','Implement object detection using YOLO — the same architecture used in factory quality control','Fine-tune BERT for text classification on real domain-specific datasets','Build NER systems that extract structured information from unstructured text','Use AI to speed up annotation, augmentation, and model iteration — without losing control of the output'],
-   jobs:['NLP Engineer','Computer Vision Engineer','Applied AI Engineer','Data Scientist'],
+   outcomes:['Build image classification pipelines and fine-tune pretrained models on custom data','Implement real-time object detection — the same architecture used in factory quality control','Fine-tune language models for text classification on domain-specific datasets','Build systems that extract structured information from unstructured text','Ship portfolio-ready projects in both vision and language that stand out in interviews'],
+   jobs:['Computer Vision Engineer','NLP Engineer','ML Engineer'],
    script:'"A learner who finishes this module with a working YOLO-based detection system AND a fine-tuned BERT classifier on GitHub is in a completely different interview conversation from someone who says they \'know CV and NLP\'. Computer vision portfolio evidence is genuinely rare — most candidates study it but very few have shipped something. This module produces that evidence."'},
 
   {id:'m06',num:'06',phase:'Phase 2',phTag:'tag-p2',isElective:false,isNew:false,dur:'8 weeks',
    name:'MLOps',
    tools:'MLflow, Docker, GitHub Actions, AWS SageMaker, Kubernetes, FastAPI, Streamlit, Airflow, Weights & Biases',
-   story:'PhonePe\'s fraud detection model is retrained every single day on new transaction data. Every retrained model is automatically tested, logged in a model registry, deployed through a CI/CD pipeline, and monitored for data drift in production. If performance degrades, an alert fires and retraining triggers automatically. No one does this manually. The entire lifecycle is an automated system. That system is MLOps — and building it is the single most in-demand skill gap in the Indian AI job market right now.',
-   analogy:'A model that lives in a Jupyter notebook is like a recipe that only works in one kitchen, made by one cook, on one day. MLOps is the factory: the assembly line, the quality checks, the packaging, the delivery, and the monitoring of every product that ships. Without it, you have a proof of concept. With it, you have a product.',
-   outcomes:['Track experiments with MLflow — every parameter, metric, and model version, automatically','Build Docker containers for ML APIs and deploy them to AWS ECS','Create CI/CD pipelines with GitHub Actions that test and redeploy models on every code change','Use SageMaker Feature Store and Model Registry for production-grade feature and model management','Set up model monitoring for data drift and concept drift — with automated alerting'],
-   jobs:['ML Engineer','MLOps Engineer','Production ML Specialist'],
+   story:'PhonePe\'s fraud detection model is retrained every single day on new transaction data. Every retrained model is automatically tested, logged, deployed through a pipeline, and monitored in production. If performance degrades, an alert fires and retraining triggers automatically. No one does this manually. The entire lifecycle is an automated system. That system is MLOps — and building it is the single most in-demand skill gap in the Indian AI job market right now.',
+   analogy:'A model that lives in a notebook is like a recipe that only works in one kitchen, made by one cook, on one day. MLOps is the factory: the assembly line, the quality checks, the packaging, the delivery, and the monitoring of every product that ships. Without it, you have a proof of concept. With it, you have a product.',
+   outcomes:['Track experiments so every model version, parameter, and result is logged and reproducible','Package models as reliable APIs and deploy them to the cloud','Build automated pipelines that test and redeploy models without manual intervention','Manage features and model versions at production scale','Set up monitoring that alerts you when a model\'s performance starts to drift — before it causes damage'],
+   jobs:['MLOps Engineer','ML Engineer','AI Platform Engineer','Data Scientist'],
    script:'"MLOps is what separates a notebook model from a product. Any engineer can train a model. Very few can keep one running reliably in production — updating itself, monitoring itself, failing gracefully. Every ML Engineer JD lists Docker, CI/CD, and SageMaker. This module covers all three, end to end, with real deployments. The learner finishes with a live model API that updates automatically. That is what every hiring manager in the market wants to see."'},
 
   {id:'m07',num:'07',phase:'Phase 2',phTag:'tag-p2',isElective:false,isNew:false,dur:'4 weeks',
    name:'ML System Design',
    tools:'Kafka, Apache Flink, Kubernetes, TF Serving, TensorRT, Redis, Nginx, gRPC, FastAPI',
-   story:'A major streaming platform serves personalised homepages to 280 million users. Every user gets a different page. Every page must load in under 200 milliseconds. The system handles 500,000 requests per second at peak. It needs fallbacks when the model is down, cost guardrails so it doesn\'t bankrupt the company, and real-time streaming for events. Designing that system — the trade-offs, the architecture, the failure modes — is ML System Design. And it\'s the round most strong ML candidates fail.',
+   story:'A major streaming platform serves personalised homepages to 280 million users. Every user gets a different page. Every page must load in under 200 milliseconds. The system handles 500,000 requests per second at peak. It needs fallbacks when the model is down, cost guardrails so it doesn\'t bankrupt the company, and real-time updates for live events. Designing that system — the trade-offs, the architecture, the failure modes — is ML System Design. And it\'s the round most strong ML candidates fail.',
    analogy:'Building an ML model without system design is like designing a car without thinking about the road, the traffic, the fuel infrastructure, or the safety regulations. System design is the blueprint that accounts for everything outside the model itself — load, failure, cost, scale, and latency. It\'s what separates an engineer from an architect.',
-   outcomes:['Design high-level architecture for Netflix-style recommendation systems — with real latency and cost trade-offs','Architect real-time fraud detection pipelines using Kafka and Flink','Design model serving infrastructure that handles millions of requests per second','Evaluate the trade-offs between batch, streaming, and real-time inference for different business problems','Design for failure — fallback strategies, graceful degradation, and cost-optimised serving'],
-   jobs:['AI Architect','ML System Designer','Solutions Architect','Senior ML Engineer','ML Platform Engineer'],
+   outcomes:['Design high-level architecture for large-scale recommendation systems — with real latency and cost trade-offs','Architect real-time fraud detection pipelines that process data as it arrives','Design serving infrastructure that handles millions of requests per second','Evaluate the trade-offs between different inference approaches for different business problems','Design for failure — fallback strategies, graceful degradation, and cost-optimised serving'],
+   jobs:['Senior ML Engineer','AI Platform Engineer','AI Platform Architect'],
    script:'"Every senior ML interview ends with a system design round. Candidates who have not prepared specifically for this almost always fail it — even when they\'re technically strong on models. What does a real-time recommendation system look like at scale? How do you serve predictions to a million users without the API collapsing? This module gives the framework, the vocabulary, and the practice. It turns that round from a liability into a strength."'},
 
   {id:'m08',num:'08',phase:'Phase 2',phTag:'tag-p2',isElective:false,isNew:true,dur:'4 weeks',
    name:'Foundations of AI Engineering & RAG Systems',
    tools:'LangChain, LlamaIndex, ChromaDB, Pinecone, PGVector, OpenAI API, Anthropic API, async Python, BM25',
-   story:'A large legal firm has 200,000 internal documents — contracts, case precedents, regulatory filings — accumulated over decades. A junior associate currently spends 4 hours searching through them to answer one partner\'s question. An RAG system reads all 200,000 documents, indexes them semantically, and answers the same question in 8 seconds with citations from the exact relevant clauses. That\'s not a demo — it\'s production AI. The same architecture runs at insurance companies, consulting firms, hospitals, and government departments across India.',
-   analogy:'RAG is like giving an LLM a brilliant research assistant who has read every document in your company\'s library and can instantly retrieve the most relevant pages for any question. Without RAG, the LLM can only answer from what it learned during training — which is generic, often outdated, and never specific to your business. With RAG, it answers from your actual data — specific, current, and cited.',
-   outcomes:['Build end-to-end RAG pipelines that answer questions from real company document sets','Implement hybrid search combining BM25 keyword retrieval and semantic vector search','Add self-correction loops with relevance scoring — so the system knows when its retrieval is wrong','Reduce hallucinations with citation enforcement and output verification','Deploy a working enterprise document search system with full observability'],
-   jobs:['AI Engineer','RAG Developer','GenAI Associate','Enterprise AI Specialist'],
+   story:'A large legal firm has 200,000 internal documents — contracts, case precedents, regulatory filings — accumulated over decades. A junior associate currently spends 4 hours searching through them to answer one partner\'s question. An AI system reads all 200,000 documents, indexes them, and answers the same question in 8 seconds with citations from the exact relevant clauses. That\'s not a demo — it\'s production AI. The same architecture runs at insurance companies, consulting firms, hospitals, and government departments across India.',
+   analogy:'RAG is like giving an AI a brilliant research assistant who has read every document in your company\'s library and can instantly retrieve the most relevant pages for any question. Without RAG, the AI can only answer from general knowledge — which is generic, often outdated, and never specific to your business. With RAG, it answers from your actual data — specific, current, and cited.',
+   outcomes:['Build systems that answer questions from real company document sets — with citations','Combine multiple retrieval approaches so the system finds the right answer even when a simple keyword search fails','Add self-correction so the system knows when its own retrieval is wrong','Dramatically reduce AI hallucinations through citation enforcement and output verification','Deploy a working enterprise document search system with full visibility into how it works'],
+   jobs:['AI Engineer','LLM Engineer','RAG / LLM Applications Engineer'],
    script:'"RAG is the technology that turns a generic LLM into a company-specific expert assistant. Every enterprise that has adopted AI in the last 18 months has built at least one RAG system. The demand for engineers who can build production RAG — not just a chatbot demo — is higher than supply. This module produces exactly that: a working knowledge system, deployed, with hybrid retrieval and measurable quality metrics."'},
 
   {id:'m09',num:'09',phase:'Phase 2',phTag:'tag-p2',isElective:false,isNew:true,dur:'4 weeks',
    name:'Agentic Design Patterns & Multi-Agent Orchestration',
    tools:'LangGraph, CrewAI, Microsoft AutoGen, MCP, Browser-Use, VAPI, Playwright, function calling',
-   story:'A logistics company receives 500 vendor emails per day — price changes, delay notifications, capacity updates. A human coordinator reads every email, cross-checks with the order management system, and drafts a response. Six hours of daily work, every day. An agentic system reads each email, classifies urgency, queries the OMS via API, drafts a contextual response, and routes only genuinely complex cases to a human reviewer. The coordinator now reviews 20 emails instead of 500. That workflow is built in this module.',
-   analogy:'A single AI agent is like a very capable new employee who never sleeps and never forgets. A multi-agent system is like a structured operations team — one agent reads and classifies, another queries the database, a third drafts responses, a fourth reviews before sending. Each is specialised. Together, they handle workflows no single agent could manage reliably. The orchestrator — your LangGraph or CrewAI setup — is the manager who defines who does what.',
-   outcomes:['Build multi-agent systems using LangGraph and CrewAI for real business workflow automation','Implement ReAct agents with tool use — web search, database queries, APIs, calculators','Set up MCP servers to connect AI agents to internal data sources and proprietary tools','Design human-in-the-loop approval gates for high-stakes agent decisions','Deploy voice agents with VAPI for conversational workflow automation'],
-   jobs:['AI Agent Developer','Workflow Automation Engineer','GenAI Developer','Applied AI Builder'],
+   story:'A logistics company receives 500 vendor emails per day — price changes, delay notifications, capacity updates. A human coordinator reads every email, cross-checks with the order management system, and drafts a response. Six hours of daily work, every day. An agentic system reads each email, classifies urgency, queries the relevant systems, drafts a contextual response, and routes only genuinely complex cases to a human reviewer. The coordinator now reviews 20 emails instead of 500. That workflow is built in this module.',
+   analogy:'A single AI agent is like a very capable new employee who never sleeps and never forgets. A multi-agent system is like a structured operations team — one agent reads and classifies, another queries the database, a third drafts responses, a fourth reviews before sending. Each is specialised. Together, they handle workflows no single agent could manage reliably. The orchestrator is the manager who defines who does what.',
+   outcomes:['Build multi-agent systems for real business workflow automation','Create agents that can search the web, query databases, and call external systems on their own','Connect AI agents to internal data sources and proprietary tools','Design approval gates that keep humans in control of high-stakes decisions','Deploy voice-based agents for conversational workflow automation'],
+   jobs:['AI Engineer','Senior LLM Engineer','Applied Scientist'],
    script:'"AI Agents are the fastest-growing job category in Indian tech right now. Every funded startup and every enterprise AI team is either building agents or desperately trying to hire someone who can. A learner who ships a working multi-agent workflow — with tool use, memory, and a human approval gate — is applying for roles that most candidates can\'t even describe accurately in an interview."'},
 
   {id:'m10',num:'10',phase:'Phase 3',phTag:'tag-p3',isElective:false,isNew:true,dur:'3 weeks',
    name:'Advanced Cognitive Architectures & Multimodal Intelligence',
    tools:'GPT-4V, LLaVA, Whisper, ElevenLabs, VAPI, GraphRAG, Neo4j, DSPy, PyMuPDF, Camelot',
-   story:'A supply chain company processes 500 supplier documents per week — PDFs with tables, images of product packaging, and voice notes from field agents. Each type requires completely different AI processing. An invoice needs table extraction. A packaging image needs OCR and visual reasoning. A voice note needs transcription and intent extraction. A multimodal AI system handles all three — automatically routing each input type to the right model, extracting structured data, and surfacing it to the right team. This module teaches how to build that system.',
-   analogy:'Human experts are naturally multimodal — a doctor looks at a scan, reads the lab report, and listens to the patient simultaneously, combining all three into one diagnosis. Modern AI systems are catching up. A multimodal architecture sees an image, reads the attached text, and processes the audio in the same context. The intelligence comes from reasoning across all three — not handling each in isolation.',
-   outcomes:['Build image analysis agents that reason over visual content with GPT-4V or LLaVA','Implement voice transcription pipelines with Whisper and voice synthesis with ElevenLabs','Design GraphRAG systems with Neo4j for multi-hop knowledge retrieval across connected entities','Parse complex PDFs — including tables and embedded images — for agent consumption','Use DSPy to optimise prompts automatically rather than writing them by hand'],
-   jobs:['Multimodal AI Developer','GenAI Architect','AI Research Associate','Advanced AI Engineer'],
+   story:'A supply chain company processes 500 supplier documents per week — PDFs with tables, images of product packaging, and voice notes from field agents. Each type requires completely different AI processing. An invoice needs table extraction. A packaging image needs visual reasoning. A voice note needs transcription and intent extraction. A multimodal AI system handles all three — automatically routing each input type to the right model, extracting structured data, and surfacing it to the right team. This module teaches how to build that system.',
+   analogy:'Human experts are naturally multimodal — a doctor looks at a scan, reads the lab report, and listens to the patient simultaneously, combining all three into one diagnosis. Modern AI systems are catching up. A multimodal system sees an image, reads attached text, and processes audio in the same context. The intelligence comes from reasoning across all three — not handling each in isolation.',
+   outcomes:['Build AI systems that reason over images and visual content','Implement voice transcription and voice synthesis pipelines','Design knowledge retrieval systems that follow chains of connected information across documents','Parse complex documents — including tables and embedded images — for AI consumption','Optimise AI prompts automatically rather than writing them by hand'],
+   jobs:['Multimodal AI Engineer','Senior GenAI Engineer','AI Engineer'],
    script:'"Multimodal AI is the frontier that separates the current generation of AI engineers from the next. Companies processing invoices, medical records, field agent reports, or customer support tickets are all building multimodal pipelines — and almost no candidates have built one. A learner who has shipped a working system that processes text, images, and audio is positioned for roles that barely existed 18 months ago."'},
 
   {id:'m11',num:'11',phase:'Phase 3',phTag:'tag-p3',isElective:false,isNew:true,dur:'5 weeks',
    name:'Fine-Tuning, LLMOps & Enterprise Security',
    tools:'Hugging Face PEFT, LoRA, QLoRA, vLLM, TGI, LangSmith, LangFuse, Arize Phoenix, NeMo Guardrails, Kubernetes',
-   story:'A fintech company wants an AI assistant that answers questions about their specific loan products, uses the exact regulatory language required for compliance, and never — under any circumstances — hallucinates a regulatory threshold. A general-purpose LLM fails this immediately. But a Llama-3 model fine-tuned on the company\'s product documentation and compliance guidelines — served via vLLM for throughput efficiency, monitored with LangSmith for hallucinations, and secured with NeMo Guardrails — passes it every time. This module teaches the complete stack to build that.',
-   analogy:'Fine-tuning is sending a brilliant generalist to a 6-month specialist immersion in your company. Before: they know everything about everything. After: they speak your language, follow your compliance rules by default, and give answers specific to your business — not generic responses from training data. The fundamentals don\'t change. The application becomes precise.',
-   outcomes:['Fine-tune Llama-3 or Mistral with LoRA and QLoRA using Hugging Face PEFT — efficiently, on consumer hardware','Deploy LLMs with vLLM for high-throughput production serving at a fraction of API cost','Set up end-to-end observability with LangFuse or LangSmith — every prompt, every response, every failure logged','Monitor LLM outputs for toxicity, hallucinations, and policy violations in production','Implement GPTQ and AWQ quantisation to reduce inference cost without sacrificing quality'],
-   jobs:['LLMOps Engineer','GenAI Engineer','AI Infrastructure Associate','Applied LLM Developer'],
+   story:'A fintech company wants an AI assistant that answers questions about their specific loan products, uses the exact regulatory language required for compliance, and never — under any circumstances — makes up a regulatory threshold. A general-purpose AI fails this immediately. But a model fine-tuned on the company\'s product documentation and compliance guidelines — served efficiently, monitored for hallucinations, and secured against misuse — passes it every time. This module teaches the complete stack to build that.',
+   analogy:'Fine-tuning is sending a brilliant generalist to a 6-month specialist immersion in your company. Before: they know everything about everything. After: they speak your language, follow your compliance rules by default, and give answers specific to your business — not generic responses from general training. The fundamentals don\'t change. The application becomes precise.',
+   outcomes:['Fine-tune open-source language models efficiently — even on consumer hardware','Deploy AI models for high-throughput production serving at a fraction of API cost','Set up end-to-end observability — every prompt, every response, every failure logged and traceable','Monitor AI outputs for toxicity, hallucinations, and policy violations in production','Reduce inference cost through model optimisation without sacrificing quality'],
+   jobs:['LLM Engineer','Generative AI Engineer','AI/ML Engineer','MLOps Engineer (AI)'],
    script:'"Fine-tuning is the capability that converts a generic LLM into a business-specific tool. LLMOps is what keeps it running. Security is what makes it safe to deploy in front of enterprise customers. Together, these three are the complete LLM Engineer stack — and the profile that earns ₹18–90 LPA right now. A learner who can fine-tune, serve at scale, monitor, and secure an LLM is hireable at every serious AI company in India."'},
 
   {id:'m12',num:'12',phase:'Phase 3',phTag:'tag-p3',isElective:true,isNew:false,dur:'4 weeks',
    name:'Advanced Machine Learning & Deep Learning (Theory)',
    tools:'PyTorch, scikit-learn, SHAP, LIME, Captum, NumPy, SciPy',
-   story:'An insurance company\'s fraud model is being challenged in a legal proceeding. The question from the opposing counsel: "Why did your model deny this specific claim?" The data scientist\'s answer: "The model said so" — is not acceptable in court. Model interpretability is now a legal, regulatory, and ethical requirement in finance, insurance, and healthcare. This elective teaches the mathematical foundations of every core ML algorithm and the tools to explain every model decision — for auditors, regulators, and the engineers who need to debug what went wrong.',
-   analogy:'Understanding the mathematics under ML models is like understanding the structural engineering of a bridge you designed. You can build it empirically and it might hold. But when someone asks why it holds under a 10× load — or why it failed — you need the theory. SHAP and LIME are the forensic tools that reveal what the model actually learned versus what you intended it to learn.',
-   outcomes:['Derive and understand the mathematics behind every core ML algorithm — not just how to use them','Apply SHAP and LIME to explain model decisions in business terms an auditor or regulator can follow','Implement SVM with custom kernels for problems where neural networks are overkill','Apply Bayesian methods for uncertainty quantification — knowing not just what the model predicts, but how confident it is'],
-   jobs:['Senior Data Scientist','Research Scientist','Quantitative Analyst','ML Theory Associate'],
+   story:'An insurance company\'s fraud model is being challenged in a legal proceeding. The question from opposing counsel: "Why did your model deny this specific claim?" The data scientist\'s answer: "The model said so" — is not acceptable in court. Model explainability is now a legal, regulatory, and ethical requirement in finance, insurance, and healthcare. This elective teaches the mathematical foundations of every core ML algorithm and the tools to explain every model decision — for auditors, regulators, and the engineers who need to debug what went wrong.',
+   analogy:'Understanding the mathematics under ML models is like understanding the structural engineering of a bridge you designed. You can build it and it might hold. But when someone asks why it holds under a 10× load — or why it failed — you need the theory. Explainability tools are the forensic instruments that reveal what the model actually learned versus what you intended it to learn.',
+   outcomes:['Understand the mathematics behind every core ML algorithm — not just how to use them','Explain model decisions in business terms an auditor or regulator can follow','Apply specialised algorithms for problems where neural networks are overkill','Quantify uncertainty — knowing not just what the model predicts, but how confident it is'],
+   jobs:['Senior Data Scientist','ML Research Engineer','Applied Scientist'],
    script:'"The ability to explain model decisions is now required in every regulated industry — and it separates senior engineers from junior ones everywhere. A learner who can open SHAP, generate a force plot, and clearly explain why the model made a specific prediction is differentiated in every Data Science interview. This elective covers the theory and the tools that most courses skip entirely."'},
 
   {id:'m13',num:'13',phase:'Phase 3',phTag:'tag-p3',isElective:true,isNew:false,dur:'4 weeks',
    name:'Big Data Engineering',
    tools:'Apache Spark, PySpark, Hadoop, HDFS, Kafka, Databricks, dbt, Airflow, AWS QuickSight, Tableau',
-   story:'A major payments platform processes over a billion transactions per month. The data team needs to run daily aggregations across all of them, feed features to ML models in real time, and maintain a historical warehouse for compliance analytics. No single machine handles this. Apache Spark distributes the computation across a cluster — what takes 6 hours on one machine takes 4 minutes across fifty. This elective teaches the distributed data infrastructure that every enterprise AI system depends on.',
+   story:'A major payments platform processes over a billion transactions per month. The data team needs to run daily aggregations across all of them, feed features to AI models in real time, and maintain a historical warehouse for compliance analytics. No single machine handles this. Distributed computing spreads the work across many machines — what takes 6 hours alone takes 4 minutes across fifty. This elective teaches the distributed data infrastructure that every enterprise AI system depends on.',
    analogy:'Big data engineering is building the highway that AI systems travel on. Without it, your data sits in silos — inconsistent, slow to access, and impossible to join at scale. With it, terabytes flow from source to model to dashboard automatically, in minutes. The ML team never waits on the data team. The pipeline runs itself.',
-   outcomes:['Build distributed data processing pipelines with PySpark and Spark SQL on real large-scale datasets','Integrate Spark with Kafka for real-time streaming ML pipelines','Build production ETL pipelines with dbt and Airflow that run on schedule without manual intervention','Use Databricks for collaborative large-scale model training with MLlib'],
-   jobs:['Data Engineer','Big Data Engineer','Analytics Engineer','BI Engineer'],
+   outcomes:['Build distributed data processing pipelines that handle real large-scale datasets','Connect real-time data streams to AI models','Build production data pipelines that run on schedule without manual intervention','Work collaboratively on large-scale model training in a shared environment'],
+   jobs:['AI Data Engineer','Data Engineer (ML Infra)','Analytics Engineer'],
    script:'"Every enterprise AI system depends on a data pipeline feeding it. Engineers who can build that pipeline — Spark, Kafka, Airflow, dbt — are the foundation of every AI team at scale. This elective closes the gap between having a great ML model and having a system that keeps it fed with clean, current data at the volumes real businesses operate at."'},
 
   {id:'m14',num:'14',phase:'Phase 3',phTag:'tag-p3',isElective:true,isNew:false,dur:'4 weeks',
    name:'Reinforcement Learning',
    tools:'OpenAI Gym, Stable-Baselines3, PyTorch, RLlib, PettingZoo, MuJoCo',
-   story:'The technique that made ChatGPT safe, helpful, and aligned with human values is called RLHF — Reinforcement Learning from Human Feedback. Human raters scored model outputs. Those scores became reward signals. PPO optimised the model toward higher-rated responses. The result: an AI that prefers clear, safe, useful answers — not because anyone programmed rules, but because it learned from millions of human preference signals. This elective covers the full RL theory — from Q-learning through Actor-Critic to RLHF for LLM alignment.',
-   analogy:'Reinforcement Learning is how humans learn to play chess, drive a car, or negotiate a deal: try something, observe what happens, adjust. The AI equivalent is an agent in an environment, taking actions, collecting reward signals, and continuously refining its policy. RLHF just replaces the game score with human preference — making the reward signal "which response did a real person prefer?"',
-   outcomes:['Implement Q-learning and DQN from scratch for discrete control tasks','Train PPO and SAC agents for continuous control environments','Understand and implement RLHF pipelines — the technique behind every frontier LLM alignment approach','Apply behaviour cloning and GAIL for imitation learning in real-world scenarios'],
-   jobs:['Reinforcement Learning Engineer','Research Scientist','Autonomous Systems Engineer','Applied AI Research Associate'],
+   story:'The technique that made ChatGPT safe, helpful, and aligned with human values is Reinforcement Learning from Human Feedback. Human raters scored model outputs. Those scores became signals for improvement. The result: an AI that prefers clear, safe, useful answers — not because anyone programmed rules, but because it learned from millions of human preferences. This elective covers the full theory of how AI learns through trial and reward — and how that same principle is used to align every frontier language model.',
+   analogy:'Reinforcement Learning is how humans learn to play chess, drive a car, or negotiate a deal: try something, observe what happens, adjust. The AI equivalent is an agent in an environment, taking actions, collecting reward signals, and continuously refining its approach. Human feedback simply replaces the game score with "which response did a real person prefer?"',
+   outcomes:['Understand and implement how AI agents learn through trial, reward, and feedback','Train agents to make decisions in complex environments','Understand and implement the technique behind every frontier language model alignment approach','Apply imitation learning — where an agent learns by watching an expert, not just trial and error'],
+   jobs:['LLM Alignment Engineer','AI Researcher','Senior GenAI Engineer'],
    script:'"RLHF is the technique that makes modern LLMs safe and useful. Every serious AI company — from the frontier labs to Indian product companies building their own models — uses variants of this approach. A learner who understands RL theory and has implemented an RLHF pipeline is positioned for research-track and senior alignment roles that very few candidates can credibly apply for."'},
 
   {id:'m15',num:'15',phase:'Phase 3',phTag:'tag-p3',isElective:false,isNew:false,dur:'~6 months',
    name:'DSA for Professionals',
    tools:'Data Structures, Algorithms, Graphs, Dynamic Programming, Big-O Analysis',
-   story:'A strong ML candidate makes it to the final round at a top-tier tech company. The system design and ML theory rounds go perfectly. Then comes the coding round: implement a graph-based shortest-path algorithm under time pressure. They freeze. Technical coding interviews at FAANG-level companies test DSA — and it\'s the round that strong ML candidates most commonly fail. This optional track exists for one reason: converting a good profile into a FAANG offer.',
-   analogy:'DSA is the fitness training of software engineering. You can do the job without it at most companies. But when the bar is raised to FAANG level — or any company that runs rigorous coding rounds — it separates the people who trained from those who didn\'t. Six months of consistent, structured practice converts coding interviews from a wildcard into a competitive advantage.',
-   outcomes:['Solve coding interview problems efficiently and confidently under time pressure','Master arrays, linked lists, trees, graphs, heaps, and hash maps at interview level','Use dynamic programming and greedy algorithms for complex optimisation problems','Analyse time and space complexity — and communicate it clearly to an interviewer'],
+   story:'A strong ML candidate makes it to the final round at a top-tier tech company. The system design and ML theory rounds go perfectly. Then comes the coding round: solve a complex algorithmic problem under time pressure. They freeze. Technical coding interviews at top companies test problem-solving fundamentals — and it\'s the round that strong ML candidates most commonly fail. This optional track exists for one reason: converting a good profile into a top-tier offer.',
+   analogy:'DSA is the fitness training of software engineering. You can do the job without it at most companies. But when the bar is raised to the highest level — any company that runs rigorous coding rounds — it separates the people who trained from those who didn\'t. Consistent, structured practice converts coding interviews from a wildcard into a competitive advantage.',
+   outcomes:['Solve coding interview problems efficiently and confidently under time pressure','Master the core data structures that appear in every technical interview','Tackle optimisation problems that require structured, logical thinking','Explain the efficiency of your solutions clearly — the way interviewers actually want to hear it'],
    jobs:['ML Engineer (FAANG)','AI/ML Engineer (FAANG)','LLM Engineer (top-tier)'],
    script:'"Every FAANG and tier-1 AI company runs a coding round. ML knowledge alone will not clear it. Learners who combine a strong AI/ML profile with real DSA fluency are in a genuinely different conversation — they can walk into any technical interview and compete at the top of the candidate pool. This optional track is for the learner who doesn\'t want a good outcome. They want the best one."'},
 ];
@@ -448,7 +586,7 @@ function renderProfiles(){
 /* ══ RENDER JOURNEY ══ */
 function renderJourney(){
   const phases=[
-    {label:'Phase 1',cls:'ph-1',title:'Foundations — Build the engine first',desc:'Data, classical ML, neural networks, CV, and NLP. These are the fundamentals that never change — and that every interview probes. Covered without shortcuts, with AI tools layered in as learning multipliers. Both tracks go through Phase 1 completely.'},
+    {label:'Phase 1',cls:'ph-1',title:'Foundations — Build the engine first',desc:'Data, classical ML, neural networks, CV, and NLP. These are the fundamentals that never change — and that every interview probes. Covered without shortcuts, with AI tools layered in as learning multipliers. Both career paths go through Phase 1 completely.'},
     {label:'Phase 2',cls:'ph-2',title:'Production & AI Engineering',desc:'MLOps, ML System Design, RAG Systems, and Agentic AI. The modules that move a learner from "I trained a model" to "I built a production AI system." The gap most candidates have — and the gap the market is paying the highest premiums to close.'},
     {label:'Phase 3',cls:'ph-3',title:'Specialisation & Depth',desc:'Multimodal Intelligence, Fine-Tuning & LLMOps, Advanced ML Theory, Big Data Engineering, and Reinforcement Learning. The depth and specialisation that unlock senior roles, research positions, and the highest salary bands in the market.'},
   ];
@@ -582,7 +720,258 @@ renderJourney();
 renderTimeline(mlTrack,'rt-ml');
 renderTimeline(aiTrack,'rt-ai');
 renderModules();
-renderProjects();
+
+/* ══ FAQ DATA ══ */
+const faqs=[
+
+  /* ── CATEGORY: Core ML Concepts ── */
+  {cat:'Core ML Concepts',term:'Supervised Learning',
+   q:'What is Supervised Learning — and why does it matter?',
+   plain:'Supervised learning is the most common type of machine learning. You give the algorithm thousands of labelled examples — past transactions labelled "fraud" or "not fraud" — and it learns to recognise the pattern. Once trained, it can predict the label on data it has never seen before. It powers fraud detection at banks, churn prediction at telecom companies, demand forecasting at e-commerce platforms, and credit scoring at every NBFC in India.',
+   analogy:'It\'s like teaching a new employee by showing them thousands of past cases with the right answer attached. "This transaction was fraud — notice the amount, the time, the location." After enough examples, they start recognising the pattern on their own.',
+   script:'"Think of it as the foundation of almost every AI system making decisions in a company today. Supervised learning is what Razorpay uses to approve or block your UPI payment in 50 milliseconds. It\'s the starting point of this programme — and we teach it with real fundamentals, not just which button to click."'},
+
+  {cat:'Core ML Concepts',term:'Unsupervised Learning',
+   q:'What is Unsupervised Learning?',
+   plain:'Unsupervised learning finds patterns in data without being told what to look for. There are no labels. The algorithm explores the data and discovers natural groupings or structures on its own. It\'s how Spotify groups listeners into taste profiles, how banks cluster customers for targeted offers, and how e-commerce platforms identify unusual transaction behaviour without predefined fraud rules.',
+   analogy:'Imagine dropping a stranger into a new city and asking them to group the neighbourhoods by "feel" — without giving them any categories. They\'d observe patterns on their own and come up with groupings that might be more insightful than anything you pre-defined.',
+   script:'"When a company says \'we don\'t know what we don\'t know about our customers,\' unsupervised learning is the tool that answers that. It finds the natural segments hiding in data — and those segments often become the basis for the entire marketing and product strategy."'},
+
+  {cat:'Core ML Concepts',term:'Overfitting',
+   q:'A prospect asked if our models "overfit" — what does that mean?',
+   plain:'Overfitting is when a model memorises the training data instead of actually learning the underlying pattern. It scores perfectly on data it has already seen but fails badly on new data. It\'s one of the most common and costly problems in real ML projects. The programme teaches regularisation, cross-validation, and proper evaluation — the standard techniques to prevent it.',
+   analogy:'Imagine a student who memorises every past exam paper word for word. In a mock test using those same papers, they score 100%. But give them a new question they haven\'t seen and they\'re lost — because they memorised, not understood. An overfitted model does exactly this.',
+   script:'"This is actually a great question for the prospect to ask — it means they\'re thinking about production quality, not just demos. The answer is: we teach the exact techniques to detect and prevent this — cross-validation, regularisation, holdout testing — because a model that only works on training data is useless in a real company."'},
+
+  {cat:'Core ML Concepts',term:'Bias-Variance Tradeoff',
+   q:'What is the Bias-Variance Tradeoff?',
+   plain:'Every ML model makes errors. Bias is the error from wrong assumptions — the model is too simple to capture the real pattern. Variance is the error from being too sensitive to training data — the model memorises noise instead of signal. The tradeoff is: making a model more complex reduces bias but increases variance (overfitting). Making it simpler reduces variance but increases bias (underfitting). Getting this balance right is what separates good models from bad ones.',
+   analogy:'A very simple rule like "all loans above ₹50,000 are risky" has high bias — it\'s wrong a lot. A rule that memorises every past loan applicant has high variance — it works on past data but fails on new applicants. The right model finds the pattern that generalises correctly.',
+   script:'"This is a term that comes up in every serious ML interview. The programme teaches this concept deeply — because understanding it is the difference between an engineer who can tune a model and one who just reruns it hoping the numbers improve."'},
+
+  {cat:'Core ML Concepts',term:'XGBoost / LightGBM',
+   q:'Prospects ask about XGBoost and LightGBM — what are these?',
+   plain:'XGBoost and LightGBM are two of the most powerful and widely-used ML algorithms for structured/tabular data — the kind of data that lives in spreadsheets and databases. They work by combining hundreds of simple decision trees into one very accurate ensemble. They dominate real-world ML competitions and are the go-to choice for fraud detection, churn prediction, credit scoring, and demand forecasting at companies like Paytm, Amazon, and Flipkart.',
+   analogy:'Instead of asking one expert for an opinion, you ask 500 experts. Each one looks at the problem slightly differently. Then you take a weighted vote. The combined decision is far more accurate than any single expert. XGBoost and LightGBM are that committee of 500 experts — built automatically.',
+   script:'"These are the two algorithms you\'ll see on almost every ML Engineer JD in India. Not because they\'re trendy — because they consistently outperform everything else on real business data. The programme teaches both from scratch, including tuning them correctly — which is where most people get it wrong."'},
+
+  {cat:'Core ML Concepts',term:'Neural Networks',
+   q:'What exactly is a Neural Network?',
+   plain:'A neural network is a system of mathematical layers that learns patterns from data by adjusting millions of tiny numerical weights through a process called backpropagation. It\'s inspired loosely by how neurons in the brain connect — but it\'s fundamentally a mathematical optimisation. Neural networks power image recognition, voice assistants, language models, and recommendation systems. They\'re the foundation under every "deep learning" and GenAI system.',
+   analogy:'Imagine a very long assembly line where each station refines a raw input slightly. Raw pixels go in one end. Each layer of the network extracts something slightly more meaningful — first edges, then shapes, then objects. By the final layer, it knows: this is a cat. Neural networks are that assembly line — learned automatically from millions of examples.',
+   script:'"Neural networks are what everyone is talking about when they say AI. But the key point — the one we emphasise — is that understanding how they work under the hood is what separates engineers who can debug and improve them from engineers who can only run them. We build them from mathematical scratch. That\'s what makes our graduates different."'},
+
+  /* ── CATEGORY: GenAI & LLMs ── */
+  {cat:'GenAI & LLMs',term:'LLM',
+   q:'What is an LLM — Large Language Model?',
+   plain:'An LLM is an AI model trained on massive amounts of text — books, websites, code, conversations — to understand and generate human language. GPT-4, Claude, Gemini, and Llama are all LLMs. They can write, summarise, answer questions, translate, and generate code. But out of the box, they\'re general-purpose. Making them useful for a specific business requires fine-tuning, RAG, or agent frameworks — all of which are covered in this programme.',
+   analogy:'An LLM is like a person who has read every book, article, and website ever written. They know a little about everything. But if you hire them to be your company\'s legal expert, they need to be trained on your specific documents and procedures — otherwise they\'ll give you generic answers, not your answers.',
+   script:'"LLMs are the engines behind ChatGPT, Google Gemini, and every AI assistant in the market. The question companies are asking isn\'t \'should we use an LLM?\' — they already are. The question is who is going to build, customise, and run the LLM for their specific business. That\'s the engineer this programme produces."'},
+
+  {cat:'GenAI & LLMs',term:'RAG',
+   q:'What is RAG — Retrieval-Augmented Generation?',
+   plain:'RAG is a technique that gives an LLM access to your specific documents and data before it generates an answer. Instead of relying only on what it learned during training (which is generic and may be outdated), the LLM first retrieves the most relevant information from your company\'s knowledge base, then uses that to craft a precise, cited answer. It\'s how you build a company-specific AI assistant that actually knows your business.',
+   analogy:'Without RAG, asking an LLM about your company is like asking a brilliant new employee who has never read your internal documents. They\'ll give you a generic answer based on what they know about the industry in general. RAG is giving them instant access to your entire internal library — every policy, every product document, every case study — so they answer specifically from your data.',
+   script:'"RAG is the most commonly deployed AI architecture in enterprise right now. Every company that has built an internal AI assistant — for HR, legal, customer support, product documentation — has built a RAG system. The engineer who knows how to build it properly is the most in-demand profile in enterprise AI today."'},
+
+  {cat:'GenAI & LLMs',term:'Fine-Tuning',
+   q:'What is Fine-Tuning an LLM?',
+   plain:'Fine-tuning is the process of taking a general-purpose LLM and training it further on your company\'s specific data — so it learns your terminology, your tone, your domain, and your rules. A fine-tuned model gives answers that feel like they came from an expert in your specific field, not a generic AI. It\'s what makes the difference between a chatbot that says "consult a doctor" and a medical AI that gives clinically appropriate guidance.',
+   analogy:'A freshly hired MBA from IIM is brilliant and knows business fundamentals deeply. But their first week at your fintech startup, they don\'t know your specific loan products, your compliance rules, or your customer segments. Six months of immersion later — they\'re your best person. Fine-tuning is that six-month immersion, done in hours.',
+   script:'"Fine-tuning is the capability that converts a general LLM into a company-specific tool. When a business says \'ChatGPT gives generic answers — we need something that actually knows our products\' — fine-tuning is the answer. The engineers who can do this are the highest-paid in the 2025 AI market."'},
+
+  {cat:'GenAI & LLMs',term:'LoRA / QLoRA',
+   q:'What is LoRA and QLoRA?',
+   plain:'LoRA (Low-Rank Adaptation) is a technique for fine-tuning large language models efficiently — without needing to retrain all their billions of parameters. Instead of rewriting the entire model, LoRA adds a small set of trainable layers on top. QLoRA does the same but also compresses the model to 4-bit precision, making it possible to fine-tune a 7-billion-parameter model on a single consumer GPU. These techniques make fine-tuning accessible — fast and affordable instead of requiring millions of rupees of compute.',
+   analogy:'Fine-tuning a full LLM without LoRA is like renovating an entire skyscraper to change the interior design. LoRA is like adding a new stylish layer of wallpaper on top — it changes the output dramatically without touching the underlying structure. QLoRA does it in a smaller, more efficient space.',
+   script:'"When a prospect asks how we make fine-tuning practical — this is the answer. LoRA and QLoRA are what make it possible to fine-tune a powerful LLM on a laptop or a single cloud GPU, in hours instead of weeks. These techniques are exactly why fine-tuning is now accessible for companies of every size — and why engineers who know them are so in demand."'},
+
+  {cat:'GenAI & LLMs',term:'Prompt Engineering',
+   q:'Is prompt engineering the same as what we teach?',
+   plain:'Prompt engineering is the skill of writing better instructions to an LLM to get better outputs. It\'s useful, but it\'s not engineering — it\'s communication. What this programme teaches goes far deeper: how to fine-tune models, build RAG systems, design agent architectures, serve LLMs at scale, and monitor them in production. Prompt engineering is a subset of what our graduates know — and usually the least technically demanding part.',
+   analogy:'Prompt engineering is like knowing how to give better instructions to a contractor. What we teach is how to be the contractor — how to build the system, optimise it, deploy it, and keep it running. Both skills are useful, but only one commands a ₹40–90 LPA salary.',
+   script:'"If a prospect has done a prompt engineering course and thinks that\'s the same thing — that\'s actually a great opening. Prompt engineers get paid for knowing how to talk to AI. Our graduates get paid for knowing how to build it, customise it, and run it at enterprise scale. Those are very different job descriptions and very different salary bands."'},
+
+  {cat:'GenAI & LLMs',term:'Hallucination',
+   q:'What does it mean when an LLM "hallucinates"?',
+   plain:'Hallucination is when an LLM generates a confident, fluent, completely wrong answer — and presents it as fact. It might invent a court case that never existed, quote a regulation with the wrong number, or describe a product feature that doesn\'t exist. It\'s not lying — the model genuinely doesn\'t know it\'s wrong. Managing hallucinations through RAG, fine-tuning, output validation, and guardrails is one of the most important skills for production AI engineers.',
+   analogy:'Imagine a very confident intern who fills in the blanks of their knowledge with plausible-sounding guesses — and delivers them with the same certainty as verified facts. That\'s what an LLM does when it hallucinates. The engineering challenge is building systems that catch and prevent this before it reaches a user.',
+   script:'"When prospects ask \'how do you make sure the AI doesn\'t make things up?\' — this is the answer. Hallucination is real, and it\'s the reason you can\'t just point a general LLM at enterprise data and call it done. Engineers who understand RAG, output verification, and guardrails are the ones companies trust to build AI they can actually deploy."'},
+
+  {cat:'GenAI & LLMs',term:'RLHF',
+   q:'What is RLHF — the technique behind ChatGPT?',
+   plain:'RLHF stands for Reinforcement Learning from Human Feedback. It\'s the technique that makes LLMs like ChatGPT helpful, safe, and aligned with what humans actually want. Human raters compare model outputs and score which ones are better. Those scores become a reward signal. The model is then trained using reinforcement learning to produce outputs that humans prefer. Every frontier AI model — GPT-4, Claude, Gemini — was shaped by RLHF.',
+   analogy:'Imagine training a new employee by having them present 500 responses to a panel of senior colleagues who vote on which one is better. Over time, the employee learns exactly what "good" looks like — not from a rulebook, but from thousands of human preference signals. RLHF is that training process, applied to AI models at massive scale.',
+   script:'"RLHF is the technique that transformed raw LLMs — which were capable but unreliable — into the helpful, safe AI assistants people use today. Engineers who understand and can implement RLHF are working on the most advanced AI alignment problems in the field. This is the frontier that the Reinforcement Learning elective prepares people for."'},
+
+  /* ── CATEGORY: AI Agents ── */
+  {cat:'AI Agents',term:'AI Agent',
+   q:'What exactly is an AI Agent — is it just a chatbot?',
+   plain:'An AI agent is far more than a chatbot. A chatbot responds to a message. An agent takes a goal, breaks it down into steps, uses tools (databases, APIs, web search, email), makes decisions at each step, and completes multi-step tasks autonomously. An agent can read an email, query a database, draft a response, check it against a policy, and send it — all without human input for each step. Agents are replacing entire back-office workflows at companies today.',
+   analogy:'A chatbot is like a receptionist who answers questions. An AI agent is like a capable junior employee who can be given a task — "process all vendor invoices received today, flag any that are over budget, and draft an email to the procurement team" — and complete it end to end without asking for help at every step.',
+   script:'"AI agents are the fastest-growing job category in Indian tech. When companies say they want to \'automate workflows with AI,\' they mean agents. The engineers who can build multi-step agentic systems — with tool use, memory, and human oversight — are the most in-demand profile in 2025."'},
+
+  {cat:'AI Agents',term:'LangChain / LangGraph',
+   q:'What is LangChain and LangGraph?',
+   plain:'LangChain is a framework that makes it easier to build applications using LLMs — connecting them to tools, databases, and APIs. LangGraph is an extension of LangChain specifically designed for building multi-agent systems and complex workflows with conditional logic, loops, and parallel execution. They are the most widely used frameworks for building production AI agents and RAG systems in the industry.',
+   analogy:'LangChain and LangGraph are like the plumbing and wiring of an AI application. The LLM is the engine — powerful but useless on its own. LangChain connects it to data sources and tools. LangGraph designs the workflow — which agent does what, in what order, and what happens when something fails.',
+   script:'"When a company says they\'re building an AI assistant or an automated workflow — LangChain and LangGraph are almost certainly in the tech stack. These are now the industry standard. Our curriculum covers both in depth — because knowing the tool at a surface level is very different from being able to build production systems with it."'},
+
+  {cat:'AI Agents',term:'MCP — Model Context Protocol',
+   q:'What is MCP?',
+   plain:'MCP, or Model Context Protocol, is a standard that allows AI agents to connect securely to local data sources — company databases, internal tools, file systems — without exposing data to external servers. It\'s the bridge between an AI agent and a company\'s private information. As more companies want AI that works with their internal data securely, MCP is becoming the standard way to build that connection.',
+   analogy:'Think of MCP as the secure USB port that lets an AI agent plug into a company\'s internal systems — reading only what it\'s authorised to read, leaving everything else untouched. Without it, the agent is cut off from internal data. With it, it can work with real company information safely.',
+   script:'"MCP is very new and very few engineers know it yet. That\'s exactly why it\'s in this curriculum — the engineers who learn it now will have a 12-month head start on everyone else entering the market. When a company says \'we need AI that works with our internal data securely\' — MCP is the answer, and our graduates know how to build it."'},
+
+  {cat:'AI Agents',term:'RAG vs Fine-Tuning vs Agents',
+   q:'Prospect asks: what\'s the difference between RAG, Fine-Tuning, and Agents?',
+   plain:'These three are different tools for different problems. RAG is for giving an LLM access to specific documents and data at query time — best when the knowledge changes frequently. Fine-Tuning is for teaching the LLM a specific style, domain, or set of rules permanently — best when you need consistent behaviour. Agents are for automating multi-step workflows — best when a task requires multiple actions, decisions, and tool use. Most sophisticated AI systems use all three together.',
+   analogy:'RAG is giving an employee access to the company library. Fine-tuning is sending them to a specialist training programme. Agents are giving them a complex project to manage end to end. A well-designed company uses all three for different purposes — and the engineer who understands all three is the most valuable.',
+   script:'"This is one of the most common questions in enterprise AI conversations — and most salespeople can\'t answer it clearly. The simple version: use RAG when the knowledge changes, fine-tune when the behaviour needs to be consistent, and use agents when the task has multiple steps. Our curriculum covers all three — and when to pick which."'},
+
+  /* ── CATEGORY: MLOps & Infrastructure ── */
+  {cat:'MLOps & Infrastructure',term:'MLOps',
+   q:'What is MLOps — is it just DevOps for ML?',
+   plain:'MLOps — Machine Learning Operations — is the practice of building systems that take ML models from training to production reliably and keep them running. It covers experiment tracking, model versioning, automated testing, deployment pipelines, monitoring for data drift, and automated retraining. Without MLOps, models degrade silently in production and nobody notices until the business impact shows up. It\'s the difference between a model that\'s trained and a model that\'s maintained.',
+   analogy:'A model without MLOps is like launching a product and then never checking if it still works six months later. MLOps is the ongoing quality assurance, monitoring, and maintenance system that keeps the AI product working as the real world changes around it.',
+   script:'"MLOps is the single most in-demand skill gap in the Indian AI market right now. Any engineer can train a model. Very few can keep one running reliably in production — monitoring itself, retraining when needed, failing gracefully, and logging every decision. That\'s the profile every company with a production AI system is desperately trying to hire."'},
+
+  {cat:'MLOps & Infrastructure',term:'Docker',
+   q:'What is Docker and why does an AI engineer need to know it?',
+   plain:'Docker is a tool that packages a model and all its software dependencies into a portable container — a self-contained box that runs identically on any computer, any server, any cloud. Without Docker, the classic "it works on my machine" problem kills deployment. With Docker, you build it once and it runs everywhere — on AWS, on a colleague\'s laptop, in a customer\'s data centre — exactly the same way.',
+   analogy:'Docker is like a standardised shipping container. Before shipping containers, every port needed special equipment for every type of cargo. After, the same container fits any ship, any truck, any dock — regardless of what\'s inside. Docker does this for software: your ML model runs identically everywhere it goes.',
+   script:'"Docker is on almost every ML Engineer job description. It\'s not optional — it\'s table stakes for production AI. The moment someone wants to deploy a model that actually serves real users, they need Docker. We cover it end to end, including building Docker images for ML APIs and deploying them to cloud infrastructure."'},
+
+  {cat:'MLOps & Infrastructure',term:'Kubernetes',
+   q:'What is Kubernetes?',
+   plain:'Kubernetes is a system for managing many Docker containers at once across multiple servers. When your AI model needs to handle millions of requests, one server isn\'t enough. Kubernetes automatically scales the number of containers up during high traffic, scales them down when demand drops, restarts containers if they crash, and routes requests to the right container. It\'s the infrastructure layer that makes ML systems work at scale.',
+   analogy:'Docker containers are like individual restaurant kitchens. Kubernetes is the city\'s food delivery management system — it knows which kitchens are busy, which are idle, automatically opens new kitchens when demand spikes, and closes them when it drops — all without a human managing each one.',
+   script:'"Kubernetes appears on every senior ML Engineer and AI Platform Engineer JD. It\'s the infrastructure that makes ML production-ready at scale. We teach it in the context of ML deployment — not theoretical server management — so graduates can actually use it to ship AI systems in a real company."'},
+
+  {cat:'MLOps & Infrastructure',term:'AWS SageMaker',
+   q:'What is AWS SageMaker?',
+   plain:'AWS SageMaker is Amazon\'s fully managed platform for building, training, and deploying ML models in the cloud. It handles the infrastructure — the servers, storage, and compute — so engineers can focus on the model itself. It includes a feature store for managing ML features, a model registry for versioning models, and built-in monitoring for production models. It\'s the standard platform at most mid-to-large companies in India running production ML.',
+   analogy:'SageMaker is like a fully equipped professional kitchen — you bring your recipe (the model) and your ingredients (the data), and it provides the industrial ovens, storage, and delivery service. You don\'t need to build the kitchen yourself or manage the gas supply.',
+   script:'"SageMaker is listed on more Indian ML JDs than any other cloud ML platform. Companies at the scale of Flipkart, PhonePe, and Ola all run ML on it. The programme covers SageMaker end to end — Feature Store, Model Registry, training pipelines, and deployment — so graduates can hit the ground running on day one."'},
+
+  {cat:'MLOps & Infrastructure',term:'vLLM',
+   q:'What is vLLM?',
+   plain:'vLLM is a high-performance serving engine for large language models. It makes LLMs run faster and handle more simultaneous requests for far less compute cost. Without it, serving an LLM to hundreds of concurrent users requires enormous expensive infrastructure. With vLLM, the same model handles 5–10× more traffic on the same hardware — dramatically reducing the cost of running AI in production.',
+   analogy:'vLLM is like the difference between a single-lane road and a multi-lane motorway for the same number of cars. The cars (requests) are the same. The road (vLLM) is built to handle far more of them simultaneously — faster, with less congestion, at lower cost per car.',
+   script:'"When companies ask \'how do we stop spending a fortune on OpenAI API costs?\' — one answer is to deploy your own model efficiently using vLLM. Engineers who know vLLM can run LLM inference at a fraction of API cost. That\'s a direct cost saving companies can calculate — and it makes our graduates extremely valuable to any company running AI at scale."'},
+
+  {cat:'MLOps & Infrastructure',term:'Data Drift',
+   q:'What is Data Drift and why does it matter?',
+   plain:'Data drift is when the real-world data a model sees in production starts to look different from the data it was trained on. A fraud detection model trained on 2023 transaction patterns may start failing in 2025 because fraudsters changed their tactics. A demand forecasting model breaks after a major market event. Data drift causes models to silently degrade — they still run, but their accuracy drops without anyone noticing. MLOps includes monitoring for this and triggering retraining automatically.',
+   analogy:'Imagine a doctor who was trained on patient data from 2010. By 2025, disease patterns have changed, new conditions have emerged, and their diagnostic instincts are subtly wrong — not dramatically wrong, just quietly outdated. Data drift is that quiet degradation. Monitoring for it is how you prevent medical — or business — mistakes from accumulating.',
+   script:'"This is exactly the kind of thing that gives CTOs nightmares. A model launches and gets great results. Six months later, business outcomes start declining. Nobody knows why — the model is still running. Data drift is often the culprit. Engineers who build proper monitoring catch it early. The programme teaches exactly this — because a model that no one monitors isn\'t a product, it\'s a ticking clock."'},
+
+  /* ── CATEGORY: Data Engineering ── */
+  {cat:'Data Engineering',term:'Apache Spark / PySpark',
+   q:'What is Apache Spark and PySpark?',
+   plain:'Apache Spark is a system for processing massive datasets across many computers simultaneously — the kind of datasets that would take days or crash a single machine. PySpark is the Python interface to Spark. If a company has terabytes of transaction data that needs to be cleaned and aggregated daily to feed ML models, Spark does it in minutes across a cluster instead of hours on a single server. It\'s the standard distributed data processing tool at enterprise scale.',
+   analogy:'Processing big data without Spark is like trying to count every grain of rice in a warehouse by yourself. Spark distributes the counting to thousands of workers simultaneously — each counting a small section — and combines the results. What takes one person a week takes the team ten minutes.',
+   script:'"Any company with real data volume — a bank, a telecom, a large e-commerce platform — is running Spark. Engineers who know PySpark are the ones building the data pipelines that feed every ML model in the company. Without good data pipelines, there\'s no good AI. This elective is for learners who want to own that infrastructure layer."'},
+
+  {cat:'Data Engineering',term:'Kafka',
+   q:'What is Kafka?',
+   plain:'Apache Kafka is a real-time data streaming platform. It allows systems to publish and consume streams of data instantly as events happen — a payment is made, a user clicks, a sensor fires. In ML, Kafka feeds real-time data to models that need to make instant decisions — like fraud detection that must respond before a transaction clears, or recommendation systems that update based on what you just clicked.',
+   analogy:'Kafka is like a live news ticker — a continuous stream of events that any subscriber can tune into and act on in real time. Without Kafka, you\'d have to collect events into batches and process them hours later. With Kafka, every event is available to act on the moment it happens.',
+   script:'"When companies talk about \'real-time AI\' — Kafka is almost always the infrastructure making it real-time. Fraud detection in 50ms, dynamic pricing that updates in seconds, recommendations that change based on what you just did — all of these require a streaming data layer. Kafka is that layer."'},
+
+  {cat:'Data Engineering',term:'FAISS',
+   q:'What is FAISS — and what does it have to do with AI?',
+   plain:'FAISS (Facebook AI Similarity Search) is a library for extremely fast similarity search across millions or billions of high-dimensional vectors. In AI, text, images, and audio are converted into numerical vectors (embeddings). FAISS lets you search for the most similar item to a query across a massive library of these vectors — in milliseconds. It\'s the engine behind semantic search, recommendation systems, and RAG pipelines that need to find relevant documents instantly.',
+   analogy:'Regular search looks for exact keyword matches — like searching a library catalogue by book title. FAISS searches by meaning — like asking a librarian to find every book that feels conceptually similar to the one you\'re holding, even if none of them share a single word with it. And it does this across millions of books in milliseconds.',
+   script:'"FAISS is what makes semantic search fast enough to use in production. When a RAG system needs to find the three most relevant documents out of 200,000 in under a second — FAISS is what makes that possible. It\'s a behind-the-scenes tool that every serious AI search system depends on."'},
+
+  /* ── CATEGORY: Deep Learning & Computer Vision ── */
+  {cat:'Deep Learning & CV/NLP',term:'Backpropagation',
+   q:'What is Backpropagation?',
+   plain:'Backpropagation is the algorithm that trains neural networks. After the network makes a prediction, it compares the prediction to the correct answer and calculates the error. It then works backwards through the network, adjusting the millions of numerical weights layer by layer — making connections that led to the right answer stronger and connections that led to the wrong answer weaker. Repeat this millions of times and the network gets very accurate.',
+   analogy:'Imagine a very long chain of people passing a message. The message arrives garbled. The last person sends feedback backwards — "this part was wrong." Each person in the chain adjusts what they passed, based on the feedback. Eventually, after thousands of iterations, the message passes through perfectly. Backpropagation is that correction process, automated mathematically.',
+   script:'"Backpropagation is the engine of all deep learning. You don\'t need to derive it from scratch in a job — but understanding it is what separates engineers who can debug a failing neural network from those who just restart the training and hope. We teach it from first principles specifically because interviews probe this — and because understanding it changes how you architect and troubleshoot models."'},
+
+  {cat:'Deep Learning & CV/NLP',term:'BERT / Transformers',
+   q:'What is BERT and what are Transformers?',
+   plain:'The Transformer is a neural network architecture introduced in 2017 that revolutionised AI. Instead of processing text word by word sequentially, Transformers look at all words simultaneously and learn which words attend to which others — giving them a far deeper understanding of language. BERT (Bidirectional Encoder Representations from Transformers) is Google\'s pre-trained Transformer model for language understanding tasks. Every modern LLM — GPT-4, Claude, Gemini — is built on the Transformer architecture.',
+   analogy:'Before Transformers, AI read text like a person reading word by word with a short memory. Transformers read a whole paragraph at once and understand how every word relates to every other word — the way an expert reader understands a sentence in its full context, not just one word at a time.',
+   script:'"When someone says the AI \'understands language\' — Transformers are why that\'s now actually somewhat true. BERT specifically is the foundation for text classification, search, entity extraction, and question answering. The programme teaches both — how they work and how to use them on real business problems. The fundamentals are what the curriculum never compromises on."'},
+
+  {cat:'Deep Learning & CV/NLP',term:'YOLO',
+   q:'What is YOLO in computer vision?',
+   plain:'YOLO — You Only Look Once — is a real-time object detection algorithm. Given an image or video frame, YOLO identifies every object in it (person, car, product, defect) and draws bounding boxes around them — in milliseconds. It\'s used in factory quality control systems, security cameras, autonomous vehicles, and retail shelf monitoring. YOLOv8 and YOLOv5 are the current industry-standard versions.',
+   analogy:'Earlier object detection systems looked at an image multiple times, scanning different regions separately. YOLO looks at the entire image exactly once and detects all objects simultaneously — like a security expert who can scan an entire room at a glance and spot every anomaly, rather than checking each corner one at a time.',
+   script:'"YOLO is what makes computer vision actually fast enough for real-world applications. Quality inspection on a factory line, detecting defects on a moving conveyor belt, identifying vehicles in traffic camera footage — these all need to happen in real time, and YOLO makes that possible. It\'s one of the portfolio projects in our CV module."'},
+
+  {cat:'Deep Learning & CV/NLP',term:'SHAP / LIME',
+   q:'What are SHAP and LIME?',
+   plain:'SHAP and LIME are model interpretability tools — they explain why a model made a specific prediction. For any single prediction, SHAP shows which features pushed the prediction in each direction and by how much. LIME creates a simpler local model that approximates the complex model\'s behaviour around a specific data point. Both are critical for regulated industries where AI decisions must be explainable — credit decisions, medical diagnoses, hiring.',
+   analogy:'Most ML models are black boxes — they give an answer but don\'t explain their reasoning. SHAP and LIME are like asking the model "show your work." SHAP says: "Your loan was rejected because your credit utilisation contributed -35 points, your income contributed +20 points, and your existing EMIs contributed -28 points." Now the decision is explainable — and auditable.',
+   script:'"As AI regulation increases — and it is increasing, everywhere — explainability goes from nice-to-have to legally required. A bank in India cannot reject a loan application on \'the model said so.\' SHAP and LIME are the standard tools for producing that explanation. Engineers who know them are the ones building AI that companies can actually deploy in regulated contexts."'},
+
+  /* ── CATEGORY: Salary & Market ── */
+  {cat:'Market & Career',term:'LLM Engineer Salary',
+   q:'What is the salary range for LLM / GenAI Engineers in India?',
+   plain:'LLM Engineers and Generative AI Engineers are currently the highest-paid AI roles in India. Entry-level: ₹18–28 LPA. Mid-level (2–4 years): ₹28–55 LPA. Senior (5+ years): ₹55–90 LPA. This is driven by acute talent shortage — AI Engineer roles nearly doubled in one year (99% YoY growth) while supply has not kept pace. The demand-to-supply ratio in AI engineering is currently 3.3 open positions for every available qualified candidate.',
+   analogy:'The salary premium for LLM Engineers right now is like the premium for mobile developers in 2010 — when everyone needed an app but almost nobody knew how to build one. The window where this skill is rare is open. It won\'t stay open indefinitely.',
+   script:'"The numbers are real and publicly verifiable — Naukri, LinkedIn, Glassdoor all show the same picture. LLM Engineers are the highest-paid technology professionals in India right now, outside of FAANG-level senior engineers. The programme builds exactly this profile — and it does it on a foundation of real fundamentals, not shortcuts."'},
+
+  {cat:'Market & Career',term:'Demand vs Supply Gap',
+   q:'How do we back up the claim that demand outpaces supply?',
+   plain:'India currently has 30,000+ active AI/ML job openings on LinkedIn alone. The total AI/ML talent pool grew 55% in one year — but job postings grew faster. The demand-to-supply ratio is 3.3:1 meaning there are 3.3 open positions for every available qualified candidate. AI Engineer specifically grew 99% in one year — nearly doubling — and is the single highest demand-to-supply pressure point in the entire dataset. This data is from PeopleLogic\'s April 2025 India AI/ML Talent Market report.',
+   analogy:'Imagine 3 employers competing for every 1 qualified candidate. That\'s not a job market — it\'s a seller\'s market. Candidates with verified, demonstrable AI/ML skills can negotiate, choose, and command salaries that would have been considered exceptional three years ago.',
+   script:'"Every number I\'m giving you is publicly sourced — Naukri JobSpeak, PeopleLogic, LinkedIn, WEF Future of Jobs Report 2025. The gap is real, it\'s documented, and it\'s widening. The engineers who close this skill gap in the next 12 months will be the ones choosing their employers — not the other way around."'},
+];
+
+/* ══ RENDER FAQ ══ */
+function renderFAQ(){
+  const cats=[...new Set(faqs.map(f=>f.cat))];
+  const catEl=document.getElementById('faq-cats');
+  const allBtn=document.createElement('button');
+  allBtn.className='faq-cat-btn on';allBtn.textContent='All Topics';
+  allBtn.onclick=function(){document.querySelectorAll('.faq-cat-btn').forEach(b=>b.classList.remove('on'));allBtn.classList.add('on');buildFAQ(faqs);};
+  catEl.appendChild(allBtn);
+  cats.forEach(c=>{
+    const b=document.createElement('button');b.className='faq-cat-btn';b.textContent=c;
+    b.onclick=function(){document.querySelectorAll('.faq-cat-btn').forEach(x=>x.classList.remove('on'));b.classList.add('on');buildFAQ(faqs.filter(f=>f.cat===c));};
+    catEl.appendChild(b);
+  });
+  buildFAQ(faqs);
+}
+
+function buildFAQ(items){
+  const root=document.getElementById('faq-content');root.innerHTML='';
+  if(!items.length){root.innerHTML='<div class="faq-no-results">No terms found. Try a different search.</div>';return;}
+  const cats=[...new Set(items.map(f=>f.cat))];
+  cats.forEach(c=>{
+    const group=document.createElement('div');group.className='faq-group';
+    const lbl=document.createElement('div');lbl.className='faq-group-label';lbl.textContent=c;group.appendChild(lbl);
+    items.filter(f=>f.cat===c).forEach(f=>{
+      const item=document.createElement('div');item.className='faq-item';item.dataset.search=(f.term+' '+f.q+' '+f.plain).toLowerCase();
+      item.innerHTML=`<div class="faq-q"><div class="faq-q-text">${f.q}</div><span class="faq-q-term">${f.term}</span><span class="faq-toggle">▾</span></div><div class="faq-a"><p class="faq-plain">${f.plain}</p><div class="faq-analogy"><div class="faq-analogy-lbl">💡 Simple analogy</div>${f.analogy}</div><div class="faq-script"><div class="faq-script-lbl">🎙️ Say this on the call</div>${f.script}</div></div>`;
+      item.querySelector('.faq-q').onclick=function(){const was=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!was)item.classList.add('open');};
+      group.appendChild(item);
+    });
+    root.appendChild(group);
+  });
+}
+
+function filterFAQ(val){
+  document.querySelectorAll('.faq-cat-btn').forEach(b=>b.classList.remove('on'));
+  document.querySelector('.faq-cat-btn').classList.add('on');
+  const q=val.toLowerCase().trim();
+  buildFAQ(q?faqs.filter(f=>f.dataset_search_or_content(f,q)):faqs);
+}
+function filterFAQ(val){
+  document.querySelectorAll('.faq-cat-btn').forEach(b=>b.classList.remove('on'));
+  document.querySelector('.faq-cat-btn').classList.add('on');
+  const q=val.toLowerCase().trim();
+  if(!q){buildFAQ(faqs);return;}
+  buildFAQ(faqs.filter(f=>(f.term+' '+f.q+' '+f.plain+' '+f.cat).toLowerCase().includes(q)));
+}
+
+renderFAQ();
 </script>
 </body>
 </html>
