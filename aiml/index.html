@@ -673,6 +673,7 @@ function renderModules(){
     </div>
     <div class="col-lbl" style="margin-top:4px">✓ What the learner can do after this module</div>
     <ul class="outcome-list">${m.outcomes.map(o=>`<li>${o}</li>`).join('')}</ul>
+    ${(m.id==='m06'||m.id==='m11')?`<div class="col-lbl" style="margin-top:12px">💼 Job roles unlocked</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">${m.jobs.map(j=>`<span class="rpill rp-b">${j}</span>`).join('')}</div>`:''}
   </div>
   <div class="mod-col">
     <div class="col-lbl">🎙️ Your Sales Script — Use This on the Call</div>
